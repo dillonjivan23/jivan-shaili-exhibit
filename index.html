@@ -7,36 +7,57 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Caveat:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@400&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Josefin+Sans:wght@300;400;600;700&family=Caveat:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@400&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Same visual system as the Mulyo plan: one layout, the 3D viewer with a room rail, then spotlight plan, space check, drawings and materials */
 :root{
-  --bg:#F4F2EF; --surface:#FFFFFF; --fg:#231C1F; --muted:#6C6266; --line:#E1DAD6;
-  --accent:#8C1D3A; --saffron:#B8651A; --stage:#E7E1DB; --chip:#F3E7E0;
+  --bg:#F2ECE3; --surface:#FBF8F3; --fg:#2F261E; --muted:#6B5D50; --line:#E2D8CB;
+  --accent:#C8611B; --brown:#6E4B2E; --saffron:#C8611B; --stage:#BCAB8C; --chip:#F6E3D3;
   --ok:#2F7D4F; --okbg:#E2F1E7; --warn:#8F5B00; --warnbg:#FBEFD6; --bad:#B3261E; --badbg:#FBE3E0;
-  --zone:#E0A030; --view:#2F6FB3; --wallc:#2A2326; --floor:#EFE8DF; --objc:#8A807C; --uv:#7B3CFF;
-  --f-display:"Josefin Sans","Century Gothic","Avenir Next",system-ui,sans-serif;
-  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --zone:#E0A030; --view:#2F6FB3; --wallc:#3B2C21; --floor:#EFE6D9; --objc:#8A7C6E; --uv:#7B3CFF;
+  --f-display:"Fraunces",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#151213; --surface:#1E1A1B; --fg:#EFE9E5; --muted:#A79CA0; --line:#352E30;
-  --accent:#E46A88; --saffron:#F0A44C; --stage:#2A2425; --chip:#2C2224;
-  --ok:#74CF95; --okbg:#173022; --warn:#F2B654; --warnbg:#3A2B10; --bad:#FF8A80; --badbg:#3E1B19;
-  --zone:#F0B44C; --view:#7FB0EA; --wallc:#D9D1CC; --floor:#262022; --objc:#9C9290; --uv:#B48CFF; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#151213; --surface:#1E1A1B; --fg:#EFE9E5; --muted:#A79CA0; --line:#352E30;
-  --accent:#E46A88; --saffron:#F0A44C; --stage:#2A2425; --chip:#2C2224;
-  --ok:#74CF95; --okbg:#173022; --warn:#F2B654; --warnbg:#3A2B10; --bad:#FF8A80; --badbg:#3E1B19;
-  --zone:#F0B44C; --view:#7FB0EA; --wallc:#D9D1CC; --floor:#262022; --objc:#9C9290; --uv:#B48CFF; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
-.wrap{max-width:1320px;margin:0 auto;display:grid;gap:28px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:22px;padding-top:12px}
 .wrap > *{min-width:0}
-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
-header h1{font-family:var(--f-display);font-weight:300;font-size:clamp(30px,4.4vw,48px);letter-spacing:.04em;line-height:1;margin:0;text-transform:uppercase;text-wrap:balance}
-header h1 b{font-weight:700;color:var(--accent)}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
+.kicker,.eyebrow{font:600 11.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+header h1{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.4vw,46px);line-height:1.05;margin:0;text-wrap:balance}
+header h1 em{font-style:normal;font-weight:600;color:var(--accent)}
+.route{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.route span{padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.route span.here{background:var(--brown);border-color:var(--brown);color:#fff;font-weight:600}
+.route i{font-style:normal}
+.ptabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.ptabs button{background:none;border:0;border-radius:0;padding:10px 2px 12px;font:600 15px var(--f-body);color:var(--muted);box-shadow:none}
+.ptabs button[aria-selected="true"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--accent)}
+.panel{display:grid;gap:30px}
+.panel[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips a{font:600 12.5px var(--f-body);color:var(--fg);text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+.bsec{display:grid;gap:10px}
+.bsec .eyebrow{margin:0}
+.bgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:820px){.bgrid{grid-template-columns:1fr}}
+.bbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.bbox h4{margin:0 0 8px!important}
+.parts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.parts li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start;font-size:14.5px}
+.parts li b.n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font:600 12px var(--f-body)}
+.steps{margin:0;padding-left:20px;display:grid;gap:8px;max-width:84ch}
+.steps b{font-weight:600}
+details.fold{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 16px}
+details.fold>summary{cursor:pointer;list-style:none;font:400 22px var(--f-display);padding:14px 0;display:flex;justify-content:space-between;align-items:center}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:"+";font:400 24px var(--f-body);color:var(--accent)}
+details.fold[open]>summary::after{content:"−"}
+details.fold[open]{padding-bottom:16px}
 .flow{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .flow span{padding:3px 8px;border:1px solid var(--line);border-radius:4px}
 .flow span.here{border-color:var(--accent);color:var(--accent);font-weight:500}
@@ -55,61 +76,62 @@ header h1 b{font-weight:700;color:var(--accent)}
 .vsum p{margin:0;max-width:78ch}
 .changes{margin:8px 0 0;padding-left:18px;display:grid;gap:3px;color:var(--muted);font-size:14px;max-width:90ch}
 .changes b{color:var(--fg);font-weight:600}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(96px,auto));gap:8px}
-@media (max-width:520px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;min-width:0}
-.kpi small{display:block;font:600 10.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.kpi b{font:600 19px var(--f-mono);font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:2px}
+.kpi small{display:block;font:400 13.5px/1.35 var(--f-body);color:var(--muted)}
+.kpi b{font:600 25px/1.15 var(--f-display);color:var(--brown);font-variant-numeric:tabular-nums}
 .kpi.bad b{color:var(--bad)} .kpi.ok b{color:var(--ok)} .kpi.warn b{color:var(--warn)}
 
-.main{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:stretch}
 @media (max-width:960px){.main{grid-template-columns:1fr}}
-.viewer{position:relative;height:clamp(400px,70vh,780px);border-radius:10px;overflow:hidden;background:var(--stage);border:1px solid var(--line)}
+.viewer{position:relative;height:clamp(440px,72vh,720px);border-radius:12px;overflow:hidden;background:var(--stage);border:1px solid var(--line)}
 .viewer canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
-.tools{position:absolute;left:10px;top:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+.tools{position:absolute;left:10px;top:10px;right:10px;display:flex;flex-wrap:wrap;gap:7px;pointer-events:none}
 .tools button{pointer-events:auto}
-.tools .sep{flex-basis:100%;height:0}
-button{font:600 12.5px/1 var(--f-body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 11px;cursor:pointer}
+.tools .sep{width:1px;align-self:stretch;background:rgba(47,38,30,.18);margin:0 2px}
+button{font:600 13.5px/1 var(--f-body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 12px;cursor:pointer}
 button:hover{border-color:var(--accent)}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.tools button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.hint{position:absolute;left:10px;bottom:10px;font:12px var(--f-mono);color:var(--muted);background:var(--surface);padding:5px 8px;border-radius:5px;border:1px solid var(--line);max-width:calc(100% - 20px)}
-.key3d{position:absolute;right:10px;bottom:10px;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:flex-end;font:11.5px var(--f-body);color:var(--fg);background:var(--surface);padding:6px 9px;border-radius:6px;border:1px solid var(--line);max-width:min(420px,calc(100% - 20px))}
+.tools button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.hint{position:absolute;right:10px;bottom:10px;font:12px var(--f-mono);color:var(--muted);background:var(--surface);padding:5px 8px;border-radius:5px;border:1px solid var(--line);max-width:calc(100% - 20px)}
+.key3d{position:absolute;left:10px;bottom:46px;display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:flex-end;font:11.5px var(--f-body);color:var(--fg);background:var(--surface);padding:6px 9px;border-radius:6px;border:1px solid var(--line);max-width:min(420px,calc(100% - 20px))}
 .key3d i,.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
-aside{display:grid;gap:14px;min-width:0}
-.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
-.list button{width:100%;text-align:left;display:flex;gap:8px;align-items:center;padding:8px 9px;font-weight:400}
-.list button .n{font:500 11px var(--f-mono);color:var(--muted);min-width:22px}
-.list button .dot{margin-left:auto;width:9px;height:9px;border-radius:50%;flex:none}
-.list button[aria-current="true"]{border-color:var(--accent);background:var(--chip)}
+aside{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-width:0;height:clamp(440px,72vh,720px)}
+@media (max-width:960px){aside{height:auto}}
+.list{list-style:none;margin:0;padding:6px;display:grid;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:12px;max-height:230px;overflow:auto}
+.list button{width:100%;text-align:left;display:flex;gap:10px;align-items:center;padding:8px 10px;font:400 15px var(--f-body);border:0;background:none;border-radius:6px}
+.list button .n{font:600 12px var(--f-body);color:var(--accent);min-width:18px}
+.list button .ref{margin-left:auto;font:400 12px var(--f-mono);color:var(--muted)}
+.list button .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.list button[aria-current="true"]{background:var(--chip)}
 .list button[aria-current="true"] .n{color:var(--accent)}
-.detail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;min-width:0}
-.detail .kick{font:500 11.5px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--saffron);margin:0 0 4px}
-.detail h2{font-family:var(--f-display);font-weight:600;font-size:28px;letter-spacing:.03em;margin:0;line-height:1.1;text-transform:uppercase}
-.detail h2 small{display:block;font-weight:300;font-size:16px;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0;overflow:auto}
+.detail .kick{font:600 11.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.detail h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0;line-height:1.15}
+.detail h2 small{display:block;font:400 17px var(--f-body);color:var(--muted);margin-top:4px}
 .detail dl{margin:14px 0 0;display:grid;gap:11px}
-.detail dt{font:600 11px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.detail dt{font:600 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--brown)}
 .detail dd{margin:2px 0 0}
 .detail .foot{font-family:var(--f-mono);font-size:12px;background:var(--chip);border-radius:4px;padding:2px 6px}
 .detail .space{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;padding:8px 10px;border-radius:6px;background:var(--bg);font-size:13.5px}
 .take{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-style:italic}
 
-section h3{font-family:var(--f-display);font-weight:400;font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
-section h4{font:600 13px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+section h3{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.15;margin:0 0 6px}
+section h4{font:400 20px var(--f-display);color:var(--fg);margin:18px 0 8px}
 .sec-lede{margin:0 0 14px;color:var(--muted);max-width:80ch}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);margin:0 0 12px}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:680px}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:680px}
 th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
-th{font:600 10.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg);white-space:nowrap}
+th{font:600 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--brown);background:transparent;white-space:nowrap}
 td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 td small{color:var(--muted)}
 td a{color:var(--accent)}
 .pill{display:inline-block;font:600 11.5px var(--f-body);padding:3px 9px;border-radius:999px;white-space:nowrap}
 .pill.ok{color:var(--ok);background:var(--okbg)} .pill.warn{color:var(--warn);background:var(--warnbg)} .pill.bad{color:var(--bad);background:var(--badbg)}
 .assume{margin:12px 0 0;padding-left:18px;display:grid;gap:3px;color:var(--muted);font-size:13.5px;max-width:92ch}
-.drawing{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
+.drawing{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
 .drawing svg{display:block;width:100%;height:auto;min-width:760px}
 .drawing svg text{font-family:var(--f-body)}
 .sv-floor{fill:var(--floor)} .sv-wall{fill:var(--wallc)} .sv-obj{fill:var(--objc);fill-opacity:.8}
@@ -127,10 +149,10 @@ td a{color:var(--accent)}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:16px}
 .bomnote{margin:10px 0 0;color:var(--muted);font-size:13.5px;max-width:92ch}
 .ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.idea{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 15px}
-.idea h4{margin:0 0 4px;font-size:15px;letter-spacing:0;text-transform:none;color:var(--fg)}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.idea h4{margin:0 0 4px;font:400 19px var(--f-display);color:var(--fg)}
 .idea p{margin:0;color:var(--muted);font-size:14px}
-.tag{display:inline-block;font:500 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--saffron);margin-bottom:6px}
+.tag{display:inline-block;font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:6px}
 .notes{margin:0;padding-left:18px;max-width:84ch;display:grid;gap:6px;color:var(--muted)}
 .notes b{color:var(--fg);font-weight:600}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
@@ -144,6 +166,9 @@ td a{color:var(--accent)}
 .vcard .mid .try{font-weight:600;color:#8C1D3A}
 .vcard .bot{background:#C9741A;color:#fff;font:500 10.5px var(--f-mono);letter-spacing:.05em;padding:5px 14px;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+#wallTable td:last-child{min-width:300px}
+#wallTable td:nth-child(2){min-width:170px}
 /* additions for this section */
 .decisions{margin:8px 0 0;padding-left:18px;display:grid;gap:3px;color:var(--muted);font-size:14px;max-width:90ch}
 .decisions b{color:var(--fg);font-weight:600}
@@ -182,18 +207,22 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 <body>
 
 <div class="wrap">
-  <header>
+  <header class="top">
     <div>
-      <h1><b>Jivan Shaili</b> Exhibit Plan</h1>
-      <p class="lede">A measured mock-up of the 40 × 24 ft Hindu way of life section: a house front and a home of four 10 × 24 ft rooms that visitors walk through from the main hall to Manyata. Check walking space in every room, see where each spotlight goes, and get the drawings, the shopping list and the design and print list.</p>
+      <p class="kicker">BAPS Diwali 2026 · Light Beyond Lamps · Section 1</p>
+      <h1><em>Jivan Shaili</em> Exhibit Plan</h1>
+      <p class="lede">A measured mock-up of the 40 × 24 ft Hindu way of life section: a house front and a home of four rooms that guests walk through from the main hall to Manyata. Bhasha in the living room, Bhusha in the bedroom, Bhojan in the dining room and Bhajan at the ghar mandir, each a value we live by at home.</p>
     </div>
-    <div class="flow" aria-label="Exhibition order"><span>Main hall</span>→<span class="here">Jivan Shaili</span>→<span>Manyata</span></div>
+    <nav class="route" aria-label="Exhibition order"><span>Main hall</span><i>→</i><span class="here">Jivan Shaili</span><i>→</i><span>Manyata</span></nav>
   </header>
 
-  <div class="vsum">
-    <div><p id="vintro"></p><ul class="decisions" id="vchanges"></ul></div>
-    <div class="kpis" id="kpis"></div>
+  <div class="ptabs" role="tablist" aria-label="Page">
+    <button role="tab" id="tPlan" aria-selected="true" aria-controls="pPlan">Plan</button>
+    <button role="tab" id="tBuild" aria-selected="false" aria-controls="pBuild">Build-out</button>
   </div>
+
+  <div class="panel" id="pPlan" role="tabpanel" aria-labelledby="tPlan">
+  <div class="kpis" id="kpis"></div>
 
   <div class="main">
     <div class="viewer" id="viewer">
@@ -227,29 +256,14 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     </aside>
   </div>
 
-  <section id="lighting">
-    <h3>Lighting plan</h3>
-    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: rechargeable wall spots (the round rotating puck) at 6′-6″ aimed at tables, shelves and the mandir, picture-light bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and listening wall, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
-    <div class="lsum" id="lsum"></div>
-    <div class="drawing" id="lplan"></div>
-    <h4>Light schedule</h4>
-    <div class="tblwrap"><table id="ltable"></table></div>
-    <ul class="assume">
-      <li>Positions are measured from the north wall (on dividers and the east wall) or from the east end (on the north and south walls). Fix the magnetic plates, clip the spots on and aim each at the point listed, then fine-tune on site.</li>
-      <li>Rechargeable spots and bars typically run for several hours at full brightness: charge every fixture overnight and keep the 2 spare spots charged to swap in. Check the run time of the model you buy against the exhibition hours.</li>
-      <li>The lamps and string lights plug in; run their cords along the wall base, never across the walkway.</li>
-      <li>L17 is only needed if the mehndi booth goes ahead.</li>
-    </ul>
+
+  <section>
+    <h3>How the home flows</h3>
+    <p class="sec-lede" id="vintro"></p>
+    <ul class="decisions" id="vchanges"></ul>
   </section>
 
-  <section id="colours">
-    <h3>Wall colours</h3>
-    <p class="sec-lede">Each room is painted its own warm neutral so it reads as a different room of the same home, with one feature wall in a deeper colour behind the room's main piece. The plan further down shows each wall face in its colour. Take the hex codes to the paint store to colour-match; eggshell finish, 2 coats over primer.</p>
-    <div class="pcards" id="paintCards"></div>
-    <div class="tblwrap"><table id="paintTable"></table></div>
-  </section>
-
-  <section id="space">
+<section id="space">
     <h3>Space check</h3>
     <p class="sec-lede">The walkway is measured at every step along the visitor path, straight across the direction people walk, so the turns and the island tables are checked too. The target is at least 6′-0″ everywhere, so larger groups keep flowing without holding up the people behind them.</p>
     <div class="legend">
@@ -265,31 +279,28 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     </ul>
   </section>
 
-  <section id="drawings">
+<section id="drawings">
     <h3>Dimensioned drawings</h3>
-    <p class="sec-lede">The plan shows every wall, big item, activity zone and the walkway to scale, with the walkway width at the narrowest point of each room. The section cuts across the bedroom through the wardrobe and the jewellery table island.</p>
-    <h4>Wall schedule</h4>
-    <div class="tblwrap"><table id="wallTable"></table></div>
-    <p class="bomnote" id="wallNote"></p>
+    <p class="sec-lede">The plan shows every wall, big item, rug, activity zone and the walkway to scale, with each wall face in its paint colour and the walkway width at the narrowest point of each room. The section cuts across the bedroom through the wardrobe and the jewellery table island.</p>
     <h4>Plan</h4>
     <div class="drawing" id="plan"></div>
     <h4>Section A–A · across the bedroom, looking east</h4>
     <div class="drawing" id="section"></div>
   </section>
 
-  <section>
+<section>
     <h3>Volunteers</h3>
     <p class="sec-lede">Three people in every room and two at the front door: 14 per shift.</p>
     <div class="tblwrap"><table id="volTable"></table></div>
   </section>
 
-  <section>
+<section>
     <h3>Take-homes</h3>
     <p class="sec-lede">Each family gets a keepsake envelope at the front door and fills it as they walk through the home. The polaroid is removed.</p>
     <div class="cards" id="cards"></div>
   </section>
 
-  <section>
+<section>
     <h3>More ideas to layer in</h3>
     <div class="ideas">
       <div class="idea"><span class="tag">Maybe · Bhusha</span><h4>Mehndi booth</h4><p>Takes the bedroom’s north-west corner, off the walkway. Needs one mehndi artist (in place of the bedroom floater) and adds wall spot L17. Keep designs small so the queue stays in the corner.</p></div>
@@ -301,7 +312,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     </div>
   </section>
 
-  <section>
+<section>
     <h3>Notes before you build</h3>
     <ul class="notes">
       <li><b>Footprint.</b> 40 × 24 ft so every outer wall is whole 8 × 4 ft panels: 10 along the north and south walls, 4 on the east wall either side of the door, 4 on the west wall. Inner dividers are cut to whatever width they need.</li>
@@ -317,23 +328,70 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
       <li><b>Still to confirm.</b> The Diwali phrase for the listening wall and the 8–10 languages and voices to record it. Mehndi booth yes or no. Gujarati and music class details for the brochures. Who lends the sofa, wardrobe, tables and instruments, with names on every borrowed item.</li>
     </ul>
   </section>
+  </div>
 
-  <section id="shopping">
-    <h3>Shopping list</h3>
+  <div class="panel" id="pBuild" role="tabpanel" aria-labelledby="tBuild" hidden>
+  <p class="sec-lede">How to build Jivan Shaili, one part at a time. Quantities come from the plan, so they follow the layout if it changes; check every size against the real venue before cutting.</p>
+  <nav class="chips" id="bchips" aria-label="Build sections"></nav>
+  <div class="kpis" id="bkpis"></div>
+
+  <section class="bsec" id="b-walls">
+    <p class="eyebrow">Every outer wall a whole 8 × 4 ft flat</p>
+    <h3>Every wall flat</h3>
+    <p class="bomnote" id="wallNote"></p>
+    <div class="tblwrap"><table id="wallTable"></table></div>
+  </section>
+
+  <div id="bRooms"></div>
+
+<section class="bsec" id="lighting">
+    <p class="eyebrow">Wall spots, picture bars and lamps · nothing from above</p><h3>Lighting</h3>
+    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: rechargeable wall spots (the round rotating puck) at 6′-6″ aimed at tables, shelves and the mandir, picture-light bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and listening wall, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
+    <div class="lsum" id="lsum"></div>
+    <div class="drawing" id="lplan"></div>
+    <h4>Light schedule</h4>
+    <div class="tblwrap"><table id="ltable"></table></div>
+    <ul class="assume">
+      <li>Positions are measured from the north wall (on dividers and the east wall) or from the east end (on the north and south walls). Fix the magnetic plates, clip the spots on and aim each at the point listed, then fine-tune on site.</li>
+      <li>Rechargeable spots and bars typically run for several hours at full brightness: charge every fixture overnight and keep the 2 spare spots charged to swap in. Check the run time of the model you buy against the exhibition hours.</li>
+      <li>The lamps and string lights plug in; run their cords along the wall base, never across the walkway.</li>
+      <li>L17 is only needed if the mehndi booth goes ahead.</li>
+    </ul>
+  </section>
+
+<section class="bsec" id="colours">
+    <p class="eyebrow">Paint · every room a warm neutral, one feature wall each</p><h3>Wall colours</h3>
+    <p class="sec-lede">Each room is painted its own warm neutral so it reads as a different room of the same home, with one feature wall in a deeper colour behind the room's main piece. The plan further down shows each wall face in its colour. Take the hex codes to the paint store to colour-match; eggshell finish, 2 coats over primer.</p>
+    <div class="pcards" id="paintCards"></div>
+    <div class="tblwrap"><table id="paintTable"></table></div>
+  </section>
+
+  <section class="bsec" id="b-order">
+    <p class="eyebrow">Week by week</p>
+    <h3>Order of work</h3>
+    <ol class="steps" id="orderList"></ol>
+  </section>
+
+  <section class="bsec" id="b-totals">
+    <p class="eyebrow">Everything to buy, borrow, design and print</p>
+    <h3>Totals to buy</h3>
+    <p class="sec-lede">Tap a heading to open it.</p>
+<details class="fold" id="shopping" open>
+    <summary>Shopping list</summary>
     <p class="sec-lede">Everything the section needs, with quantities worked out from the plan above: build materials, lighting, sound and every room’s items. “Borrow” means a family or the mandir lends it. Tick items off as you get them (ticks are saved in this browser only), or download the list to share.</p>
     <div class="listbar"><p id="shopSum"></p><div class="btns" id="shopF"><button data-f="all" aria-pressed="true">All</button><button data-f="buy" aria-pressed="false">To buy</button><button data-f="borrow" aria-pressed="false">To borrow</button><button id="shopCsv">Download CSV</button></div></div>
     <div class="tblwrap"><table id="shopTable"></table></div>
     <p class="bomnote">Quantities are planning estimates; have your builder confirm the build materials. Prices and stock change, so check each link before ordering. The wall spots and picture bars are rechargeable; buy each in a single model so one charger and one set of spares fits all.</p>
-  </section>
-
-  <section id="printing">
-    <h3>Design and print list</h3>
+  </details>
+<details class="fold" id="printing">
+    <summary>Design and print list</summary>
     <p class="sec-lede">Everything that has to be designed, and printed where it applies: banners, room panels, small signs, take-homes and the audio and tablet content.</p>
     <div class="listbar"><p id="printSum"></p><div class="btns"><button id="printCsv">Download CSV</button></div></div>
     <div class="tblwrap"><table id="printTable"></table></div>
+  </details>
   </section>
+  </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
@@ -989,12 +1047,12 @@ const pillId=(l)=>'<span class="lid" style="background:'+RCOL[l.st]+'">'+l.id+'<
 
 function renderList(){const el=$('list');el.innerHTML='';
   S.forEach((s,i)=>{const li=document.createElement('li');const b=document.createElement('button');b.id='st'+i;const r=resFor(i);
-    b.innerHTML='<span class="n">'+(i===0?'IN':String(i).padStart(2,'0'))+'</span>'+s.short+(r?'<span class="dot" style="background:'+DOT[r.status]+'" title="'+STATUS_TXT[r.status]+'"></span>':'<span class="dot" style="background:var(--ok)"></span>');
-    if(i===0)li.style.gridColumn='1 / -1';
+    const nm=i===0?'House front':s.short+' · '+roomOf(i).name.toLowerCase();
+    b.innerHTML='<span class="n">'+(i===0?'·':i)+'</span>'+nm+'<span class="ref">'+(r?fmt(r.min.w):'W3')+'</span>'+(r?'<span class="dot" style="background:'+DOT[r.status]+'" title="'+STATUS_TXT[r.status]+'"></span>':'<span class="dot" style="background:var(--ok)"></span>');
     b.setAttribute('aria-current',i===current?'true':'false');
     b.addEventListener('click',()=>{if(!window.__js){current=i;renderDetail(i);return}window.__js.stop();window.__js.select(i,true)});li.appendChild(b);el.appendChild(li);});}
 function spaceLine(i){const r=resFor(i);
-  if(!r)return '<div class="space"><span class="pill ok">7′-6″ door</span> The front door stays clear; greeters and rangoli stand to either side.</div>';
+  if(!r)return '<div class="space"><span class="pill ok">'+fmt(DOORS[0].z1-DOORS[0].z0)+' door</span> The front door stays clear; greeters, planters and rangoli stand to either side.</div>';
   return '<div class="space"><span class="pill '+r.status+'">'+fmt(r.min.w)+' walkway</span> '+STATUS_TXT[r.status]+' at the narrowest point</div>';}
 const sw=(k)=>'<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px;border:1px solid var(--line);background:'+PAINT[k].hex+'"></span>'+PAINT[k].name;
 const SIDE={N:'north wall',S:'south wall',W:'west wall',E:'east wall'};
@@ -1008,7 +1066,7 @@ function renderDetail(i){const s=S[i],L=lightsOf(i);
   S.forEach((_,j)=>{const b=$('st'+j);if(b)b.setAttribute('aria-current',j===i?'true':'false')});}
 function renderIntro(){
   $('vintro').textContent='One layout: a home of four rooms in a row inside a 40 × 24 ft footprint, so every outer wall is whole 8 × 4 ft panels. Each room is 10 ft deep and 24 ft wide. Guests arrive at a house front with windows and a carved door, then walk west through the living room, bedroom and dining room to the ghar mandir, and leave for Manyata through the exit on the left of the mandir. The walkway switches sides so everything to see sits on one side and groups keep moving: middle, then left, then right, then straight down the middle to the mandir.';
-  $('vchanges').innerHTML=['<b>Footprint:</b> 40 × 24 ft, so the outer walls are 10 + 10 + 6 + 6 whole panels; inner walls are cut to fit.',
+  $('vchanges').innerHTML=['<b>Footprint:</b> 40 × 24 ft, so the outer walls are whole panels: 10 north, 10 south, 4 east around the door, 4 west; inner walls are cut to fit.',
    '<b>House front:</b> the east wall is the front of a house: foam door frame and arch, two windows cut into the wall with chhajja canopies, planters, rangoli and lights.',
    '<b>One exit:</b> out of the ghar mandir on the left of the mandir only, past the closing reflection.',
    '<b>Rugs:</b> sofa area, under the jewellery table, a runner by the kitchen counter, and three in the ghar mandir (two under the instruments, one in front of the mandir).',
@@ -1016,8 +1074,9 @@ function renderIntro(){
    '<b>Colours:</b> each room has its own warm neutral and one feature wall (see Wall colours).',
    '<b>Lists:</b> the shopping list and the design and print list at the bottom follow these changes.'].map(c=>'<li>'+c+'</li>').join('');
   const minC=Math.min(...EVAL.R.map(r=>r.min.w)),st=status(minC);
-  $('kpis').innerHTML=[['Rooms','4 × 10′',''],['Narrowest walk',fmt(minC),st],['Wall lights',LIGHTS.filter(l=>!l.opt&&l.type!=='lamp').length+(MEH?' + 1':''),''],['Volunteers','14','']]
-   .map(k=>'<div class="kpi '+k[2]+'"><small>'+k[0]+'</small><b>'+k[1]+'</b></div>').join('');}
+  const q=quantities();
+  $('kpis').innerHTML=[['40 × 24 ft','a house front and four 10 × 24 ft rooms',''],[fmt(minC),'narrowest walkway, 6′ minimum everywhere',st],[q.flats+' flats',q.sheets+' sheets of ½ in plywood',''],[(q.spots+q.bars)+(MEH?' + 1':''),'wall lights: '+q.spots+' spots and '+q.bars+' picture bars',''],[q.lampsN+' lamps','plus string lights at the ghar mandir',''],['14','volunteers per shift','']]
+   .map(k=>'<div class="kpi '+k[2]+'"><small>'+k[1]+'</small><b>'+k[0]+'</b></div>').join('');}
 function renderSpace(){
   const cell=(h,d)=>h?esc(h.label)+'<br><small>'+fmt(d)+' from the walkway center</small>':'<small>Nothing</small>';
   let h='<thead><tr><th>Room</th><th>Walkway runs</th><th>On your left at the narrowest point</th><th>On your right</th><th>Walkway</th><th>Status</th></tr></thead><tbody>';
@@ -1161,7 +1220,7 @@ function renderPaint(){const A=paintAreas();
 /* ---------- walls ---------- */
 function renderWalls(){
   const flats=WALLS.reduce((s,w)=>s+w.flatsN,0),sheets=WALLS.reduce((s,w)=>s+w.sheets,0);
-  $('wallNote').textContent='All walls are 8′-0″ tall, built from 4 × 8 ft flats (2×4 frame on edge with a ½ in plywood face), the same build as Mulyo: '+flats+' flats and '+sheets+' sheets of ½ in plywood in total. Dividers and the front door wall are double-faced. The 2′-0″ flats (the return on P1 and the west wall corners beside the exits) are faced with half sheets (one 4 × 8 sheet ripped lengthwise faces two). Each divider piece bolts to the outer wall it touches and stands on T-feet at its doorway end. Header banners add 1′-8½″ above the walls, from 8′-3″ to 10′-0″.';
+  $('wallNote').textContent='All walls are 8′-0″ tall, built from 4 × 8 ft flats (2×4 frame on edge with a ½ in plywood face), the same build as Mulyo: '+flats+' flats and '+sheets+' sheets of ½ in plywood in total. Dividers and the front door wall are double-faced. The 2′-0″ return on P1 is faced with half sheets (one 4 × 8 sheet ripped lengthwise faces two). Each divider piece bolts to the outer wall it touches and stands on T-feet at its doorway end. Header banners add 1′-8½″ above the walls, from 8′-3″ to 10′-0″.';
   $('wallTable').innerHTML='<thead><tr><th>Tag</th><th>Wall</th><th>Length</th><th>Height</th><th>Thickness</th><th>Built from 4 ft flats</th><th>½ in sheets</th><th>What hangs on it</th></tr></thead><tbody>'+
    WALLS.map(w=>'<tr><td class="num"><b>'+w.id+'</b></td><td>'+esc(w.name)+'<br><small>'+esc(w.type)+'</small></td><td class="num">'+w.lenTxt+'</td><td class="num">8′-0″</td><td class="num">'+w.t+'</td><td class="num">'+esc(w.flats)+'</td><td class="num">'+w.sheets+'</td><td>'+esc(w.faces)+'</td></tr>').join('')+
    '<tr><td class="num"><b>—</b></td><td>Doorways</td><td class="num">8′-0″ front, 8′-6″ inner<br>7′-9″ exit</td><td class="num">full height</td><td></td><td></td><td></td><td>'+DOORS.map(d=>esc(d.name)+': '+esc(d.where.charAt(0).toLowerCase()+d.where.slice(1))).join(' · ')+'</td></tr>'+
@@ -1361,9 +1420,40 @@ document.querySelectorAll('#shopF button').forEach(b=>b.addEventListener('click'
 $('shopCsv').addEventListener('click',()=>download('jivan-shaili-shopping-list.csv',[['Category','Item','Size / spec','Qty','Used for','Source']].concat(shopping().map(r=>r.slice(0,6)))));
 $('printCsv').addEventListener('click',()=>download('jivan-shaili-design-and-print.csv',[['Group','Item','Size','Material / finish','Qty','Where it goes','What is on it']].concat(PRINTS)));
 
+
+/* ================= Build-out tab ================= */
+const ORDER=[
+ ['Now','Confirm the 40 × 24 ft spot, the exit line-up with Manyata and the apron in the main hall with the layout team.'],
+ ['Now','Lock the panel text and the Diwali phrase; send panels, banners and take-homes to design (Totals to buy › Design and print list).'],
+ ['3 weeks out','Order plywood, studs, foam, paint, wall spots and picture bars; ask families for the borrowed items, with names on every one.'],
+ ['2 weeks out','Build all 41 flats; cut the two windows into their east-wall flats before facing them; prime and paint every face in its room colour.'],
+ ['2 weeks out','Carve and paint the foam door frame, arch, window frames and chhajjas.'],
+ ['Load-in day','Stand the outer walls, then the dividers; fix the house front; lay the rugs; place the big items room by room.'],
+ ['Load-in day','Hang panels and banners, fix the magnetic plates for the wall spots and the picture bars, then charge and aim every light with the gym lights off.'],
+ ['Night before','Walk the path with a group of six to check the 6 ft walkway; charge every light overnight.']];
+function renderBuild(){const q=quantities(),bs=[['b-walls','Every wall flat']].concat(S.map((s,i)=>['b-st'+i,i===0?'House front':s.short])).concat([['lighting','Lighting'],['colours','Wall colours'],['b-order','Order of work'],['b-totals','Totals to buy']]);
+ $('bchips').innerHTML=bs.map(([id,t])=>'<a href="#'+id+'">'+esc(t)+'</a>').join('');
+ const gal=Object.values(q.PA).reduce((a,v)=>a+Math.max(1,Math.ceil(v*2/350)),0)+q.primerAll;
+ const rugs=ZN.filter(z=>/Rug|runner|rug/.test(z.label)).length+1;
+ $('bkpis').innerHTML=[[q.sheets+q.spare+' sheets','½ in plywood, '+q.sheets+' + 10% spare'],[q.studs+' studs','2×4 × 8 ft, with 10% extra'],['~'+gal+' gal','paint in 11 colours, plus primer'],[(q.spots+q.spotOpt+2)+' + '+(q.bars+1),'wall spots and picture bars to order, with spares'],[PRINTS.filter(r=>r[0]!=='Design only (no printing)').length+' prints','panels, banners, signs and take-homes'],[rugs+' rugs','borrowed or bought']]
+  .map(k=>'<div class="kpi"><small>'+k[1]+'</small><b>'+k[0]+'</b></div>').join('');
+ $('bRooms').innerHTML=S.map((s,i)=>{const L=lightsOf(i),rz=ZN.filter(z=>z.st===i&&/rug|runner/i.test(z.label)).map(z=>z.label);
+   if(i===4)rz.push('2 rugs 4 × 4 ft under the instruments');
+   const parts=s.build.split(' · ').map((p,k)=>'<li><b class="n">'+(k+1)+'</b><span>'+esc(p)+'</span></li>').join('');
+   const lights=L.map(l=>pillId(l)+' '+LT[l.type].toLowerCase()+': '+esc(l.aim)).join('<br>');
+   return '<section class="bsec" id="b-st'+i+'"><p class="eyebrow">'+esc(s.where)+'</p><h3>'+(i===0?'House front and front door':esc(s.name)+' · '+esc(s.en))+'</h3>'+
+    '<div class="bgrid"><div class="bbox"><h4>What to build</h4><p class="bomnote" style="margin:0 0 10px"><span class="foot">'+esc(s.foot)+'</span></p><ol class="parts">'+parts+'</ol></div>'+
+    '<div class="bbox"><h4>Walls</h4><p style="margin:0 0 12px">'+paintTxt(i)+'</p>'+(rz.length?'<h4>Rugs</h4><p style="margin:0 0 12px">'+rz.map(esc).join('<br>')+'</p>':'')+'<h4>Lighting</h4><p style="margin:0;font-size:14px;line-height:1.7">'+lights+(i===4?'<br>2 battery uplights at the mandir base · string lights overhead':'')+'</p></div></div></section>';}).join('');
+ $('orderList').innerHTML=ORDER.map(([w,t])=>'<li><b>'+w+'.</b> '+esc(t)+'</li>').join('');}
+function showTab(b){const build=b==='build';$('pPlan').hidden=build;$('pBuild').hidden=!build;$('tPlan').setAttribute('aria-selected',!build);$('tBuild').setAttribute('aria-selected',build);
+ if(!build&&window.dispatchEvent)window.dispatchEvent(new Event('resize'));}
+$('tPlan').addEventListener('click',()=>{history.replaceState(null,'','#plan');showTab('plan');});
+$('tBuild').addEventListener('click',()=>{history.replaceState(null,'','#build');showTab('build');});
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('#bchips a');if(!a)return;e.preventDefault();const t=document.getElementById(a.getAttribute('href').slice(1));if(t){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'});}});
 function renderAll(){EVAL=evaluate();renderIntro();renderList();renderDetail(current);renderSpace();renderWalls();renderLights();
-  $('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderShopping();renderPrint();}
+  $('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderShopping();renderPrint();renderBuild();}
 renderAll();
+showTab(location.hash==='#build'?'build':'plan');
 
 /* ================= 3D viewer ================= */
 if(!window.THREE){$('hint').textContent='3D view could not load. The drawings and tables below still work.';return;}
