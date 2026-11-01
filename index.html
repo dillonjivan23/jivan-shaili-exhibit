@@ -202,6 +202,13 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 .pcard .chips{display:flex;height:54px;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin-bottom:8px}
 .pcard .chips span{flex:3}.pcard .chips span.feat{flex:1}
 .pcard p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.fixpick{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+.fixpick .fx{background:var(--surface);border:1px solid rgba(47,38,30,.12);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.fixpick .fx.yes{border-top:4px solid var(--accent)}.fixpick .fx.no{opacity:.7;border-top:4px solid #9a8f80}
+.fixpick small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--brown)}
+.fixpick b{font-family:Fraunces,serif;font-size:18px;font-weight:600;line-height:1.25}
+.fixpick span{font-size:14px;line-height:1.55}.fixpick a{margin-top:auto;font-size:14px;color:var(--accent);font-weight:600}
+@media(max-width:820px){.fixpick{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -324,7 +331,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
       <li><b>Outside the footprint.</b> The rangoli, planters, greeters and shoe rack use an apron of about 4 ft on the main hall side of the front door. Confirm that space is free with the layout team.</li>
       <li><b>Food safety.</b> Only pre-packed sweets and snacks, with allergen labels. The tasting server wears gloves and keeps a bin at the dining room exit. Check with the mandir’s food-safety coordinator.</li>
       <li><b>Ghar mandir.</b> Coordinate the mandir, murtis and decoration with the women’s overall centerpiece work. Collect offered petals respectfully at the end of each day and refresh them every morning.</li>
-      <li><b>Power.</b> Outlets are needed for the 3 tablets (living room south wall), the bhajan speaker (tabla rug), the string lights and the three lamps. The wall spots and bars are rechargeable, so they need a charging point overnight rather than an outlet beside each one. Tape every cord down at the wall base so nothing crosses the walkway.</li>
+      <li><b>Power.</b> Outlets are needed for the 3 tablets (living room south wall), the bhajan speaker (tabla rug), the string lights, the three lamps and the URTOM wall spots and uplights (one power strip per room, cords dropped down the back of the wall). Only the picture bars are cordless; they need a charging point overnight. Tape every cord down at the wall base so nothing crosses the walkway.</li>
       <li><b>Still to confirm.</b> The Diwali phrase for the listening wall and the 8–10 languages and voices to record it. Mehndi booth yes or no. Gujarati and music class details for the brochures. Who lends the sofa, wardrobe, tables and instruments, with names on every borrowed item.</li>
     </ul>
   </section>
@@ -346,14 +353,20 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 
 <section class="bsec" id="lighting">
     <p class="eyebrow">Wall spots, picture bars and lamps · nothing from above</p><h3>Lighting</h3>
-    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: rechargeable wall spots (the round rotating puck) at 6′-6″ aimed at tables, shelves and the mandir, picture-light bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and listening wall, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
+    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: plug-in URTOM spots on wall brackets at 6′-6″ aimed at tables, shelves and the mandir, cordless Craftersmark picture bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and listening wall, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
+    <div class="fixpick">
+      <div class="fx yes"><small>Picture bars · 14 + 1 spare = 15</small><b>Craftersmark 16 in cordless picture light</b><span>$19.99 each · 350 lm, CRI 95+, 2700/4500/6500K, 5000 mAh, remote and timer. Cordless, so it sits above every panel with no cable on the painted wall. 16 in covers art up to about 40 in wide; the timeline, wardrobe and listening wall already get two bars each.</span><a href="https://www.amazon.com/dp/B0DBTSQWKY" target="_blank" rel="noopener">View on Amazon</a></div>
+      <div class="fx yes"><small>Wall spots + mandir uplights · 15 + 1 mehndi + 1 spare = 9 packs</small><b>URTOM 3W plug-in spotlight (2-pack)</b><span>$27.99 a pack · 3000K warm, 90° tilt, metal base that screws to the wall, 5.9 ft cord with a foot switch. Wall-mounted for the 13 spots, stood on the floor for U1 and U2. Needs power: one strip per room.</span><a href="https://www.amazon.com/URTOM-Spotlight-Uplighting-Lighting-Uplight/dp/B09X2V7H29" target="_blank" rel="noopener">View on Amazon</a></div>
+      <div class="fx no"><small>Not used</small><b>Flush-mount directional spot, 2-pack (GU10)</b><span>$34.99 · hard-wired to a junction box, bulbs not included, and GU10 halogens run hot near foam. Fine in a house, wrong for a temporary build.</span><a href="https://www.amazon.com/dp/B0D2Z5Y716" target="_blank" rel="noopener">View on Amazon</a></div>
+    </div>
     <div class="lsum" id="lsum"></div>
     <div class="drawing" id="lplan"></div>
     <h4>Light schedule</h4>
     <div class="tblwrap"><table id="ltable"></table></div>
     <ul class="assume">
-      <li>Positions are measured from the north wall (on dividers and the east wall) or from the east end (on the north and south walls). Fix the magnetic plates, clip the spots on and aim each at the point listed, then fine-tune on site.</li>
-      <li>Rechargeable spots and bars typically run for several hours at full brightness: charge every fixture overnight and keep the 2 spare spots charged to swap in. Check the run time of the model you buy against the exhibition hours.</li>
+      <li>Positions are measured from the north wall (on dividers and the east wall) or from the east end (on the north and south walls). Screw each spot's metal bracket to the wall, aim it at the point listed, then fine-tune on site.</li>
+      <li>Spot cords: drill a ½ in hole beside each spot and drop the cord down the back of the flat to the room's power strip, so no cord shows on the painted face. Leave each foot switch on and use the strip's switch to turn a whole room on or off.</li>
+      <li>Picture bars: set every bar to 2700K so they sit with the 3000K spots, and to 70% brightness to stretch the battery through a full day. Lift them off the magnetic mount to charge overnight (USB-C), and keep the spare charged to swap in. One remote controls them all, and the auto-off timer (2/4/6/8 h) saves battery if a room is left on.</li>
       <li>The lamps and string lights plug in; run their cords along the wall base, never across the walkway.</li>
       <li>L17 is only needed if the mehndi booth goes ahead.</li>
     </ul>
@@ -381,7 +394,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     <p class="sec-lede">Everything the section needs, with quantities worked out from the plan above: build materials, lighting, sound and every room’s items. “Borrow” means a family or the mandir lends it. Tick items off as you get them (ticks are saved in this browser only), or download the list to share.</p>
     <div class="listbar"><p id="shopSum"></p><div class="btns" id="shopF"><button data-f="all" aria-pressed="true">All</button><button data-f="buy" aria-pressed="false">To buy</button><button data-f="borrow" aria-pressed="false">To borrow</button><button id="shopCsv">Download CSV</button></div></div>
     <div class="tblwrap"><table id="shopTable"></table></div>
-    <p class="bomnote">Quantities are planning estimates; have your builder confirm the build materials. Prices and stock change, so check each link before ordering. The wall spots and picture bars are rechargeable; buy each in a single model so one charger and one set of spares fits all.</p>
+    <p class="bomnote">Quantities are planning estimates; have your builder confirm the build materials. Prices and stock change, so check each link before ordering. Lights: URTOM 3W plug-in spots for the wall spots and mandir uplights, Craftersmark 16 in cordless picture lights for the bars. The flush-mount ceiling spot (GU10) is left out: it is hard-wired and needs bulbs and an electrician.</p>
   </details>
 <details class="fold" id="printing">
     <summary>Design and print list</summary>
@@ -471,7 +484,7 @@ const S=[
   foot:'Ghar mandir 48 × 30 × 84 in · 2 instrument rugs 4 × 4 ft · rug in front of the mandir',
   look:'The walkway runs straight down the middle from the dining room door to the ghar mandir, the centerpiece of the far wall, so visitors see it the moment they walk in. It is decorated with flowers, with string lights overhead giving the room a warm glow. On either side of the walkway, just inside the door, is a rug with cushions and instruments: the harmonium on the right, tabla, manjira and kartal on the left. After offering petals on the rug in front of the mandir, visitors turn left and leave through the exit beside the mandir, past the closing reflection. Soft bhajans play in the background.',
   act:'Offer flower petals at the ghar mandir (petals replace lighting diyas). Try the instruments with guided instructors in 1–2 minute mini lessons: harmonium on the right, tabla and percussion on the left. Music class brochures are handed out at the exit.',
-  build:'Ghar mandir about 48 in wide × 30 in deep × 84 in tall including its platform, centered on the west wall and facing the door · petal offering stand 30 × 12 in in front of it, with 2 bowls of petals and a thal · 2 battery uplights at the mandir base · string lights: 4 runs across the room from wall top to wall top, plus a frame around the mandir · 2 rugs 4 × 4 ft in the corners by the door, a 3 × 4 ft rug in front of the mandir, 3 floor cushions on each: harmonium and bhajan books on the right (north), tabla pair, 2 pairs of manjira and 2 pairs of kartal on the left (south) · small speaker for background bhajans · a music class brochure holder at the exit · Bhajan panel on the north wall above the harmonium, closing reflection with “Next: Manyata” on the south wall above the tabla · an exit sign beside the exit.',
+  build:'Ghar mandir about 48 in wide × 30 in deep × 84 in tall including its platform, centered on the west wall and facing the door · petal offering stand 30 × 12 in in front of it, with 2 bowls of petals and a thal · 2 URTOM spots on the floor as uplights at the mandir base · string lights: 4 runs across the room from wall top to wall top, plus a frame around the mandir · 2 rugs 4 × 4 ft in the corners by the door, a 3 × 4 ft rug in front of the mandir, 3 floor cushions on each: harmonium and bhajan books on the right (north), tabla pair, 2 pairs of manjira and 2 pairs of kartal on the left (south) · small speaker for background bhajans · a music class brochure holder at the exit · Bhajan panel on the north wall above the harmonium, closing reflection with “Next: Manyata” on the south wall above the tabla · an exit sign beside the exit.',
   vol:'3 people. 1 host just inside the door who explains the ghar mandir, keeps the petal offering tidy and refilled, and points visitors to the exit on the left. Say: “Every evening at ghar sabha, the family prays and sings together.” Ready for “Who is in the mandir?” 2 instrument guides, one on each rug, who run the mini lessons and hand out music class brochures as visitors leave.',
   home:'Music class brochure',
   take:'Bhajan teaches us that devotion can illuminate our inner world just as diyas illuminate our homes.'}
@@ -546,7 +559,7 @@ function evaluate(){let C=corridor(ROUTES[0]);ROUTES.slice(1).forEach(Rt=>{C=C.c
 
 /* ---------- lights ----------
    No light from above: every fixture sits on a wall face or the floor.
-   spot = rechargeable rotating wall spot (puck) at 6′-6″ · bar = picture-light bar above a panel at 7′-9″ · lamp = floor or table lamp.
+   spot = URTOM 3W plug-in spot on its wall bracket at 6′-6″ (U1/U2 are the same light on the floor) · bar = Craftersmark 16 in cordless picture light above a panel at 7′-9″ · lamp = floor or table lamp.
    f = fixture position, t = aim point; m = the fixture's footprint on the plan. */
 const LIGHTS=[];
 const LT={spot:'Wall spot',bar:'Picture bar',lamp:'Lamp'};
@@ -1058,7 +1071,7 @@ const sw=(k)=>'<span style="display:inline-block;width:12px;height:12px;border-r
 const SIDE={N:'north wall',S:'south wall',W:'west wall',E:'east wall'};
 function paintTxt(i){if(i===0)return sw('stone')+' house front, '+sw('trim')+' foam frames and trim';const p=ROOMPAINT[i];return sw(p.base)+' on most walls · '+sw(p.feat)+' feature on the '+SIDE[p.fw]+'<br><small>'+esc(p.why)+'</small>';}
 function renderDetail(i){const s=S[i],L=lightsOf(i);
-  const lt=L.map(l=>pillId(l)).join(' ')+'<br><small>'+countTxt(L)+(L.some(l=>l.opt)?' + 1 spot if the mehndi booth is added':'')+(i===4?' · 2 battery uplights and string lights overhead':'')+(i===0?' · on the house front, facing the main hall':'')+'</small>';
+  const lt=L.map(l=>pillId(l)).join(' ')+'<br><small>'+countTxt(L)+(L.some(l=>l.opt)?' + 1 spot if the mehndi booth is added':'')+(i===4?' · 2 uplights and string lights overhead':'')+(i===0?' · on the house front, facing the main hall':'')+'</small>';
   $('detail').innerHTML='<p class="kick">'+(i===0?'Start':'Room '+i)+' · '+esc(s.where)+'</p><h2>'+esc(s.name)+'<small>'+esc(s.en)+'</small></h2>'+spaceLine(i)+
   '<dl><div><dt>Look and deco</dt><dd>'+esc(s.look)+'</dd></div><div><dt>Activity</dt><dd>'+esc(s.act)+'</dd></div><div><dt>Big items and build</dt><dd><span class="foot">'+esc(s.foot)+'</span> '+esc(s.build)+'</dd></div>'+
   '<div><dt>Volunteers</dt><dd>'+esc(s.vol)+'</dd></div><div><dt>Lighting</dt><dd>'+lt+'</dd></div><div><dt>Walls</dt><dd>'+paintTxt(i)+'</dd></div><div><dt>Take-home</dt><dd>'+esc(s.home)+'</dd></div></dl>'+
@@ -1070,7 +1083,7 @@ function renderIntro(){
    '<b>House front:</b> the east wall is the front of a house: foam door frame and arch, two windows cut into the wall with chhajja canopies, planters, rangoli and lights.',
    '<b>One exit:</b> out of the ghar mandir on the left of the mandir only, past the closing reflection.',
    '<b>Rugs:</b> sofa area, under the jewellery table, a runner by the kitchen counter, and three in the ghar mandir (two under the instruments, one in front of the mandir).',
-   '<b>Lighting:</b> no light from above. Rechargeable wall spots and picture bars on the walls, plus lamps to make the rooms feel like home.',
+   '<b>Lighting:</b> no light from above. Plug-in URTOM wall spots and cordless Craftersmark picture bars on the walls, plus lamps to make the rooms feel like home.',
    '<b>Colours:</b> each room has its own warm neutral and one feature wall (see Wall colours).',
    '<b>Lists:</b> the shopping list and the design and print list at the bottom follow these changes.'].map(c=>'<li>'+c+'</li>').join('');
   const minC=Math.min(...EVAL.R.map(r=>r.min.w)),st=status(minC);
@@ -1204,11 +1217,11 @@ function renderLights(){
   const c=(t)=>LIGHTS.filter(l=>l.type===t&&!l.opt).length,spots=c('spot'),bars=c('bar'),lamps=c('lamp');
   $('lsum').innerHTML=S.map((s,i)=>{const L=lightsOf(i),n=L.filter(l=>!l.opt).length,o=L.filter(l=>l.opt).length;
     return '<div><small>'+(i===0?'Front door':s.short+' · '+roomOf(i).name.toLowerCase())+'</small><b style="color:'+RCOL[i]+'">'+n+(o?' <span style="display:inline;font-size:14px">+'+o+'</span>':'')+'</b><span>'+countTxt(L)+(i===4?' · 2 uplights · string lights':'')+(o?' · +1 spot if mehndi':'')+'</span></div>';}).join('')+
-    '<div class="tot"><small>To order</small><b>'+(spots+1+2)+' · '+(bars+1)+' · '+lamps+'</b><span>wall spots (incl. mehndi + 2 spare) · picture bars (+1 spare) · lamps</span></div>';
+    '<div class="tot"><small>To order</small><b>'+(Math.ceil((spots+2+1+1)/2)*2)+' · '+(bars+1)+' · '+lamps+'</b><span>URTOM spots ('+Math.ceil((spots+2+1+1)/2)+' 2-packs: '+spots+' wall + 2 uplights + mehndi + spare) · Craftersmark bars (+1 spare) · lamps</span></div>';
   $('lplan').innerHTML=planSVG('lights');
   $('ltable').innerHTML='<thead><tr><th>Light</th><th>Room</th><th>Type</th><th>Where it mounts</th><th>Lights</th></tr></thead><tbody>'+
     LIGHTS.map(l=>'<tr'+(l.opt?' class="opt"':'')+'><td>'+pillId(l)+'</td><td>'+(l.st===0?'Front door':S[l.st].short)+'</td><td>'+armTxt(l)+'</td><td>'+esc(mountTxt(l))+'</td><td>'+esc(l.aim)+'</td></tr>').join('')+
-    UPS.map(u=>'<tr><td><span class="lid" style="background:'+RCOL[4]+'">'+u.id+'</span></td><td>Bhajan</td><td>Uplight</td><td>On the floor, at the front corner of the mandir platform</td><td>'+esc(u.aim)+' (battery uplight, warm amber)</td></tr>').join('')+
+    UPS.map(u=>'<tr><td><span class="lid" style="background:'+RCOL[4]+'">'+u.id+'</span></td><td>Bhajan</td><td>Uplight</td><td>On the floor, at the front corner of the mandir platform</td><td>'+esc(u.aim)+' (URTOM spot on its base, aimed up)</td></tr>').join('')+
     '<tr><td><span class="lid" style="background:'+RCOL[4]+'">SL</span></td><td>Bhajan</td><td>String lights</td><td>4 runs from the north wall top to the south wall top, about 2′-2″ apart, plus a frame around the mandir</td><td>Warm glow over the whole ghar mandir room</td></tr></tbody>';}
 
 /* ---------- wall colours ---------- */
@@ -1249,7 +1262,8 @@ const LINKS={
  clamp:{t:'BIBIVIS black clamp lamp, 8.5 in reflector, 6-pack (Home Depot)',u:'https://homedepot.com/p/BIBIVIS-Black-Clamp-Lamp-Light-150-Watt-with-8-5-in-Aluminum-Reflector-No-Bulb-Included-6-ft-Cord-6-Pack-SG60-T2R/333804598'},
  bulb24:{t:'Feit PAR38 LED flood, 3000K, 90 CRI, dimmable, 24-pack (Home Depot)',u:'https://www.homedepot.com/p/Feit-Electric-90-Watt-Equivalent-PAR38-Dimmable-CEC-Title-20-Outdoor-90-E26-Medium-Flood-LED-Light-Bulb-Bright-White-3000K-24-Pack-PAR38DM-930CA-2-12/304968367'},
  bulb4:{t:'Same bulb, 4-pack',u:'https://homedepot.com/p/Feit-Electric-90-Watt-Equivalent-PAR38-Dimmable-CEC-Title-20-Outdoor-90-E26-Medium-Flood-LED-Light-Bulb-Bright-White-3000K-4-Pack-PAR38DM-930CA-4/320106169'},
- uplight:{t:'Chauvet DJ EZpar T6 USB battery uplight (zZounds)',u:'https://www.zzounds.com/item--CVTEZPART6USB'},
+ urtom:{t:'URTOM 3W plug-in spotlight, 3000K, 2-pack, $27.99 (Amazon)',u:'https://www.amazon.com/URTOM-Spotlight-Uplighting-Lighting-Uplight/dp/B09X2V7H29'},
+ bar:{t:'Craftersmark 16 in cordless picture light, 350 lm, CRI 95+, black, $19.99 (Amazon)',u:'https://www.amazon.com/dp/B0DBTSQWKY'},
  tealight:{t:'AGPtek LED tealights, 100-pack (Walmart)',u:'https://www.walmart.com/ip/48966148'},
  dimmer:{t:'Lutron Credenza TTCL-100H plug-in LED dimmer',u:'https://www.crescentelectric.com/product/623381/ttcl-100h-bl-credenza-led-plug-in-lamp-dimmer-single-outlet-100w-led-black'},
  tape:{t:'Glow-in-the-dark floor tape, 2 in × 30 ft',u:'https://www.compliancesigns.com/pd/2-x-30-glow-in-the-dark-solid-tape-15sm911230'}};
@@ -1266,7 +1280,7 @@ function quantities(){
  const cnt=(t,o)=>LIGHTS.filter(l=>l.type===t&&(o?l.opt:!l.opt)).length,spots=cnt('spot'),spotOpt=cnt('spot',1),bars=cnt('bar'),lampsN=cnt('lamp');const PA=paintAreas();
  let inside=0;ROUTES.forEach((R,ri)=>{for(let i=1;i<R.length;i++){const a=R[i-1],b=R[i];if(ri&&a[0]>SPLITX)continue;if(Math.max(a[0],b[0])<=HL+.5&&Math.min(a[0],b[0])>=-HL-.5)inside+=Math.hypot(b[0]-a[0],b[1]-a[1]);}});
  return {flats,sheets,spare:Math.ceil(sheets*.1),jacks,studs,tBoards,bolts:Math.ceil(joints*3/10)*10,joints,paint,gal:Math.ceil(paint*2/350),primer:Math.ceil(paint/350),spots,spotOpt,bars,lampsN,PA,primerAll:Math.ceil(Object.values(PA).reduce((a,b)=>a+b,0)/350),
-  strips:6,tape:Math.ceil(inside/30),pathIn:inside};}
+  strips:8,tape:Math.ceil(inside/30),pathIn:inside};}
 
 /* [category, item, size / spec, qty, used for, source, link key] */
 function shopping(){const q=quantities();return [
@@ -1288,16 +1302,15 @@ function shopping(){const q=quantities();return [
  ...Object.keys(q.PA).map(k=>['Walls and structure','Paint, '+PAINT[k].name+' ('+PAINT[k].hex+'), eggshell','gallon',String(Math.max(1,Math.ceil(q.PA[k]*2/350))),Math.round(q.PA[k])+' sq ft, 2 coats (see Wall colours)','Buy']),
  ['Walls and structure','Painting kit','rollers, trays, brushes, drop cloths','1 set for 4 painters','Painting the flats before the build','Buy'],
  ['Walls and structure','Black gaffer tape','2 in × 60 yd','4 rolls','Taping cords down at the wall base, marking the floor','Buy'],
- ['Lighting and power','Wall spot, rechargeable, rotating head (puck style, magnetic mount)','warm white, about 4 in across',String(q.spots+q.spotOpt+2),q.spots+' spots + '+q.spotOpt+' if mehndi + 2 spare; the round black wall spot in the photo you chose','Buy'],
- ['Lighting and power','Picture-light bar, black, rechargeable or plug-in','about 24 in, warm white, adjustable arm',String(q.bars+1),q.bars+' bars above panels, the timeline, wardrobe, shelves and listening wall + 1 spare','Buy'],
+ ['Lighting and power','Wall spot and uplight: URTOM 3W plug-in spotlight, 2-pack','3000K warm white, metal base and wall bracket, 5.9 ft cord with foot switch',String(Math.ceil((q.spots+q.spotOpt+2+1)/2))+' packs ('+(Math.ceil((q.spots+q.spotOpt+2+1)/2)*2)+' lights)',q.spots+' wall spots + 2 mandir uplights + '+q.spotOpt+' if mehndi + 1 spare','Buy','urtom'],
+ ['Lighting and power','Picture bar: Craftersmark 16 in cordless picture light, black','350 lm, set to 2700K, 5000 mAh battery, remote with timer',String(q.bars+1),q.bars+' bars above panels, the timeline, wardrobe, shelves and listening wall + 1 spare','Buy','bar'],
  ['Lighting and power','Floor lamp with fabric shade','about 5 ft tall, warm bulb','2','Living room corner by the sofa, bedroom corner by the doorway','Borrow'],
  ['Lighting and power','Small table lamp','about 15 in tall','1','Kitchen counter, west end','Borrow'],
- ['Lighting and power','USB-C charging station and spare cables','multi-port','2','Recharge the wall spots and bars overnight; swap any that dim during the day','Buy'],
- ['Lighting and power','Battery uplight','warm amber','2','Ghar mandir base','Buy','uplight'],
+ ['Lighting and power','USB-C charging station and spare cables','multi-port','2','Recharge the picture bars overnight (they lift off their magnetic mounts); swap any that dim during the day','Buy'],
  ['Lighting and power','LED string lights, warm white','connectable, UL-listed, 2700–3000K','about 130 ft','4 runs across the ghar mandir + a frame around the mandir','Buy'],
  ['Lighting and power','LED tealights','100-pack','1 (20 used)','Diyas lining the front door approach','Buy','tealight'],
  ['Lighting and power','Glow-in-the-dark floor tape','2 in × 30 ft',q.tape+' rolls','Arrows along the '+Math.round(q.pathIn)+' ft visitor path','Buy','tape'],
- ['Lighting and power','Power strips, heavy-duty grounded','6 outlet',String(q.strips),'String lights, lamps, tablets and speaker','Buy'],
+ ['Lighting and power','Power strips, heavy-duty grounded','6 outlet',String(q.strips),'One per room for the plug-in spots (switch each room on in one go), plus string lights, lamps, tablets and speaker','Buy'],
  ['Lighting and power','Extension cords, black','25 ft',String(q.strips),'From the venue outlets to the power strips','Buy'],
  ['Lighting and power','Cable ties','100-pack','1','Tidying cords along the wall base','Buy'],
  ['Listening wall and sound','Tablets','iPad or similar','3','Language menu and recordings','Borrow'],
@@ -1443,7 +1456,7 @@ function renderBuild(){const q=quantities(),bs=[['b-walls','Every wall flat']].c
    const lights=L.map(l=>pillId(l)+' '+LT[l.type].toLowerCase()+': '+esc(l.aim)).join('<br>');
    return '<section class="bsec" id="b-st'+i+'"><p class="eyebrow">'+esc(s.where)+'</p><h3>'+(i===0?'House front and front door':esc(s.name)+' · '+esc(s.en))+'</h3>'+
     '<div class="bgrid"><div class="bbox"><h4>What to build</h4><p class="bomnote" style="margin:0 0 10px"><span class="foot">'+esc(s.foot)+'</span></p><ol class="parts">'+parts+'</ol></div>'+
-    '<div class="bbox"><h4>Walls</h4><p style="margin:0 0 12px">'+paintTxt(i)+'</p>'+(rz.length?'<h4>Rugs</h4><p style="margin:0 0 12px">'+rz.map(esc).join('<br>')+'</p>':'')+'<h4>Lighting</h4><p style="margin:0;font-size:14px;line-height:1.7">'+lights+(i===4?'<br>2 battery uplights at the mandir base · string lights overhead':'')+'</p></div></div></section>';}).join('');
+    '<div class="bbox"><h4>Walls</h4><p style="margin:0 0 12px">'+paintTxt(i)+'</p>'+(rz.length?'<h4>Rugs</h4><p style="margin:0 0 12px">'+rz.map(esc).join('<br>')+'</p>':'')+'<h4>Lighting</h4><p style="margin:0;font-size:14px;line-height:1.7">'+lights+(i===4?'<br>2 URTOM uplights at the mandir base · string lights overhead':'')+'</p></div></div></section>';}).join('');
  $('orderList').innerHTML=ORDER.map(([w,t])=>'<li><b>'+w+'.</b> '+esc(t)+'</li>').join('');}
 function showTab(b){const build=b==='build';$('pPlan').hidden=build;$('pBuild').hidden=!build;$('tPlan').setAttribute('aria-selected',!build);$('tBuild').setAttribute('aria-selected',build);
  if(!build&&window.dispatchEvent)window.dispatchEvent(new Event('resize'));}
