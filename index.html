@@ -209,6 +209,12 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 .fixpick b{font-family:Fraunces,serif;font-size:18px;font-weight:600;line-height:1.25}
 .fixpick span{font-size:14px;line-height:1.55}.fixpick a{margin-top:auto;font-size:14px;color:var(--accent);font-weight:600}
 @media(max-width:820px){.fixpick{grid-template-columns:1fr}}
+.fsum{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:16px 0 22px}
+.fsum div{background:var(--surface);border:1px solid rgba(47,38,30,.12);border-radius:12px;padding:12px 14px}
+.fsum small{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--brown)}.fsum b{font-family:Fraunces,serif;font-size:24px;font-weight:600}
+.fsum span{display:block;font-size:13px;line-height:1.45}.fsum a{font-size:13px;color:var(--accent);font-weight:600}
+.fgrp{background:var(--surface);border:1px solid rgba(47,38,30,.12);border-radius:14px;padding:16px 18px;margin:0 0 16px}
+.fgrp h4{margin:0 0 2px}.fgrp p{margin:0 0 10px;font-size:14px;color:var(--brown)}.fgrp svg{max-width:100%;height:auto;display:block;margin:6px 0 12px}
 </style>
 </head>
 <body>
@@ -353,9 +359,9 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 
 <section class="bsec" id="lighting">
     <p class="eyebrow">Wall spots, picture bars and lamps · nothing from above</p><h3>Lighting</h3>
-    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: plug-in URTOM spots on wall brackets at 6′-6″ aimed at tables, shelves and the mandir, cordless Craftersmark picture bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and listening wall, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
+    <p class="sec-lede">The gym lights stay off and nothing lights from above, so every display is lit from the walls: plug-in URTOM spots on wall brackets at 6′-6″ aimed at tables, shelves and the mandir, cordless Craftersmark picture bars at 7′-9″ above every panel, the timeline, wardrobe, shelves and every group of photo frames, and lamps in the corners so each room feels like a home. Warm white, 2700–3000K throughout. Numbers match the plan below and the labels in the 3D view (turn on Exhibit lighting).</p>
     <div class="fixpick">
-      <div class="fx yes"><small>Picture bars · 14 + 1 spare = 15</small><b>Craftersmark 16 in cordless picture light</b><span>$19.99 each · 350 lm, CRI 95+, 2700/4500/6500K, 5000 mAh, remote and timer. Cordless, so it sits above every panel with no cable on the painted wall. 16 in covers art up to about 40 in wide; the timeline, wardrobe and listening wall already get two bars each.</span><a href="https://www.amazon.com/dp/B0DBTSQWKY" target="_blank" rel="noopener">View on Amazon</a></div>
+      <div class="fx yes"><small>Picture bars · 21 + 1 spare = 22</small><b>Craftersmark 16 in cordless picture light</b><span>$19.99 each · 350 lm, CRI 95+, 2700/4500/6500K, 5000 mAh, remote and timer. Cordless, so it sits above every panel with no cable on the painted wall. 16 in covers art up to about 40 in wide; the wide pieces get one bar per 40 in: 2 over the timeline and the wardrobe, 3 over the language frames and the bedroom triptych, 2 over the dining gallery wall.</span><a href="https://www.amazon.com/dp/B0DBTSQWKY" target="_blank" rel="noopener">View on Amazon</a></div>
       <div class="fx yes"><small>Wall spots + mandir uplights · 15 + 1 mehndi + 1 spare = 9 packs</small><b>URTOM 3W plug-in spotlight (2-pack)</b><span>$27.99 a pack · 3000K warm, 90° tilt, metal base that screws to the wall, 5.9 ft cord with a foot switch. Wall-mounted for the 13 spots, stood on the floor for U1 and U2. Needs power: one strip per room.</span><a href="https://www.amazon.com/URTOM-Spotlight-Uplighting-Lighting-Uplight/dp/B09X2V7H29" target="_blank" rel="noopener">View on Amazon</a></div>
       <div class="fx no"><small>Not used</small><b>Flush-mount directional spot, 2-pack (GU10)</b><span>$34.99 · hard-wired to a junction box, bulbs not included, and GU10 halogens run hot near foam. Fine in a house, wrong for a temporary build.</span><a href="https://www.amazon.com/dp/B0D2Z5Y716" target="_blank" rel="noopener">View on Amazon</a></div>
     </div>
@@ -377,6 +383,13 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     <p class="sec-lede">Each room is painted its own warm neutral so it reads as a different room of the same home, with one feature wall in a deeper colour behind the room's main piece. The plan further down shows each wall face in its colour. Take the hex codes to the paint store to colour-match; eggshell finish, 2 coats over primer.</p>
     <div class="pcards" id="paintCards"></div>
     <div class="tblwrap"><table id="paintTable"></table></div>
+  </section>
+
+  <section class="bsec" id="frames">
+    <p class="eyebrow">IKEA RÖDALM, black · sizes checked on ikea.com/us</p><h3>Photo frames</h3>
+    <p class="sec-lede">Every frame is the same IKEA range in black, so the photos read as one family collection from room to room. The drawings show each wall to scale, looking at it from the walkway, with heights from the floor. Each frame comes with a mat: use it everywhere except the bedroom triptych, where the image runs edge to edge.</p>
+    <div class="fsum" id="fsum"></div>
+    <div id="fgroups"></div>
   </section>
 
   <section class="bsec" id="b-order">
@@ -412,6 +425,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 /* ================= data: rooms, zones, walkway, lights, walls, lists ================= */
 const fmt=(ft)=>{if(!(ft>0))return '0′-0″';let t=Math.round(ft*12);return Math.floor(t/12)+'′-'+(t%12)+'″';};
 const GOOD=6,OKW=5;
+const LANGS0=['Gujarati','Hindi','Sanskrit','Marathi','Punjabi','Bengali','Tamil','Telugu','Kannada','Malayalam'];
 const status=(c)=>c>=GOOD?'ok':c>=OKW?'warn':'bad';
 const STATUS_TXT={ok:'Groups flow freely',warn:'Pairs only, groups bunch',bad:'Too narrow'};
 
@@ -433,7 +447,7 @@ const isOuterDoor=(d)=>Math.abs(d.x)===HL;
 const ROOMS=[
  {st:1,x0:RD+PT,x1:EWF,cx:RD*1.5,name:'Living room',walk:'Down the middle, easing left to the bedroom door'},
  {st:2,x0:PT,x1:RD-PT,cx:RD/2,name:'Bedroom',walk:'Along the left side, then across to the center door'},
- {st:3,x0:-RD+PT,x1:-PT,cx:-RD/2,name:'Dining room',walk:'Swings to the right side, then back to the center door'},
+ {st:3,x0:-RD+PT,x1:-PT,cx:-RD/2,name:'Dining room',walk:'Straight down the middle, between the dining table and the kitchen'},
  {st:4,x0:WWF,x1:-RD-PT,cx:-RD*1.5,name:'Ghar mandir',walk:'Straight down the middle to the mandir, then left to the exit'}];
 const roomOf=(st)=>ROOMS.find(r=>r.st===st);
 const RCOL={0:'#7A6A2E',1:'#2F6FB3',2:'#B0306A',3:'#2F7D4F',4:'#C0611A'};
@@ -458,33 +472,33 @@ const S=[
   take:'Atithi Devo Bhava: the guest is God.'},
  {short:'Bhasha',name:'Bhasha',en:'Language · Living room',where:'Room 1, 10 × 24 ft · walkway down the middle',
   foot:'Sofa 84 × 36 in · coffee table 48 × 24 in · rug 5 × 8 ft · bookshelf 36 × 12 × 72 in',
-  look:'Visitors walk in down the middle and drift left toward the bedroom door. On the right: sofa and cushions on a 5 × 8 ft rug, the coffee table, a floor lamp in the corner, family photos and a timeline of Indian languages above the sofa. On the left: ten framed greetings in Indian scripts with tablets and headphones beneath. Ahead, on the far wall to the right of the bedroom door: the Bhasha panel and the bookshelf of Gujarati class books and children’s story books.',
+  look:'Visitors walk in down the middle and drift left toward the bedroom door. On the right: sofa and cushions on a 5 × 8 ft rug, the coffee table, a floor lamp in the corner, four framed family photos and a timeline of Indian languages above the sofa. On the left: the listening wall, ten black IKEA frames in two rows, one for each language, with tablets and headphones on the shelf beneath. Ahead, on the far wall to the right of the bedroom door: the Bhasha panel and the bookshelf of Gujarati class books and children’s story books.',
   act:'Listening wall: choose a language on a tablet and hear one general Diwali phrase (to be confirmed, for example “Happy Diwali and a happy New Year”) spoken in 8–10 Indian languages. This replaces the Satsang Diksha shloka. Name writing: at the coffee table, volunteers write each guest’s name in Gujarati, Hindi or another script on a diya-shaped card. Volunteers hand out Gujarati class brochures.',
-  build:'Sofa, 3-seat, 84 × 36 in, back against the north wall · coffee table 48 × 24 in, 16 in in front of the sofa · rug 5 × 8 ft under the front of the sofa and the table · bookshelf 36 in wide × 12 in deep × 72 in tall on divider P1, north end · Bhasha panel 4 × 6 ft on divider P1, between the bookshelf and the bedroom door · listening wall on the south wall: 7 ft shelf at 3 ft 6 in, 3 tablets in locking stands, 3 over-ear headphones, 10 framed greetings above · 7 × 2 ft language timeline over the sofa.',
+  build:'Sofa, 3-seat, 84 × 36 in, back against the north wall · coffee table 48 × 24 in, 16 in in front of the sofa · rug 5 × 8 ft under the front of the sofa and the table · bookshelf 36 in wide × 12 in deep × 72 in tall on divider P1, north end · Bhasha panel 4 × 6 ft on divider P1, between the bookshelf and the bedroom door · listening wall on the south wall: 8 ft shelf at 3 ft 6 in, 3 tablets in locking stands, 3 over-ear headphones · 10 IKEA RÖDALM 12 × 16 in frames hung landscape above the shelf, 2 rows of 5, one language in each (see Photo frames) · 7 × 2 ft language timeline over the sofa · 4 RÖDALM 8 × 10 in family photos above the timeline.',
   vol:'3 people. 1 host at the listening wall who helps with the tablets and hands out Gujarati class brochures. Say: “Our mother tongue connects us to our prayers, our scriptures and our grandparents.” 2 name writers at the coffee table, sitting on the sofa side.',
   home:'Name card · Gujarati class brochure',
   take:'Bhasha teaches us that the words we speak should carry respect, truth and love, and preserving our mother tongue honors our roots.'},
  {short:'Bhusha',name:'Bhusha',en:'Dress · Bedroom',where:'Room 2, 10 × 24 ft · walkway along the left side',
   foot:'Wardrobe 72 × 24 × 84 in · jewellery table 72 × 30 in (island)',
-  look:'The walkway runs along the left side of the room, so everything to see is on the right. The open wardrobe of sarees, chaniya choli, kurtas and paghs stands on the right-hand wall, tagged by occasion: wedding (red and gold), festival and mandir (bright colors), mourning (white). The jewellery table stands in the middle of the room as an island: bangles, necklaces and an ornate box holding the “virtue jewels”: kindness, humility, compassion. Ahead, either side of the dining room door: “What we wear, when” on the right and the Bhusha panel on the left.',
+  look:'The walkway runs along the left side of the room, past three tall black-framed portraits hung side by side as one art piece. Everything to stop at is on the right. The open wardrobe of sarees, chaniya choli, kurtas and paghs stands on the right-hand wall, tagged by occasion: wedding (red and gold), festival and mandir (bright colors), mourning (white). The jewellery table stands in the middle of the room as an island: bangles, necklaces and an ornate box holding the “virtue jewels”: kindness, humility, compassion. Ahead, either side of the dining room door: “What we wear, when” on the right and the Bhusha panel on the left.',
   act:'Step off the walkway to the jewellery table, try on bangles and lift the lid of the box to find the inner adornment. Walk round the west end of the table to browse the wardrobe and match each outfit to its occasion. The photo booth is removed. The mehndi booth is a maybe: if it goes ahead, it takes the north-west corner (use the toggle in the 3D view).',
-  build:'Open wardrobe 72 in wide × 24 in deep × 84 in tall on the north wall, east end (or two 36 in garment racks with a back panel), 12–15 outfits on hangers with 3 occasion tags · jewellery table 72 × 30 in as an island in the middle of the room, long side facing the walkway, 2 ft clear behind it for the volunteer, floor-length cloth, costume jewellery and the ornate box · “What we wear, when” panel 4 × 6 ft on divider P2, right of the dining room door · Bhusha panel 4 × 6 ft on divider P2, left of the door at the end of the walkway · mehndi booth (maybe): 24 × 18 in table and 2 stools in the north-west corner.',
+  build:'Open wardrobe 72 in wide × 24 in deep × 84 in tall on the north wall, east end (or two 36 in garment racks with a back panel), 12–15 outfits on hangers with 3 occasion tags · triptych on the south wall along the walkway: 3 IKEA RÖDALM 19¾ × 27½ in frames, portrait, 4 in apart, one image split across all three · jewellery table 72 × 30 in as an island in the middle of the room, long side facing the walkway, 2 ft clear behind it for the volunteer, floor-length cloth, costume jewellery and the ornate box · “What we wear, when” panel 4 × 6 ft on divider P2, right of the dining room door · Bhusha panel 4 × 6 ft on divider P2, left of the door at the end of the walkway · mehndi booth (maybe): 24 × 18 in table and 2 stools in the north-west corner.',
   vol:'3 people. 1 host at the wardrobe. Say: “Clothes match the mood of the moment. US brides wear white, but for Hindus white is for mourning, so Hindu brides traditionally wear red.” Ready for “Can I wear Indian clothes?” Yes, welcome! 1 behind the jewellery table (wardrobe side) running the box reveal. 1 floater who restocks and keeps the walkway moving (or the mehndi artist, if the booth is added).',
   home:'Nothing to take here (the polaroid is removed)',
   take:'Bhusha reminds us that true adornment lies not only in what we wear, but in the virtues we cultivate within.'},
- {short:'Bhojan',name:'Bhojan',en:'Food · Dining room',where:'Room 3, 10 × 24 ft · walkway on the right side',
-  foot:'Kitchen counter 96 × 24 × 36 in · dining table 72 × 36 in (island)',
-  look:'The room is flipped: the walkway swings over to the right side of the room, the kitchen counter is on the left wall and the dining table stands between them as an island. The kitchen has a masala dabba, steel and brass vessels and jars of Diwali snacks on the shelves behind, with the sattvic panel above the counter. The dining table holds regional thalis (more than Gujarati: Punjabi, South Indian, Bengali) and recipe cards on a stand.',
-  act:'Live tasting of pre-packed Diwali sweets and snacks on the walkway side of the dining table, with the recipe cards. Then round the table to the kitchen counter for guess the spice: smell the covered jars, guess the spice and name a dish it goes into.',
-  build:'Kitchen counter 96 in long × 24 in deep × 36 in high on the south wall (two 48 in base units, or skirted folding tables with a counter top), 2 shelves on the wall above its west half, the sattvic panel (4 × 3 ft) above its east half, a masala dabba and 6–8 covered spice jars · dining table 72 × 36 in as an island, long side facing the walkway: tasting on the walkway side, servers on the kitchen side · Bhojan panel with the Annakut invitation 4 × 6 ft on divider P3, left of the doorway to the ghar mandir.',
+ {short:'Bhojan',name:'Bhojan',en:'Food · Dining room',where:'Room 3, 10 × 24 ft · walkway down the middle',
+  foot:'Kitchen counter 96 × 24 × 36 in · dining table 72 × 36 in on the right · 7-frame gallery wall',
+  look:'The walkway runs straight down the middle. The dining table is on the right, against the north wall, with a gallery wall of family photos in black frames of different sizes behind it; the kitchen counter is on the left wall. The kitchen has a masala dabba, steel and brass vessels and jars of Diwali snacks on the shelves behind, with the sattvic panel above the counter. The dining table holds regional thalis (more than Gujarati: Punjabi, South Indian, Bengali) and recipe cards on a stand.',
+  act:'Live tasting of pre-packed Diwali sweets and snacks at the dining table on the right, served across the table from the wall side, with the recipe cards. Then across the walkway to the kitchen counter for guess the spice: smell the covered jars, guess the spice and name a dish it goes into.',
+  build:'Kitchen counter 96 in long × 24 in deep × 36 in high on the south wall (two 48 in base units, or skirted folding tables with a counter top), 2 shelves on the wall above its west half, the sattvic panel (4 × 3 ft) above its east half, a masala dabba and 6–8 covered spice jars · dining table 72 × 36 in on the right (north) side, 2′-6″ off the north wall so the servers stand behind it, long side facing the walkway · gallery wall on the north wall behind the table: 7 IKEA RÖDALM frames in 4 sizes (19¾ × 27½, 16 × 20, 12 × 16 and four 8 × 10), tops lined up at 7′-2″ · Bhojan panel with the Annakut invitation 4 × 6 ft on divider P3, left of the doorway to the ghar mandir.',
   vol:'3 people. 1 host. Say: “Food is offered to God first. We are vegetarian because of ahimsa, and what we eat affects the mind.” Ready for “Why no onion or garlic?” 1 tasting server behind the dining table (kitchen side): gloves, allergen labels, portion control. 1 spice guide at the counter who names each spice and its Ayurvedic use.',
   home:'Recipe card',
   take:'Bhojan teaches us to nourish our bodies and minds with care, and to share food with generosity and love.'},
  {short:'Bhajan',name:'Bhajan',en:'Devotion · Ghar mandir',where:'Room 4, 10 × 24 ft · walkway down the middle to the mandir, exit to Manyata on the left',
-  foot:'Ghar mandir 48 × 30 × 84 in · 2 instrument rugs 4 × 4 ft · rug in front of the mandir',
-  look:'The walkway runs straight down the middle from the dining room door to the ghar mandir, the centerpiece of the far wall, so visitors see it the moment they walk in. It is decorated with flowers, with string lights overhead giving the room a warm glow. On either side of the walkway, just inside the door, is a rug with cushions and instruments: the harmonium on the right, tabla, manjira and kartal on the left. After offering petals on the rug in front of the mandir, visitors turn left and leave through the exit beside the mandir, past the closing reflection. Soft bhajans play in the background.',
+  foot:'Ghar mandir 48 × 30 × 84 in · Bhajan panel beside it · 2 instrument rugs 4 × 4 ft · rug in front of the mandir · 6 photo frames',
+  look:'The walkway runs straight down the middle from the dining room door to the ghar mandir, the centerpiece of the far wall, so visitors see it the moment they walk in. It is decorated with flowers, with string lights overhead giving the room a warm glow. On either side of the walkway, just inside the door, is a rug with cushions and instruments: the harmonium on the right, tabla, manjira and kartal on the left, each under a cluster of three black-framed photos of ghar sabha, kirtan and arti. The Bhajan panel hangs on the far wall to the right of the mandir, so the two are read together. After offering petals on the rug in front of the mandir, visitors turn left and leave through the exit beside the mandir. Soft bhajans play in the background.',
   act:'Offer flower petals at the ghar mandir (petals replace lighting diyas). Try the instruments with guided instructors in 1–2 minute mini lessons: harmonium on the right, tabla and percussion on the left. Music class brochures are handed out at the exit.',
-  build:'Ghar mandir about 48 in wide × 30 in deep × 84 in tall including its platform, centered on the west wall and facing the door · petal offering stand 30 × 12 in in front of it, with 2 bowls of petals and a thal · 2 URTOM spots on the floor as uplights at the mandir base · string lights: 4 runs across the room from wall top to wall top, plus a frame around the mandir · 2 rugs 4 × 4 ft in the corners by the door, a 3 × 4 ft rug in front of the mandir, 3 floor cushions on each: harmonium and bhajan books on the right (north), tabla pair, 2 pairs of manjira and 2 pairs of kartal on the left (south) · small speaker for background bhajans · a music class brochure holder at the exit · Bhajan panel on the north wall above the harmonium, closing reflection with “Next: Manyata” on the south wall above the tabla · an exit sign beside the exit.',
+  build:'Ghar mandir about 48 in wide × 30 in deep × 84 in tall including its platform, centered on the west wall and facing the door · petal offering stand 30 × 12 in in front of it, with 2 bowls of petals and a thal · 2 URTOM spots on the floor as uplights at the mandir base · string lights: 4 runs across the room from wall top to wall top, plus a frame around the mandir · 2 rugs 4 × 4 ft in the corners by the door, a 3 × 4 ft rug in front of the mandir, 3 floor cushions on each: harmonium and bhajan books on the right (north), tabla pair, 2 pairs of manjira and 2 pairs of kartal on the left (south) · small speaker for background bhajans · a music class brochure holder at the exit · Bhajan panel 4 × 6 ft on the west wall to the right of the mandir · photo frames over each instrument rug: an IKEA RÖDALM 19¾ × 27½ in frame between two 12 × 16 in frames (6 frames in all).',
   vol:'3 people. 1 host just inside the door who explains the ghar mandir, keeps the petal offering tidy and refilled, and points visitors to the exit on the left. Say: “Every evening at ghar sabha, the family prays and sings together.” Ready for “Who is in the mandir?” 2 instrument guides, one on each rug, who run the mini lessons and hand out music class brochures as visitors leave.',
   home:'Music class brochure',
   take:'Bhajan teaches us that devotion can illuminate our inner world just as diyas illuminate our homes.'}
@@ -500,7 +514,7 @@ const ZN=[
  {st:1,obj:[13.5,17.5,-7.85,-5.85],use:[13.5,17.5,-5.85,-3.35],label:'Coffee table + name writing',ol:'coffee table'},
  {st:1,obj:[10+PT,11.2,-8.5,-5.5],use:[11.2,13.2,-8.5,-5.5],label:'Bookshelf + browsers',ol:'books'},
  {st:1,kind:'view',obj:[10+PT,10.3,-3.5,.5],use:[10.3,11.7,-3.5,.5],label:'Bhasha panel readers'},
- {st:1,obj:[12.5,19.5,11.25,12.25],use:[12.5,19.5,8.75,11.25],label:'Listening wall: tablets + headphones',ol:'listening wall'},
+ {st:1,obj:[11,19,11.25,12.25],use:[11,19,8.75,11.25],label:'Listening wall: 10 framed languages, tablets + headphones',ol:'listening wall'},
  {st:2,kind:'view',obj:[PT,.3,-8.75,-4.75],use:[.3,1.7,-8.75,-4.75],label:'“What we wear” panel readers'},
  {st:2,obj:[3.6,9.6,-12.25,-10.25],use:[3.6,9.6,-10.25,-7.75],label:'Open wardrobe 72 × 24 in + browsers',ol:'wardrobe'},
  {st:2,kind:'opt',obj:[PT,3.2,-12.25,-9.25],label:'Mehndi booth (maybe)',ol:'mehndi?'},
@@ -508,8 +522,8 @@ const ZN=[
  {st:2,obj:[3.6,9.6,-5.25,-2.75],use:[3.6,9.6,-2.75,-.25],label:'Jewellery table 72 × 30 in + visitors',ol:'jewellery table'},
  {st:2,kind:'view',obj:[PT,.3,5.75,9.75],use:[.3,1.7,5.75,9.75],label:'Bhusha panel readers'},
  {st:3,obj:[-8.2,-.2,10.25,12.25],use:[-8.2,-.2,8.25,10.25],label:'Kitchen counter 96 × 24 in + spice game',ol:'kitchen counter'},
- {st:3,kind:'staff',obj:[-8,-2,6,7.75],label:'Tasting team behind the table'},
- {st:3,obj:[-8,-2,3,6],use:[-8,-2,.5,3],label:'Dining table 72 × 36 in + tasting',ol:'dining table'},
+ {st:3,nz:true,kind:'staff',obj:[-8,-2,NWF,-9.25],label:'Tasting team behind the table'},
+ {st:3,nz:true,obj:[-8,-2,-9.25,-6.25],use:[-8,-2,-6.25,-3.75],label:'Dining table 72 × 36 in + tasting',ol:'dining table'},
  {st:3,kind:'view',obj:[-10+PT,-9.7,5.25,9.25],use:[-9.7,-8.3,5.25,9.25],label:'Bhojan panel readers'},
  {st:4,obj:[-19.75,-17.25,-2,2],label:'Ghar mandir 48 × 30 in',ol:'mandir'},
  {st:4,ax:-20,obj:[-17.25,-16.25,-1.25,1.25],use:[-16.25,-14.75,-1.75,1.75],flow:true,label:'Petal stand + devotees offering',ol:'petals'},
@@ -518,6 +532,7 @@ const ZN=[
  /* added in the 40 × 24 ft frame (nz: not moved) */
  {st:2,nz:true,kind:'rug',obj:[1.8,9.8,-6.6,-1.6],label:'Rug 5 × 8 ft under the jewellery table',ol:'rug',make:'rug2'},
  {st:3,nz:true,kind:'rug',obj:[-7.7,-.7,7.75,9.75],label:'Kitchen runner 2 × 7 ft',ol:'runner',make:'runner'},
+ {st:4,nz:true,kind:'view',obj:[WWF,-19.6,-7.25,-3.25],use:[-19.6,-18.2,-7.25,-3.25],label:'Bhajan panel readers'},
  {st:4,nz:true,kind:'rug',obj:[-16.2,-13.2,-2,2],label:'Rug 3 × 4 ft in front of the mandir',make:'mrug'},
  {st:1,nz:true,obj:[11,12,-11.6,-10.6],label:'Floor lamp'},
  {st:2,nz:true,obj:[8.6,9.6,10.6,11.6],label:'Floor lamp'},
@@ -526,7 +541,7 @@ let MEH=false;
 
 /* ---------- visitor path (west through the home), out through the one exit at the south end of the west wall ---------- */
 const TRUNK=[[30,.3],[24,.15],[20,0],[18.6,.2],[16.8,1.1],[14.8,2.9],[12.8,4.7],[11.2,5.7],[10,6],[8.4,6.1],[6.6,5.9],[4.8,5.1],[3.1,3.6],[1.6,1.7],[.6,.4],[0,0],
- [-1.2,-1.3],[-2.8,-3.1],[-5,-3.9],[-7.2,-3.1],[-8.8,-1.3],[-10,0],[-11.6,0],[-13.2,0]];
+ [-1.5,.4],[-3.5,.7],[-5,.8],[-6.5,.7],[-8.5,.4],[-10,0],[-11.6,0],[-13.2,0]];
 const BRANCH=[[-14.5,.6],[-15.6,2.2],[-16.7,4.1],[-17.9,5.9],[-19,7.3],[-20.2,7.8],[-22.5,7.9],[-26,7.4]];
 const SPLITX=-13.2*SX;
 const ROUTES=[TRUNK.concat(BRANCH)];
@@ -571,8 +586,9 @@ const NF=NWF+.15,SF=SWF-.15,SY=6.5,BY=7.75;
  L('L03',1,'bar',[13.75,BY,NF],[13.75,5.5,NWF],'Language timeline, west half, and family photos');
  L('L04',1,'bar',[17.25,BY,NF],[17.25,5.5,NWF],'Language timeline, east half, and family photos');
  L('L05',1,'bar',[RD+.35,BY,-1.5],[RD+.2,4.5,-1.5],'Bhasha panel');
- L('L06',1,'bar',[14.2,BY,SF],[14.2,4.6,SWF],'Listening wall, west half: frames and tablets');
- L('L07',1,'bar',[17.8,BY,SF],[17.8,4.6,SWF],'Listening wall, east half: frames and tablets');
+ L('L06',1,'bar',[17.8,BY,SF],[17.8,5.4,SWF],'Language frames and tablets, east third');
+ L('L07',1,'bar',[15,BY,SF],[15,5.4,SWF],'Language frames and tablets, middle third');
+ L('L32',1,'bar',[12.2,BY,SF],[12.2,5.4,SWF],'Language frames and tablets, west third');
  L('L08',1,'spot',[RD+PT+.15,SY,-9.9],[10.6,3.4,-7],'Bookshelf');
  L('L09',1,'spot',[19.1,SY,NF],[15.5,1.4,-6.85],'Coffee table: name writing');
  L('L10',1,'lamp',[11.5,5,-11.1],[11.5,0,-11.1],'Floor lamp in the corner by the sofa',{mount:'Floor, north-west corner beside the sofa'});
@@ -583,20 +599,26 @@ const NF=NWF+.15,SF=SWF-.15,SY=6.5,BY=7.75;
  L('L15',2,'spot',[RD-PT-.15,SY,-4],[7.6,2.6,-4],'Jewellery table, east half and the jewellery box');
  L('L16',2,'spot',[PT+.15,SY,-4.45],[4.8,2.6,-4],'Jewellery table, west half');
  L('L17',2,'spot',[1.7,SY,NF],[1.7,2.4,-10],'Mehndi booth (only if it is added)',{opt:true});
+ L('L33',2,'bar',[7.04,BY,SF],[7.04,5,SWF],'Triptych, east frame');
+ L('L34',2,'bar',[5,BY,SF],[5,5,SWF],'Triptych, middle frame');
+ L('L35',2,'bar',[2.96,BY,SF],[2.96,5,SWF],'Triptych, west frame');
  L('L18',2,'lamp',[9.1,5,11.1],[9.1,0,11.1],'Floor lamp in the corner by the doorway',{mount:'Floor, south-east corner beside the P1 return'});
  L('L19',3,'bar',[-2.2,BY,SF],[-2.2,5.5,SWF],'Sattvic panel above the counter');
  L('L20',3,'bar',[-RD+PT+.15,BY,7.25],[-9.8,4.5,7.25],'Bhojan panel and Annakut invitation');
  L('L21',3,'bar',[-6.2,BY,SF],[-6.2,4.5,SWF],'Kitchen shelves and counter, west half');
- L('L22',3,'spot',[-RD+PT+.15,SY,4.6],[-6.5,2.6,4.75],'Dining table, west half: thalis');
- L('L23',3,'spot',[-PT-.15,SY,5],[-3.5,2.6,4.75],'Dining table, east half: tasting and recipe cards');
+ L('L22',3,'spot',[-RD+PT+.15,SY,-8],[-6.5,2.6,-7.6],'Dining table, west half: thalis');
+ L('L23',3,'spot',[-PT-.15,SY,-8],[-3.5,2.6,-7.6],'Dining table, east half: tasting and recipe cards');
+ L('L36',3,'bar',[-6.8,BY,NF],[-6.8,5.8,NWF],'Gallery wall behind the dining table, west half');
+ L('L37',3,'bar',[-3.2,BY,NF],[-3.2,5.8,NWF],'Gallery wall behind the dining table, east half');
  L('L24',3,'spot',[-PT-.15,SY,10.6],[-1.6,3.3,10.6],'Spice game at the east end of the counter');
  L('L25',3,'lamp',[-7.7,3.9,10.75],[-7.7,3,10.75],'Small table lamp on the counter',{mount:'Kitchen counter, west end'});
  L('L26',4,'spot',[-RD-PT-.15,SY,-5.6],[-18.5,3.6,-.5],'Ghar mandir, from the right',{color:0xFFD2A0});
  L('L27',4,'spot',[-RD-PT-.15,SY,5.6],[-18.5,3.6,.5],'Ghar mandir, from the left',{color:0xFFD2A0});
- L('L28',4,'bar',[-12.3,BY,NF],[-12.3,4.5,NWF],'Bhajan panel');
- L('L29',4,'bar',[-12.3,BY,SF],[-12.3,4.5,SWF],'Closing panel and “Next: Manyata”');
- L('L30',4,'spot',[-15,SY,NF],[-12.2,1,-9.7],'Harmonium rug');
- L('L31',4,'spot',[-15,SY,SF],[-12.2,1,9.7],'Tabla rug');
+ L('L28',4,'bar',[WWF+.15,BY,-5.25],[WWF,4.5,-5.25],'Bhajan panel, beside the mandir',{mount:'West wall, 7′-9″ up, centered over the Bhajan panel, '+fmt(-5.25-NWF)+' from the north wall'});
+ L('L29',4,'bar',[-12.6,BY,SF],[-12.6,5.6,SWF],'Photo frames above the tabla rug');
+ L('L38',4,'bar',[-12.6,BY,NF],[-12.6,5.6,NWF],'Photo frames above the harmonium rug');
+ L('L30',4,'spot',[-15.7,SY,NF],[-12.2,1,-9.7],'Harmonium rug');
+ L('L31',4,'spot',[-15.7,SY,SF],[-12.2,1,9.7],'Tabla rug');
 })();
 const UPS=[{id:'U1',st:4,type:'up',f:[-16.9,.25,-1.8],t:[-18.9,4.2,-.8],aim:'Ghar mandir base, right'},{id:'U2',st:4,type:'up',f:[-16.9,.25,1.8],t:[-18.9,4.2,.8],aim:'Ghar mandir base, left'}];
 const STRING_X=[-18.6,-16.4,-14.2,-12];
@@ -624,19 +646,18 @@ const PANELS=[
  {st:2,x:PT,z:7.75,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P2, left of the dining room door, at the end of the walkway',kick:'02 · Bedroom',title:'Bhusha',en:'Adornment',storyTitle:'True adornment is worn on the inside',story:'Clothes match the mood of the moment, but the jewels that last are kindness, humility and compassion.',prompt:'Lift the jewellery box to find them',sky:'#F2D6DF'},
  {st:3,x:-2.2,z:SWF,ry:Math.PI,w:4,h:3,y:5.75,where:'Dining room south wall, above the counter',kick:'03 · Dining room',title:'Sattvic',en:'Rajasic · Tamasic',storyTitle:'Food affects the mind',story:'Sattvic food is fresh, light and pure. Rajasic food excites; tamasic food dulls. Turmeric, clove and cinnamon have been used for health in Ayurveda for centuries.',prompt:'Can you guess the spice?',sky:'#DDEBDD'},
  {st:3,x:-10+PT,z:7.25,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P3, left of the ghar mandir door',kick:'03 · Dining room',title:'Bhojan',en:'Food',storyTitle:'Offered first, shared with gratitude',story:'We offer our food to Bhagwan first and receive it as prasad. Join us for Annakut darshan, when hundreds of dishes are offered at the mandir.',prompt:'You are invited to Annakut darshan',sky:'#DDEBDD'},
- {st:4,x:-12.3,z:NWF,ry:0,w:4,h:6,y:4.5,where:'North wall, above the harmonium carpet',kick:'04 · Ghar mandir',title:'Bhajan',en:'Devotion',storyTitle:'Ghar sabha',story:'Every evening the family gathers at the ghar mandir to pray and sing together. Bhajans of Meera Bai, Narsi Mehta, Tulsidas and Surdas have been sung in homes for centuries.',prompt:'Try an instrument with us',sky:'#F6DFC4'},
- {st:4,x:-12.3,z:SWF,ry:Math.PI,w:4,h:6,y:4.5,where:'South wall, above the tabla carpet',kick:'Closing reflection',title:'Jivan Shaili',en:'A way of life',storyTitle:'Bhasha · Bhusha · Bhojan · Bhajan',story:'Together they build our identity: cultural pride, inner purity, mindful habits and heartfelt devotion. This Diwali, may these values light your life.',prompt:'Next: Manyata  ←',sky:'#F6DFC4'}];
-/* exit signs on the north and south walls, beside each exit: [x, z, rotY] */
-const EXITSIGNS=[[-17.6,SWF,Math.PI]];
+ {st:4,x:WWF,z:-5.25,ry:Math.PI/2,w:4,h:6,y:4.5,where:'West wall, to the right of the ghar mandir',kick:'04 · Ghar mandir',title:'Bhajan',en:'Devotion',storyTitle:'Ghar sabha',story:'Every evening the family gathers at the ghar mandir to pray and sing together. Bhajans of Meera Bai, Narsi Mehta, Tulsidas and Surdas have been sung in homes for centuries.',prompt:'Try an instrument with us',sky:'#F6DFC4'}];
+/* exit signs: none (the closing panel and Manyata sign are removed) */
+const EXITSIGNS=[];
 
 /* ---------- camera views, selection rings, labels, volunteers ---------- */
 const VIEWS=[{p:[36,12,15],l:[20,3.4,0]},{p:[21,30,27],l:[15,1,-1]},{p:[11,30,27],l:[5,1,-1]},{p:[1,30,27],l:[-5,1,-1]},{p:[-1.5,15,5],l:[-16.5,2.5,0]}];
-const SPOTS=[[22,0],[15,2.4],[6.6,5.9],[-5,-3.9],[-13,0]];
+const SPOTS=[[22,0],[15,2.4],[6.6,5.9],[-5,.8],[-13,0]];
 const LBL=[[24.5,11.8,0],[15,11.8,1],[5,11.8,1],[-5,11.8,1],[-15,11.8,1]];
 const VOLS=[[0,21,-5.1,0,'Greeter'],[0,21,5.1,0,'Greeter'],
  [1,16,8.2,0,'Host'],[1,14.5,-9.7,1,'Name writer'],[1,16.5,-9.7,1,'Name writer'],
  [2,2.5,-6.6,0,'Host'],[2,6.8,-6.25,0,'Jewellery table'],[2,1.6,-2.4,0,'Floater'],
- [3,-1.3,6,0,'Host'],[3,-5,7.25,0,'Tasting server'],[3,-1.2,8.8,0,'Spice guide'],
+ [3,-1.5,-4.9,0,'Host'],[3,-5,-10.4,0,'Tasting server'],[3,-1.2,8.8,0,'Spice guide'],
  [4,-11.4,-5.4,0,'Host'],[4,-12.2,-10.1,1,'Instrument guide'],[4,-12.2,10.1,1,'Instrument guide']];
 
 /* ---------- MOVE: shift everything written in the 40 ft frame into the 45 ft frame ---------- */
@@ -652,14 +673,57 @@ EXITSIGNS.forEach(e=>{e[0]+=20-HL;});
 VIEWS.forEach((v,i)=>{v.p[0]+=RDX[i];v.l[0]+=RDX[i];});SPOTS.forEach((p,i)=>{p[0]+=RDX[i];});LBL.forEach((p,i)=>{p[0]+=RDX[i];});
 VOLS.forEach(v=>{v[1]+=v[4]==='Instrument guide'?10-RD:RDX[v[0]];});
 
+/* ---------- photo frames: IKEA RÖDALM, black, checked on ikea.com/us (Nov 2026) ----------
+   ow × oh = outside size of the frame in inches; mat = print size seen through the included mat; full = print size without the mat */
+const FSZ={
+ s:{k:'8 × 10',ow:8.75,oh:10.75,mat:'5 × 7 in',full:'8 × 10 in',price:7.99,art:'505.488.89',u:'https://www.ikea.com/us/en/p/roedalm-frame-black-50548889/'},
+ m:{k:'12 × 16',ow:12.75,oh:16.75,mat:'8 × 10 in',full:'12 × 16 in',price:11.99,art:'005.488.96',u:'https://www.ikea.com/us/en/p/roedalm-frame-black-00548896/'},
+ l:{k:'16 × 20',ow:16.75,oh:20.75,mat:'12 × 16 in',full:'16 × 20 in',price:16.99,art:'405.489.03',u:'https://www.ikea.com/us/en/p/roedalm-frame-black-40548903/'},
+ x:{k:'19¾ × 27½',ow:20.5,oh:28.25,mat:'15¾ × 19¾ in',full:'19¾ × 27½ in',price:24.99,art:'705.489.25',u:'https://www.ikea.com/us/en/p/roedalm-frame-black-70548925/'}};
+const FRAMES=[],FGROUPS=[];
+/* wall N/S/W, c = position along the wall (x on N/S, z on W), y = center height, o = P portrait / L landscape */
+const FR=(g,st,wall,c,y,sz,o,mat,what,lang)=>{const S0=FSZ[sz],w=(o==='P'?S0.ow:S0.oh)/12,h=(o==='P'?S0.oh:S0.ow)/12;
+ const x=wall==='W'?WWF:c,z=wall==='N'?NWF:wall==='S'?SWF:c,ry=wall==='N'?0:wall==='S'?Math.PI:Math.PI/2;
+ FRAMES.push({g,st,wall,c,y,sz,o,mat,w,h,x,z,ry,what,lang,id:'F'+String(FRAMES.length+1).padStart(2,'0')});};
+(function(){
+ // living room: the listening wall, one language per frame, 2 rows of 5 over the tablet shelf (left to right as you face it: east to west)
+ FGROUPS.push({g:'lang',st:1,name:'Listening wall: one language per frame',where:'Living room south wall, over the tablet shelf, 2 rows of 5, 4 in apart, bottom row at 4′-8″',light:'L06, L07, L32 picture bars'});
+ LANGS0.forEach((l,k)=>FR('lang',1,'S',18.5-(k%5)*1.75,k<5?6.5:5.2,'m','L',true,'“'+l+'”: the Diwali wish written in '+l+', with its transliteration and the language name',l));
+ // living room: family photos above the language timeline
+ FGROUPS.push({g:'fam',st:1,name:'Family photos above the language timeline',where:'Living room north wall, above the timeline over the sofa, 6′-8″ to 7′-7″ up',light:'L03, L04 picture bars'});
+ [12.3,15.05,15.95,18.7].forEach(x=>FR('fam',1,'N',x,7.1,'s','P',true,'Family photo: grandparents, a wedding, a Diwali at home'));
+ // bedroom: a triptych on the left (south) wall along the walkway
+ FGROUPS.push({g:'trip',st:2,name:'Triptych along the walkway',where:'Bedroom south wall (on your left as you walk through), centered on the room, 4 in apart, 3′-10″ to 6′-2″ up',light:'L33, L34, L35 picture bars'});
+ [7.04,5,2.96].forEach((x,k)=>FR('trip',2,'S',x,5,'x','P',false,['Left','Middle','Right'][k]+' third of one image printed across three frames, e.g. a bride’s mehndi hands, bangles and red-and-gold saree'));
+ // dining room: gallery wall of mixed sizes behind the dining table
+ FGROUPS.push({g:'dine',st:3,name:'Gallery wall behind the dining table',where:'Dining room north wall, centered over the table, 4–8 in apart, the large center frame from 4′-9″ to 7′-2″',light:'L36, L37 picture bars'});
+ FR('dine',3,'N',-8.09,5.9,'s','P',true,'A grandmother’s handwritten recipe');
+ FR('dine',3,'N',-6.79,6.45,'m','P',true,'Family cooking together for Diwali');
+ FR('dine',3,'N',-6.79,5.05,'s','P',true,'A plate of mithai');
+ FR('dine',3,'N',-5,5.95,'x','P',true,'Annakut at the mandir, the centerpiece of the wall');
+ FR('dine',3,'N',-3.05,6.3,'l','P',true,'A family meal around a thali');
+ FR('dine',3,'N',-3.05,4.86,'s','L',true,'Rangoli of spices or rice');
+ FR('dine',3,'N',-1.59,5.9,'s','P',true,'Prasad being offered');
+ // ghar mandir: a cluster over each instrument rug where the Bhajan panel and the closing panel were
+ FGROUPS.push({g:'bhN',st:4,name:'Photo frames above the harmonium rug',where:'Ghar mandir north wall (right of the walkway), centered over the rug, 3½ in apart',light:'L38 picture bar, L30 wall spot'});
+ FR('bhN',4,'N',-14.285,5.6,'m','P',true,'Ghar sabha: a family praying together');
+ FR('bhN',4,'N',-12.6,5.6,'x','P',true,'Kirtan at the mandir, the large center frame');
+ FR('bhN',4,'N',-10.915,5.6,'m','P',true,'Children learning the harmonium');
+ FGROUPS.push({g:'bhS',st:4,name:'Photo frames above the tabla rug',where:'Ghar mandir south wall (left of the walkway), centered over the rug, 3½ in apart',light:'L29 picture bar, L31 wall spot'});
+ FR('bhS',4,'S',-10.915,5.6,'m','P',true,'Arti at home with diyas');
+ FR('bhS',4,'S',-12.6,5.6,'x','P',true,'A family singing bhajans together, the large center frame');
+ FR('bhS',4,'S',-14.285,5.6,'m','P',true,'Tabla and manjira at a youth sabha');
+})();
+const frameCount=()=>{const n={};FRAMES.forEach(f=>{n[f.sz]=(n[f.sz]||0)+1;});return n;};
+
 /* ---------- walls ---------- */
 const WALLS=[
- {id:'W1',name:'North wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Sofa, timeline and photos (sage feature wall) · wardrobe on a dusty rose feature wall · plain beside the dining walkway · Bhajan panel above the harmonium',tag:[0,-HW]},
- {id:'W2',name:'South wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Listening wall · plain beside the bedroom walkway · kitchen counter, shelves and sattvic panel on a terracotta feature wall · closing panel above the tabla, exit sign',tag:[0,HW]},
+ {id:'W1',name:'North wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Sofa, timeline and photos (sage feature wall) · wardrobe on a dusty rose feature wall · gallery wall behind the dining table · 3 photo frames above the harmonium',tag:[0,-HW]},
+ {id:'W2',name:'South wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Listening wall with 10 language frames · bedroom triptych along the walkway · kitchen counter, shelves and sattvic panel on a terracotta feature wall · 3 photo frames above the tabla',tag:[0,HW]},
  {id:'W3',name:'East wall, house front',segs:[8,8],dbl:true,t:'4½″',type:'Double-faced · 8 ft door in the center, a window cut into each side',faces:'Outside: sandstone house front, foam door frame and arch, two windows with chhajja canopies, banner · inside: plain, windows look into the living room',tag:[HL,0]},
- {id:'W4',name:'West wall, behind the mandir',segs:[16],dbl:false,t:'3″',type:'Single-faced · 4 panels; the exit to Manyata is the opening at its south (left) end',faces:'Ghar mandir centered on a deep maroon feature wall',tag:[-HL,0]},
+ {id:'W4',name:'West wall, behind the mandir',segs:[16],dbl:false,t:'3″',type:'Single-faced · 4 panels; the exit to Manyata is the opening at its south (left) end',faces:'Ghar mandir centered on a deep maroon feature wall, Bhajan panel to its right (north)',tag:[-HL,0]},
  {id:'P1',name:'Divider P1, living | bedroom',segs:[13,2],dbl:true,t:'4½″',type:'Double-faced · door at its south (left) end, 2 ft return against the south wall',faces:'East face: bookshelf, Bhasha panel · west face: spot for the jewellery table',tag:[RD,0]},
- {id:'P2',name:'Divider P2, bedroom | dining',segs:[7.5,7.5],dbl:true,t:'4½″',type:'Double-faced · door in the center',faces:'East face: “What we wear” panel (north of the door), Bhusha panel (south) · west face: spots for the dining table and spice game',tag:[0,0]},
+ {id:'P2',name:'Divider P2, bedroom | dining',segs:[7.5,7.5],dbl:true,t:'4½″',type:'Double-faced · door in the center',faces:'East face: “What we wear” panel (north of the door), Bhusha panel (south) · west face: wall spots for the dining table and the spice game',tag:[0,0]},
  {id:'P3',name:'Divider P3, dining | ghar mandir',segs:[7.5,7.5],dbl:true,t:'4½″',type:'Double-faced · door in the center, in line with the mandir',faces:'East face: Bhojan panel (south of the door) · west face: spots for the mandir, the instrument rugs either side of the door',tag:[-RD,0]}];
 
 /* ---------- paint: each room its own warm neutral, plus one feature wall ---------- */
@@ -735,6 +799,18 @@ const T_listen=()=>tex('listen',()=>canvasTex(1792,768,(c,W,H)=>{c.fillStyle='#F
   const fw=290,fh=250,gx=(W-120-5*fw)/4;LANGS.forEach((l,k)=>{const x=60+(k%5)*(fw+gx),y=150+Math.floor(k/5)*(fh+40);
     c.fillStyle='#6B4A2E';c.fillRect(x,y,fw,fh);c.fillStyle=IVORY;c.fillRect(x+16,y+16,fw-32,fh-32);diya(c,x+fw/2,y+110,30);
     c.fillStyle=INK;c.textAlign='center';c.font='600 34px '+FB;c.fillText(l,x+fw/2,y+170);c.fillStyle='#8A7A80';c.font='italic 400 22px '+FB;c.fillText('[Diwali phrase]',x+fw/2,y+206);c.textAlign='left';});}));
+const NATIVE={Gujarati:'ગુજરાતી',Hindi:'हिन्दी',Sanskrit:'संस्कृतम्',Marathi:'मराठी',Punjabi:'ਪੰਜਾਬੀ',Bengali:'বাংলা',Tamil:'தமிழ்',Telugu:'తెలుగు',Kannada:'ಕನ್ನಡ',Malayalam:'മലയാളം'};
+const PHOTOCOL=[['#C98F5A','#6B3A2A'],['#E2B36B','#8C1D3A'],['#9FB3A1','#3E5A48'],['#D9A08A','#7A3B36'],['#C7B08E','#5A4632'],['#E6C27A','#A0522D'],['#B7A3C9','#4E3F66']];
+function T_frame(f){return tex('fr'+f.id,()=>{const W=512,H=Math.round(512*f.h/f.w);return canvasTex(W,H,(c)=>{
+  const m=f.mat?Math.min(W,H)*.14:0;c.fillStyle='#F7F3EC';c.fillRect(0,0,W,H);
+  const x0=m,y0=m,w=W-2*m,h=H-2*m;
+  if(f.lang){c.fillStyle=IVORY;c.fillRect(x0,y0,w,h);diya(c,W/2,y0+h*.36,h*.11);c.textAlign='center';c.fillStyle=MAROON;c.font='600 '+(h*.2)+'px "Noto Sans Devanagari",'+FB;c.fillText(NATIVE[f.lang]||f.lang,W/2,y0+h*.7);
+    c.fillStyle=INK;c.font='600 '+(h*.1)+'px '+FB;c.fillText(f.lang.toUpperCase(),W/2,y0+h*.88);c.textAlign='left';return;}
+  const r=rng(f.id.charCodeAt(1)*31+f.id.charCodeAt(2)),p=PHOTOCOL[Math.floor(r()*PHOTOCOL.length)];
+  const g=c.createLinearGradient(x0,y0,x0,y0+h);g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);c.fillStyle=g;c.fillRect(x0,y0,w,h);
+  if(f.g==='trip'){c.fillStyle='rgba(176,16,42,.75)';c.beginPath();c.ellipse(W/2,y0+h*.75,w*.6,h*.3,0,0,7);c.fill();c.fillStyle='rgba(212,175,55,.8)';for(let k=0;k<5;k++){c.beginPath();c.arc(x0+w*(.2+k*.15),y0+h*.45,w*.06,0,7);c.lineWidth=w*.025;c.strokeStyle='rgba(212,175,55,.9)';c.stroke();}return;}
+  c.fillStyle='rgba(255,240,215,.35)';const n=1+Math.floor(r()*3);for(let k=0;k<n;k++){const cx=x0+w*(.25+.5*(k+.5)/n),cy=y0+h*(.55+r()*.1),rr=Math.min(w,h)*(.12+r()*.05);c.beginPath();c.arc(cx,cy-rr*1.6,rr*.6,0,7);c.fill();c.beginPath();c.ellipse(cx,cy+rr*.6,rr,rr*1.4,0,Math.PI,0);c.fill();}
+});});}
 const T_rangoli=()=>tex('rangoli',()=>canvasTex(512,512,(c,W,H)=>{c.clearRect(0,0,W,H);const cx=W/2,cy=H/2;const cols=['#C2185B','#F2A033','#2F7D4F','#1565C0','#FFD54F','#8C1D3A'];
   for(let r=6;r>=1;r--){c.fillStyle=cols[r%cols.length];const n=8+r*2;c.beginPath();for(let k=0;k<=n*2;k++){const a=k/(n*2)*Math.PI*2,rr=(r*38)*(k%2?.82:1);c.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);}c.fill();}
   c.fillStyle='#fff';for(let k=0;k<12;k++){const a=k/12*Math.PI*2;c.beginPath();c.arc(cx+Math.cos(a)*200,cy+Math.sin(a)*200,9,0,7);c.fill();}
@@ -861,10 +937,8 @@ function buildWorld(E){
   [.05,1.25,2.45,3.65,4.85,5.95].forEach((y,k)=>{box(1,.08,3,bw,0,y,0,bs);if(k<5){let z=-1.35;while(z<1.25){const w=.12+br()*.12,h=.75+br()*.3;box(.75,h,w,M(bc[Math.floor(br()*bc.length)]),.05,y+.04+h/2,z+w/2,bs);z+=w+.02;}}});
   bs.position.set(10+PT+.5+(RD-10)-RDX[1],0,-7);g.add(bs);
   panel(T_timeline(),7,2,15.5,5.5,NWF+.08,0,null,false,g);
-  [[12.6,0x8C6A4E],[13.9,0x5E7C8F],[17.1,0x8F6E5E],[18.4,0x6C7F5E]].forEach(([x,col])=>{box(1,.8,.06,M(0x3A2A20),x,7.15,NWF+.04,g);const p=new THREE.Mesh(new THREE.PlaneGeometry(.8,.6),M(col));p.position.set(x,7.15,NWF+.08);g.add(p);});
-  panel(T_listen(),7,3,16,5.6,SWF-.08,Math.PI,null,false,g);
-  box(7,.12,1,M(0x6B4A2E),16,3.5,SWF-.5,g);[-3,0,3].forEach(dx=>box(.1,.6,.8,M(0x333333),16+dx,3.15,SWF-.45,g));
-  [13.7,16,18.3].forEach(x=>{box(.25,.45,.25,M(0x222222),x,3.78,SWF-.5,g);const tb2=box(1,.7,.06,M(0x111111),x,4.25,SWF-.55,g);tb2.rotation.x=.35;
+  box(8,.12,1,M(0x6B4A2E),15,3.5,SWF-.5,g);[-3.5,0,3.5].forEach(dx=>box(.1,.6,.8,M(0x333333),15+dx,3.15,SWF-.45,g));
+  [12.4,15,17.6].forEach(x=>{box(.25,.45,.25,M(0x222222),x,3.78,SWF-.5,g);const tb2=box(1,.7,.06,M(0x111111),x,4.25,SWF-.55,g);tb2.rotation.x=.35;
     const sc=new THREE.Mesh(new THREE.PlaneGeometry(.9,.6),new THREE.MeshBasicMaterial({color:0x4A7BB0}));sc.position.set(x,4.24,SWF-.59);sc.rotation.y=Math.PI;sc.rotation.x=-.35;g.add(sc);
     const hp=new THREE.Mesh(new THREE.TorusGeometry(.26,.05,8,16,Math.PI),M(0x1A1A1A));hp.position.set(x+.7,3.05,SWF-.15);g.add(hp);[-.26,.26].forEach(dx=>cyl(.1,.1,.08,M(0x1A1A1A),x+.7+dx,3.03,SWF-.15,g,10).rotation.x=Math.PI/2);});
   tag(g,1);}
@@ -910,7 +984,7 @@ function buildWorld(E){
   [-2,-.7,.7,2].forEach((x,k)=>{cyl(.55,.55,.05,steel,x,2.56,.15,dt,28);[[-.25,-.2],[.22,-.22],[0,.28],[-.28,.18],[.3,.12]].forEach(([dx,dz],j)=>cyl(.12,.1,.1,M([0xE0A030,0xB0102A,0xF5F0E0,0x2E7D32,0xD9831C][(j+k)%5]),x+dx,2.64,.15+dz,dt,10));});
   const ea=box(.9,1.1,.06,M(0xFBF6EE),0,3.05,1.15,dt);ea.rotation.x=.25;
   [-2.2,2.2].forEach(x=>{box(1.1,.08,.75,M(0xC9A24B,{metalness:.5}),x,2.57,-1.05,dt);for(let j=0;j<6;j++)box(.25,.12,.18,M([0xFF5E7E,0xF2D24B,0x7FD6FF][j%3]),x-.35+(j%3)*.35,2.66,-1.2+Math.floor(j/3)*.3,dt);});
-  dt.position.set(-5,0,4.5);g.add(dt);
+  dt.position.set(-5,0,-7.75);dt.rotation.y=Math.PI;g.add(dt);
   tag(g,3);}
 
  /* 4 Bhajan · ghar mandir: walkway down the middle to the mandir, which is centered on the west wall between the two exits */
@@ -959,6 +1033,10 @@ function buildWorld(E){
  PANELS.forEach((p,k)=>{const dir=[Math.sin(p.ry),Math.cos(p.ry)];const t=tex('panel'+k,()=>p.w>p.h?panelTexL(p,p.w,p.h):panelTex(p,p.w,p.h));
    panel(t,p.w,p.h,p.x+dir[0]*.08,p.y,p.z+dir[1]*.08,p.ry,p.st);});
  EXITSIGNS.forEach(([x,z,ry])=>panel(T_exit(),4,2,x,6.6,z+(ry?-.08:.08),ry,4,true));
+ /* IKEA RÖDALM photo frames, black */
+ const fblack=M(0x1B1B1B,{roughness:.5});
+ FRAMES.forEach(f=>{const g=new THREE.Group();box(f.w,f.h,.1,fblack,0,0,0,g);const p=new THREE.Mesh(new THREE.PlaneGeometry(f.w-.07,f.h-.07),M(0xffffff,{map:T_frame(f),roughness:.7}));p.position.z=.055;g.add(p);
+   const d=[Math.sin(f.ry),Math.cos(f.ry)];g.position.set(f.x+d[0]*.06,f.y,f.z+d[1]*.06);g.rotation.y=f.ry;world.add(g);tag(g,f.st);});
 
  /* header banners above the walls */
  const SWb=8,SHb=SWb*360/1680,SYb=8.25+SHb/2;
@@ -1070,18 +1148,21 @@ function spaceLine(i){const r=resFor(i);
 const sw=(k)=>'<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px;border:1px solid var(--line);background:'+PAINT[k].hex+'"></span>'+PAINT[k].name;
 const SIDE={N:'north wall',S:'south wall',W:'west wall',E:'east wall'};
 function paintTxt(i){if(i===0)return sw('stone')+' house front, '+sw('trim')+' foam frames and trim';const p=ROOMPAINT[i];return sw(p.base)+' on most walls · '+sw(p.feat)+' feature on the '+SIDE[p.fw]+'<br><small>'+esc(p.why)+'</small>';}
+function frameTxt(i){const G=FGROUPS.filter(g=>g.st===i);if(!G.length)return '';
+  return '<div><dt>Photo frames</dt><dd>'+G.map(g=>{const F=FRAMES.filter(f=>f.g===g.g),n={};F.forEach(f=>{n[f.sz]=(n[f.sz]||0)+1;});return '<b>'+esc(g.name)+'</b>: '+Object.keys(n).map(k=>n[k]+' × '+FSZ[k].k+' in').join(', ')+'<br><small>'+esc(g.where)+'</small>';}).join('<br>')+'</dd></div>';}
 function renderDetail(i){const s=S[i],L=lightsOf(i);
   const lt=L.map(l=>pillId(l)).join(' ')+'<br><small>'+countTxt(L)+(L.some(l=>l.opt)?' + 1 spot if the mehndi booth is added':'')+(i===4?' · 2 uplights and string lights overhead':'')+(i===0?' · on the house front, facing the main hall':'')+'</small>';
   $('detail').innerHTML='<p class="kick">'+(i===0?'Start':'Room '+i)+' · '+esc(s.where)+'</p><h2>'+esc(s.name)+'<small>'+esc(s.en)+'</small></h2>'+spaceLine(i)+
   '<dl><div><dt>Look and deco</dt><dd>'+esc(s.look)+'</dd></div><div><dt>Activity</dt><dd>'+esc(s.act)+'</dd></div><div><dt>Big items and build</dt><dd><span class="foot">'+esc(s.foot)+'</span> '+esc(s.build)+'</dd></div>'+
-  '<div><dt>Volunteers</dt><dd>'+esc(s.vol)+'</dd></div><div><dt>Lighting</dt><dd>'+lt+'</dd></div><div><dt>Walls</dt><dd>'+paintTxt(i)+'</dd></div><div><dt>Take-home</dt><dd>'+esc(s.home)+'</dd></div></dl>'+
+  '<div><dt>Volunteers</dt><dd>'+esc(s.vol)+'</dd></div>'+frameTxt(i)+'<div><dt>Lighting</dt><dd>'+lt+'</dd></div><div><dt>Walls</dt><dd>'+paintTxt(i)+'</dd></div><div><dt>Take-home</dt><dd>'+esc(s.home)+'</dd></div></dl>'+
   '<p class="take">'+esc(s.take)+'</p>';
   S.forEach((_,j)=>{const b=$('st'+j);if(b)b.setAttribute('aria-current',j===i?'true':'false')});}
 function renderIntro(){
   $('vintro').textContent='One layout: a home of four rooms in a row inside a 40 × 24 ft footprint, so every outer wall is whole 8 × 4 ft panels. Each room is 10 ft deep and 24 ft wide. Guests arrive at a house front with windows and a carved door, then walk west through the living room, bedroom and dining room to the ghar mandir, and leave for Manyata through the exit on the left of the mandir. The walkway switches sides so everything to see sits on one side and groups keep moving: middle, then left, then right, then straight down the middle to the mandir.';
   $('vchanges').innerHTML=['<b>Footprint:</b> 40 × 24 ft, so the outer walls are whole panels: 10 north, 10 south, 4 east around the door, 4 west; inner walls are cut to fit.',
    '<b>House front:</b> the east wall is the front of a house: foam door frame and arch, two windows cut into the wall with chhajja canopies, planters, rangoli and lights.',
-   '<b>One exit:</b> out of the ghar mandir on the left of the mandir only, past the closing reflection.',
+   '<b>One exit:</b> out of the ghar mandir on the left of the mandir only.',
+   '<b>Photo frames:</b> '+FRAMES.length+' black IKEA RÖDALM frames: a framed language wall, a bedroom triptych, a dining gallery wall and photos over the instruments.',
    '<b>Rugs:</b> sofa area, under the jewellery table, a runner by the kitchen counter, and three in the ghar mandir (two under the instruments, one in front of the mandir).',
    '<b>Lighting:</b> no light from above. Plug-in URTOM wall spots and cordless Craftersmark picture bars on the walls, plus lamps to make the rooms feel like home.',
    '<b>Colours:</b> each room has its own warm neutral and one feature wall (see Wall colours).',
@@ -1129,6 +1210,8 @@ function planSVG(mode){const LM=mode==='lights',s=19,ox=150,oz=LM?74:98,X=x=>ox+
   // panels
   PANELS.forEach(p=>{if(Math.abs(p.ry-Math.PI/2)<.01)r(p.x,p.x+.15,p.z-p.w/2,p.z+p.w/2,'sv-panel');else if(p.ry===0)r(p.x-p.w/2,p.x+p.w/2,p.z,p.z+.15,'sv-panel');else r(p.x-p.w/2,p.x+p.w/2,p.z-.15,p.z,'sv-panel');});
   EXITSIGNS.forEach(([x,z,ry])=>r(x-2,x+2,ry?z-.15:z,ry?z:z+.15,'sv-panel'));
+  // photo frames on the wall faces
+  const fs=' style="fill:#1B1B1B;stroke:#fff;stroke-width:.6"';FRAMES.forEach(f=>{if(f.wall==='N')r(f.x-f.w/2,f.x+f.w/2,NWF,NWF+.22,'',fs);else if(f.wall==='S')r(f.x-f.w/2,f.x+f.w/2,SWF-.22,SWF,'',fs);else r(WWF,WWF+.22,f.z-f.w/2,f.z+f.w/2,'',fs);});
   // object labels
   ZN.forEach(q=>{if(!q.ol)return;const R0=q.obj;let cx=(R0[0]+R0[1])/2,cz=(R0[2]+R0[3])/2;if(q.ol==='rug'){cz=R0[3]-.6;cx=R0[1]-.9;}
     if(['books','mandir','petals'].includes(q.ol)){const x=X(cx)+3,y=Z(cz);t(x,y,q.ol,'sv-m sv-halo',' text-anchor="middle" transform="rotate(-90 '+x.toFixed(1)+' '+y.toFixed(1)+')"');return;}
@@ -1153,6 +1236,7 @@ function planSVG(mode){const LM=mode==='lights',s=19,ox=150,oz=LM?74:98,X=x=>ox+
    const lg=[['sv-obj','Object'],['sv-use','People using it'],['sv-view','Panel readers'],['sv-staff','Volunteer lane'],['sv-opt','Maybe'],['sv-ok','Walkway 6′+'],['sv-warn','5′–6′'],['sv-bad','Under 5′']];
    let lx=X(-HL);by+=32;lg.forEach(([c,l])=>{o.push('<rect x="'+lx+'" y="'+(by-9)+'" width="12" height="12" class="'+c+'"/>');t(lx+17,by+1,l,'sv-m');lx+=l.length*6+26;});
    o.push('<circle cx="'+lx+'" cy="'+(by-3)+'" r="4" class="sv-warm"/>');t(lx+9,by+1,'Light','sv-m');lx+=48;
+   o.push('<rect x="'+lx+'" y="'+(by-6)+'" width="14" height="5" style="fill:#1B1B1B"/>');t(lx+19,by+1,'Photo frame','sv-m');lx+=86;
    o.push('<line x1="'+lx+'" y1="'+(by-3)+'" x2="'+(lx+22)+'" y2="'+(by-3)+'" class="sv-path"/>');t(lx+28,by+1,'Path','sv-m');
   }else{
    STRING_X.forEach(x=>o.push('<line x1="'+X(x)+'" y1="'+Z(NWF)+'" x2="'+X(x)+'" y2="'+Z(SWF)+'" stroke="#E0A030" stroke-width="2" stroke-dasharray="1 4" stroke-linecap="round"/>'));
@@ -1202,6 +1286,8 @@ function sectionSVG(){const s=24,ox=200,oy=70,X=z=>ox+(z+HW+.5)*s,Y=h=>oy+(10.6-
     ln(X(zf),Y(fy),X(zt-.9),Y(ht),'sv-beam');ln(X(zf),Y(fy),X(zt+.9),Y(ht-.4),'sv-beam');if(label)t(X(zf)+10,Y(ly),label,'sv-dimt sv-halo');};
   spot(NWF+.15,7.75,-10.4,4,'L13–L14 picture bars over the wardrobe',9.6);
   spot(-4,6.5,-4.6,2.6,'L15 wall spot on divider P1 beyond',9.1);
+  r(SWF-.12,SWF,3.82,6.18,'',' style="fill:#1B1B1B"');t(X(SWF)-8,Y(6.18)-6,'triptych frame, 3′-10″ to 6′-2″','sv-m sv-halo',' text-anchor="end"');
+  spot(SWF-.15,7.75,SWF-.4,5.2,'',0);t(X(SWF)-8,Y(7.75)-6,'L34 picture bar','sv-dimt sv-halo',' text-anchor="end"');
   const rx=ox-86;ln(rx,Y(0),rx,Y(10));
   [[0,'0′-0″',4],[2.5,'2′-6″ table',4],[3.75,'3′-9″ child eye',4],[5.25,'5′-3″ adult eye',4],[8,'8′-0″ wall',10],[6.5,'6′-6″ spot',4],[10,'10′-0″ banner top',4]].forEach(([h,l,dy])=>{ln(rx-4,Y(h),rx+4,Y(h));t(rx-8,Y(h)+dy,l,'sv-m',' text-anchor="end"');});
   const chain=(segs,y)=>{segs.forEach(([a,b,label,c])=>{if(b-a<.05)return;ln(X(a),y,X(b),y);ln(X(a),y-5,X(a),y+5);ln(X(b),y-5,X(b),y+5);t(X((a+b)/2),y+16,label,'sv-dimt sv-halo'+(c?' '+c:''),' text-anchor="middle"');});};
@@ -1266,6 +1352,7 @@ const LINKS={
  bar:{t:'Craftersmark 16 in cordless picture light, 350 lm, CRI 95+, black, $19.99 (Amazon)',u:'https://www.amazon.com/dp/B0DBTSQWKY'},
  tealight:{t:'AGPtek LED tealights, 100-pack (Walmart)',u:'https://www.walmart.com/ip/48966148'},
  dimmer:{t:'Lutron Credenza TTCL-100H plug-in LED dimmer',u:'https://www.crescentelectric.com/product/623381/ttcl-100h-bl-credenza-led-plug-in-lamp-dimmer-single-outlet-100w-led-black'},
+ ...Object.fromEntries(Object.entries(FSZ).map(([k,v])=>['f'+k,{t:'IKEA RÖDALM frame, black, '+v.k+' in, $'+v.price.toFixed(2),u:v.u}])),
  tape:{t:'Glow-in-the-dark floor tape, 2 in × 30 ft',u:'https://www.compliancesigns.com/pd/2-x-30-glow-in-the-dark-solid-tape-15sm911230'}};
 
 /* every number that depends on the layout is worked out here, so the list follows the plan */
@@ -1303,7 +1390,7 @@ function shopping(){const q=quantities();return [
  ['Walls and structure','Painting kit','rollers, trays, brushes, drop cloths','1 set for 4 painters','Painting the flats before the build','Buy'],
  ['Walls and structure','Black gaffer tape','2 in × 60 yd','4 rolls','Taping cords down at the wall base, marking the floor','Buy'],
  ['Lighting and power','Wall spot and uplight: URTOM 3W plug-in spotlight, 2-pack','3000K warm white, metal base and wall bracket, 5.9 ft cord with foot switch',String(Math.ceil((q.spots+q.spotOpt+2+1)/2))+' packs ('+(Math.ceil((q.spots+q.spotOpt+2+1)/2)*2)+' lights)',q.spots+' wall spots + 2 mandir uplights + '+q.spotOpt+' if mehndi + 1 spare','Buy','urtom'],
- ['Lighting and power','Picture bar: Craftersmark 16 in cordless picture light, black','350 lm, set to 2700K, 5000 mAh battery, remote with timer',String(q.bars+1),q.bars+' bars above panels, the timeline, wardrobe, shelves and listening wall + 1 spare','Buy','bar'],
+ ['Lighting and power','Picture bar: Craftersmark 16 in cordless picture light, black','350 lm, set to 2700K, 5000 mAh battery, remote with timer',String(q.bars+1),q.bars+' bars above the panels, timeline, wardrobe, shelves and photo frames + 1 spare','Buy','bar'],
  ['Lighting and power','Floor lamp with fabric shade','about 5 ft tall, warm bulb','2','Living room corner by the sofa, bedroom corner by the doorway','Borrow'],
  ['Lighting and power','Small table lamp','about 15 in tall','1','Kitchen counter, west end','Borrow'],
  ['Lighting and power','USB-C charging station and spare cables','multi-port','2','Recharge the picture bars overnight (they lift off their magnetic mounts); swap any that dim during the day','Buy'],
@@ -1313,6 +1400,8 @@ function shopping(){const q=quantities();return [
  ['Lighting and power','Power strips, heavy-duty grounded','6 outlet',String(q.strips),'One per room for the plug-in spots (switch each room on in one go), plus string lights, lamps, tablets and speaker','Buy'],
  ['Lighting and power','Extension cords, black','25 ft',String(q.strips),'From the venue outlets to the power strips','Buy'],
  ['Lighting and power','Cable ties','100-pack','1','Tidying cords along the wall base','Buy'],
+ ...['x','l','m','s'].filter(k=>frameCount()[k]).map(k=>['Photo frames','IKEA RÖDALM frame, black, '+FSZ[k].k+' in','outside '+FSZ[k].ow+' × '+FSZ[k].oh+' in · mat included (shows a '+FSZ[k].mat+' print) · art. '+FSZ[k].art+' · $'+FSZ[k].price.toFixed(2),String(frameCount()[k]),FRAMES.filter(f=>f.sz===k).reduce((a,f)=>{const g=FGROUPS.find(G=>G.g===f.g).name;a[g]=(a[g]||0)+1;return a;},{}),'Buy','f'+k]).map(r=>{r[4]=Object.entries(r[4]).map(([g,n])=>n+' · '+g).join('; ');return r;}),
+ ['Photo frames','Picture hooks and small nails, plus a laser level','for ½ in plywood flats','1 pack of 50 + 1 level','Hanging all '+FRAMES.length+' frames; put two nails in each frame over 16 in wide so it stays straight','Buy'],
  ['Listening wall and sound','Tablets','iPad or similar','3','Language menu and recordings','Borrow'],
  ['Listening wall and sound','Locking tablet stands','desk or shelf mount','3','Listening wall shelf','Buy'],
  ['Listening wall and sound','Over-ear headphones, wipeable','wired','4 (1 spare)','Listening wall','Buy'],
@@ -1330,8 +1419,6 @@ function shopping(){const q=quantities();return [
  ['Bhasha · living room','Rug','5 × 8 ft','1','Sofa area, under the sofa front and coffee table','Borrow'],
  ['Bhasha · living room','Bookshelf','36 × 12 × 72 in','1','Divider P1, beside the Bhasha panel','Borrow'],
  ['Bhasha · living room','Cushions','sofa size','4','Sofa','Borrow'],
- ['Bhasha · living room','Picture frames','12 × 16 in','10','Greeting prints on the listening wall','Buy'],
- ['Bhasha · living room','Family photo frames','about 8 × 10 in','4','Above the sofa','Borrow'],
  ['Bhasha · living room','Gujarati class books and children’s story books','one shelf','1 lot','Bookshelf','Mandir stock'],
  ['Bhasha · living room','Brochure holder','acrylic, tri-fold size','1','Gujarati class brochures','Buy'],
  ['Bhasha · living room','Brush pens or gel pens','black and gold','10','Writing names on the name cards','Buy'],
@@ -1352,7 +1439,7 @@ function shopping(){const q=quantities();return [
  ['Bhojan · dining room','Glass snack jars with lids','about 1 gallon','6','Kitchen counter and shelves','Buy'],
  ['Bhojan · dining room','Spice jars with opaque or cloth-covered lids','about 8 oz','8','Guess the spice','Buy'],
  ['Bhojan · dining room','Whole spices: turmeric, clove, cinnamon, cumin, cardamom, mustard seed, fennel, hing','small packs','8','Guess the spice','Buy'],
- ['Bhojan · dining room','Folding table','72 × 36 in','1','Dining table island','Mandir stock'],
+ ['Bhojan · dining room','Folding table','72 × 36 in','1','Dining table, right (north) side','Mandir stock'],
  ['Bhojan · dining room','Kitchen runner rug','about 2 × 7 ft','1','In front of the kitchen counter','Buy or borrow'],
  ['Bhojan · dining room','Tablecloth and runner','for a 6 ft table','1','Dining table','Buy'],
  ['Bhojan · dining room','Thalis with katoris','steel','4','Regional thali display','Borrow'],
@@ -1380,7 +1467,6 @@ function shopping(){const q=quantities();return [
 const PRINTS=[
  ['Banners and signs','Front door banner: Atithi Devo Bhava','8 ft × 1 ft 8½ in','Double-sided rigid PVC (same as Mulyo)','1','Top of the east wall, over the house front','Name, pronunciation, Devanagari, a short welcome paragraph, “Light Beyond Lamps · Section 1”'],
  ['Banners and signs','Room header banners: Bhasha, Bhusha, Bhojan, Bhajan','8 ft × 1 ft 8½ in','Double-sided rigid PVC','4','Top of the north wall, centered on each room','Name, pronunciation, Devanagari and a short paragraph per room (text is in the 3D model)'],
- ['Banners and signs','Exit sign: Next, Section 3 · Manyata','4 × 2 ft','Rigid PVC','1','Ghar mandir south wall, beside the exit, 5′-6″ to 7′-6″ up','Next section name with an arrow; “Thank you for visiting our home”'],
  ['Banners and signs','Nameplate','12 × 6 in','Rigid PVC, wood-look','1','East wall outside, north of the front door','“Jay Swaminarayan · Welcome to our home”'],
  ['Room panels','Bhasha panel','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Divider P1, right of the bedroom door','“Why know your mother tongue?”, the Bhasha message, Gujarati classes prompt'],
  ['Room panels','Language timeline','7 × 2 ft','Matte vinyl on ¼ in PVC board','1','Living room north wall, above the sofa','Oral tradition → Sanskrit and the Vedas → Ramayan, Mahabharat, Gita → regional languages → today'],
@@ -1388,9 +1474,12 @@ const PRINTS=[
  ['Room panels','Bhusha panel','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Divider P2, left of the dining room door, at the end of the walkway','True adornment is worn on the inside; lift the jewellery box'],
  ['Room panels','Sattvic · rajasic · tamasic','4 × 3 ft (landscape)','Matte vinyl on ¼ in PVC board','1','Dining room south wall, above the counter','How food affects the mind; spices and Ayurveda; “Can you guess the spice?”'],
  ['Room panels','Bhojan panel with the Annakut invitation','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Divider P3, left of the ghar mandir door','Offered first, shared with gratitude; Annakut darshan date and time'],
- ['Room panels','Bhajan panel','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Ghar mandir north wall, above the harmonium carpet','Ghar sabha; bhajans of Meera Bai, Narsi Mehta, Tulsidas, Surdas'],
- ['Room panels','Closing reflection','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Ghar mandir south wall, above the tabla carpet','The four Bs together; “Next: Manyata”'],
- ['Room details','Greeting prints','12 × 16 in','Photo paper, in frames','10','Listening wall','The chosen Diwali phrase in one language each, with the language name'],
+ ['Room panels','Bhajan panel','4 × 6 ft','Matte vinyl on ¼ in PVC board','1','Ghar mandir west wall, to the right of the mandir','Ghar sabha; bhajans of Meera Bai, Narsi Mehta, Tulsidas, Surdas'],
+ ['Photo prints for the frames','Language prints','10 × 8 in (landscape)','Matte photo paper, behind the mat of a 12 × 16 in frame','10','Listening wall, one per frame','The chosen Diwali phrase in one language each: the script, its transliteration and the language name'],
+ ['Photo prints for the frames','Family photos above the timeline','5 × 7 in','Photo paper, behind the mat of an 8 × 10 in frame','4','Living room, above the language timeline','Family photos from volunteers: grandparents, a wedding, Diwali at home'],
+ ['Photo prints for the frames','Bedroom triptych','19¾ × 27½ in each (one image split in three)','Matte poster paper, no mat','3','Bedroom south wall, along the walkway','One portrait split across three frames, e.g. a bride’s mehndi hands, bangles and red-and-gold saree'],
+ ['Photo prints for the frames','Dining gallery wall','15¾ × 19¾ · 12 × 16 · 8 × 10 · 4 × 5 × 7 in','Photo paper, behind the mats','7','Dining room north wall, behind the table','Annakut, family meals, a handwritten recipe, mithai, prasad (see Photo frames)'],
+ ['Photo prints for the frames','Ghar mandir photos','2 × 15¾ × 19¾ · 4 × 8 × 10 in','Photo paper, behind the mats','6','Over the harmonium and tabla rugs','Ghar sabha, kirtan, arti at home, children learning instruments'],
  ['Room details','Tablet instruction cards','5 × 7 in','Card in a small acrylic stand','3','Beside each tablet','“Choose a language, put on the headphones and listen”'],
  ['Room details','Occasion tags','5 × 7 in','Cardstock, hole-punched, on ribbon','3','Wardrobe sections','Wedding · Festival and mandir · Mourning'],
  ['Room details','Virtue-jewel cards','3 × 5 in','Heavy cardstock, gold foil if possible','3','Inside the jewellery box','Kindness · Humility · Compassion'],
@@ -1438,17 +1527,38 @@ $('printCsv').addEventListener('click',()=>download('jivan-shaili-design-and-pri
 const ORDER=[
  ['Now','Confirm the 40 × 24 ft spot, the exit line-up with Manyata and the apron in the main hall with the layout team.'],
  ['Now','Lock the panel text and the Diwali phrase; send panels, banners and take-homes to design (Totals to buy › Design and print list).'],
- ['3 weeks out','Order plywood, studs, foam, paint, wall spots and picture bars; ask families for the borrowed items, with names on every one.'],
+ ['3 weeks out','Order plywood, studs, foam, paint, wall spots, picture bars and the IKEA frames; collect family photos from volunteers for the frames; ask families for the borrowed items, with names on every one.'],
  ['2 weeks out','Build all 41 flats; cut the two windows into their east-wall flats before facing them; prime and paint every face in its room colour.'],
  ['2 weeks out','Carve and paint the foam door frame, arch, window frames and chhajjas.'],
  ['Load-in day','Stand the outer walls, then the dividers; fix the house front; lay the rugs; place the big items room by room.'],
- ['Load-in day','Hang panels and banners, fix the magnetic plates for the wall spots and the picture bars, then charge and aim every light with the gym lights off.'],
+ ['Load-in day','Hang panels, banners and the '+FRAMES.length+' photo frames (heights in Photo frames), screw up the wall spots and picture-bar mounts, then aim every light with the gym lights off.'],
  ['Night before','Walk the path with a group of six to check the 6 ft walkway; charge every light overnight.']];
-function renderBuild(){const q=quantities(),bs=[['b-walls','Every wall flat']].concat(S.map((s,i)=>['b-st'+i,i===0?'House front':s.short])).concat([['lighting','Lighting'],['colours','Wall colours'],['b-order','Order of work'],['b-totals','Totals to buy']]);
+function renderFrames(){const n=frameCount();const cost=Object.keys(n).reduce((a,k)=>a+n[k]*FSZ[k].price,0);
+ $('fsum').innerHTML=['x','l','m','s'].filter(k=>n[k]).map(k=>'<div><small>RÖDALM '+FSZ[k].k+' in</small><b>'+n[k]+'</b><span>outside '+FSZ[k].ow+' × '+FSZ[k].oh+' in · $'+FSZ[k].price.toFixed(2)+' · mat shows a '+FSZ[k].mat+' print</span><a href="'+FSZ[k].u+'" target="_blank" rel="noopener">IKEA art. '+FSZ[k].art+'</a></div>').join('')+
+  '<div><small>All frames</small><b>'+FRAMES.length+'</b><span>about $'+cost.toFixed(0)+' before tax · black throughout</span></div>';
+ $('fgroups').innerHTML=FGROUPS.map(g=>{const F=FRAMES.filter(f=>f.g===g.g);
+  // elevation: horizontal position along the wall as seen from the room (left to right)
+  const pos=f=>f.wall==='N'?f.x:f.wall==='S'?-f.x:-f.z;const lo=Math.min(...F.map(f=>pos(f)-f.w/2))-1,hi=Math.max(...F.map(f=>pos(f)+f.w/2))+1;
+  const s=44,X=v=>60+(v-lo)*s,Y=h=>20+(8-h)*s,Wd=X(hi)+20,Hd=Y(0)+34,o=['<svg viewBox="0 0 '+Wd.toFixed(0)+' '+Hd.toFixed(0)+'" width="'+(Wd*.8).toFixed(0)+'" role="img" aria-label="'+esc(g.name)+', wall elevation">'];
+  o.push('<rect x="'+X(lo)+'" y="'+Y(8)+'" width="'+((hi-lo)*s)+'" height="'+(8*s)+'" fill="'+PAINT[ROOMPAINT[g.st][ROOMPAINT[g.st].fw===F[0].wall?'feat':'base']].hex+'" fill-opacity=".55"/>');
+  o.push('<line x1="'+X(lo)+'" y1="'+Y(0)+'" x2="'+X(hi)+'" y2="'+Y(0)+'" stroke="var(--fg)" stroke-width="2"/>');
+  F.forEach(f=>{const x0=X(pos(f)-f.w/2),y0=Y(f.y+f.h/2);o.push('<rect x="'+x0.toFixed(1)+'" y="'+y0.toFixed(1)+'" width="'+(f.w*s).toFixed(1)+'" height="'+(f.h*s).toFixed(1)+'" fill="#1B1B1B"/>');
+   const m=f.mat?Math.min(f.w,f.h)*.14*s:3;o.push('<rect x="'+(x0+m).toFixed(1)+'" y="'+(y0+m).toFixed(1)+'" width="'+(f.w*s-2*m).toFixed(1)+'" height="'+(f.h*s-2*m).toFixed(1)+'" fill="'+(f.mat?'#F7F3EC':'#C98F5A')+'"/>');
+   if(f.w>1.05)o.push('<text x="'+(x0+f.w*s/2).toFixed(1)+'" y="'+(y0+f.h*s/2+4).toFixed(1)+'" text-anchor="middle" class="sv-m">'+(f.lang?esc(f.lang):FSZ[f.sz].k)+'</text>');});
+  LIGHTS.filter(l=>l.type==='bar'&&l.st===g.st&&(F[0].wall==='N'?Math.abs(l.f[2]-(NWF+.15))<.05:F[0].wall==='S'?Math.abs(l.f[2]-(SWF-.15))<.05:false)).forEach(l=>{const p=F[0].wall==='N'?l.f[0]:-l.f[0];if(p<lo||p>hi)return;
+   o.push('<rect x="'+(X(p)-.67*s).toFixed(1)+'" y="'+(Y(7.75)-4)+'" width="'+(1.33*s).toFixed(1)+'" height="8" rx="4" fill="'+RCOL[g.st]+'"/><text x="'+X(p).toFixed(1)+'" y="'+(Y(7.75)-8)+'" text-anchor="middle" class="sv-m">'+l.id+'</text>');});
+  const tops=[...new Set(F.map(f=>+(f.y+f.h/2).toFixed(2)))],bots=[...new Set(F.map(f=>+(f.y-f.h/2).toFixed(2)))];
+  let lastH=-9;[...new Set(tops.concat(bots))].sort((a,b)=>a-b).forEach((h,k)=>{if(h-lastH<.4)return;lastH=h;o.push('<line x1="'+(X(lo)-6)+'" y1="'+Y(h).toFixed(1)+'" x2="'+X(lo)+'" y2="'+Y(h).toFixed(1)+'" stroke="var(--fg)"/><text x="'+(X(lo)-9)+'" y="'+(Y(h)+4).toFixed(1)+'" text-anchor="end" class="sv-m">'+fmt(h)+'</text>');});
+  o.push('<text x="'+X(lo)+'" y="'+(Y(0)+20)+'" class="sv-m">floor · to scale, as seen from the walkway</text></svg>');
+  const rowsF=g.g==='lang'?[0,1].map(r=>{const R=F.slice(r*5,r*5+5),f=R[0];return Object.assign({},f,{id:R[0].id+'–'+R[4].id,what:(r?'Bottom':'Top')+' row, left to right: '+R.map(x=>x.lang).join(', ')+'. The Diwali wish in each script, with its transliteration and the language name.'});}):F;
+  const rows=rowsF.map(f=>'<tr><td>'+f.id+'</td><td>RÖDALM '+FSZ[f.sz].k+' in, '+(f.o==='P'?'portrait':'landscape')+'</td><td>'+(f.mat?(f.o==='L'?FSZ[f.sz].mat.replace(/(\S+) × (\S+)/,'$2 × $1'):FSZ[f.sz].mat)+' print, mat on':FSZ[f.sz].full+' print, no mat')+'</td><td>'+fmt(f.y)+'</td><td>'+esc(f.what)+'</td></tr>').join('');
+  return '<div class="fgrp"><h4>'+esc(g.name)+' · '+F.length+' frames</h4><p>'+esc(g.where)+' · lit by '+esc(g.light)+'</p>'+o.join('')+
+   '<div class="tblwrap"><table><thead><tr><th>#</th><th>Frame</th><th>Print</th><th>Center height</th><th>What goes in it</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';}).join('');}
+function renderBuild(){const q=quantities(),bs=[['b-walls','Every wall flat']].concat(S.map((s,i)=>['b-st'+i,i===0?'House front':s.short])).concat([['lighting','Lighting'],['colours','Wall colours'],['frames','Photo frames'],['b-order','Order of work'],['b-totals','Totals to buy']]);
  $('bchips').innerHTML=bs.map(([id,t])=>'<a href="#'+id+'">'+esc(t)+'</a>').join('');
  const gal=Object.values(q.PA).reduce((a,v)=>a+Math.max(1,Math.ceil(v*2/350)),0)+q.primerAll;
  const rugs=ZN.filter(z=>/Rug|runner|rug/.test(z.label)).length+1;
- $('bkpis').innerHTML=[[q.sheets+q.spare+' sheets','½ in plywood, '+q.sheets+' + 10% spare'],[q.studs+' studs','2×4 × 8 ft, with 10% extra'],['~'+gal+' gal','paint in 11 colours, plus primer'],[(q.spots+q.spotOpt+2)+' + '+(q.bars+1),'wall spots and picture bars to order, with spares'],[PRINTS.filter(r=>r[0]!=='Design only (no printing)').length+' prints','panels, banners, signs and take-homes'],[rugs+' rugs','borrowed or bought']]
+ $('bkpis').innerHTML=[[q.sheets+q.spare+' sheets','½ in plywood, '+q.sheets+' + 10% spare'],[q.studs+' studs','2×4 × 8 ft, with 10% extra'],['~'+gal+' gal','paint in 11 colours, plus primer'],[(Math.ceil((q.spots+q.spotOpt+2+1)/2)*2)+' + '+(q.bars+1),'URTOM spots and Craftersmark bars to order, with spares'],[FRAMES.length+' frames','IKEA RÖDALM, black, in '+Object.keys(frameCount()).length+' sizes'],[PRINTS.filter(r=>r[0]!=='Design only (no printing)').length+' prints','panels, banners, signs and take-homes'],[rugs+' rugs','borrowed or bought']]
   .map(k=>'<div class="kpi"><small>'+k[1]+'</small><b>'+k[0]+'</b></div>').join('');
  $('bRooms').innerHTML=S.map((s,i)=>{const L=lightsOf(i),rz=ZN.filter(z=>z.st===i&&/rug|runner/i.test(z.label)).map(z=>z.label);
    if(i===4)rz.push('2 rugs 4 × 4 ft under the instruments');
@@ -1464,7 +1574,7 @@ $('tPlan').addEventListener('click',()=>{history.replaceState(null,'','#plan');s
 $('tBuild').addEventListener('click',()=>{history.replaceState(null,'','#build');showTab('build');});
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('#bchips a');if(!a)return;e.preventDefault();const t=document.getElementById(a.getAttribute('href').slice(1));if(t){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'});}});
 function renderAll(){EVAL=evaluate();renderIntro();renderList();renderDetail(current);renderSpace();renderWalls();renderLights();
-  $('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderShopping();renderPrint();renderBuild();}
+  $('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderFrames();renderShopping();renderPrint();renderBuild();}
 renderAll();
 showTab(location.hash==='#build'?'build':'plan');
 
