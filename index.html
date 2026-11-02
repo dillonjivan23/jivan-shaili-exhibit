@@ -379,9 +379,12 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
   </section>
 
 <section class="bsec" id="colours">
-    <p class="eyebrow">Paint · every room a warm neutral, one feature wall each</p><h3>Wall colours</h3>
-    <p class="sec-lede">Each room is painted its own warm neutral so it reads as a different room of the same home, with one feature wall in a deeper colour behind the room's main piece. The plan further down shows each wall face in its colour. Take the hex codes to the paint store to colour-match; eggshell finish, 2 coats over primer.</p>
+    <p class="eyebrow">Paint · 5 colours, no split panels</p><h3>Wall colours</h3>
+    <p class="sec-lede">Five paints in total. The living room and bedroom share linen white walls with a soft sage accent along the north wall; the dining room and ghar mandir share soft sand walls with a deep maroon accent along the south wall and behind the mandir. Every outside-facing face, including the house front, is sandstone. Each room pair starts and ends on whole 4 ft flats, so no panel is painted in two colours. Take the hex codes to the paint store; eggshell finish, 2 coats over primer.</p>
     <div class="pcards" id="paintCards"></div>
+    <h4>Every panel, front and back</h4>
+    <div class="tblwrap"><table id="panelPaint"></table></div>
+    <h4>Paint to buy</h4>
     <div class="tblwrap"><table id="paintTable"></table></div>
   </section>
 
@@ -464,9 +467,9 @@ const WALLNAME={W1:'North wall',W2:'South wall',W3:'East wall',W4:'West wall',P1
 const S=[
  {short:'Front door',name:'Front Door',en:'Welcome, you are a guest in our home',where:'East wall, from the main hall',
   foot:'House front 24 ft wide · foam door frame and arch · 2 windows · 2 rangoli',
-  look:'The first thing every guest sees, so the whole east wall becomes the front of a house. A sandstone-coloured front with a carved foam door frame and an ogee arch around the 8 ft opening, two windows cut into the wall either side with off-white frames, small chhajja canopies on brackets and sheer curtains glowing from inside, planters below each window, torans across the door, LED diyas lining the approach, a rangoli each side, a nameplate and a shoe rack. The banner above reads “Atithi Devo Bhava: the guest is God”.',
+  look:'The first thing every guest sees, so the whole east wall becomes the front of a house. A sandstone-coloured front with a carved foam door frame and an ogee arch around the 8 ft opening, two windows cut into the wall either side with linen-white frames, small chhajja canopies on brackets and sheer curtains glowing from inside, planters below each window, torans across the door, LED diyas lining the approach, a rangoli each side, a nameplate and a shoe rack. The banner above reads “Atithi Devo Bhava: the guest is God”.',
   act:'Minimal activity. Greeters welcome each family, teach a common Diwali greeting such as “Jay Swaminarayan” or “Saal Mubarak”, introduce the four rooms of the home, and hand each family a keepsake envelope to fill as they walk through.',
-  build:'East wall outer face painted sandstone · door: 8 ft opening with foam pilasters (6 in wide, gold line) and a foam ogee arch header from 6′-7″ to 8′-0″, carved from 2 in XPS foam and painted off-white · windows: two 3 × 3′-6″ openings cut into the wall flats, 3′-0″ sill, 6′-6″ head, 3 ft either side of the door; foam frames, sills and chhajja canopies on brackets; a sheer curtain inside each · 2 planters under the windows · 2 torans · 16 battery LED diyas · 2 rangoli floor vinyls · nameplate · shoe rack · 2 wall spots (L01–L02) between the door and windows · keepsake envelopes.',
+  build:'East wall outer face painted sandstone · door: 8 ft opening with foam pilasters (6 in wide, gold line) and a foam ogee arch header from 6′-7″ to 8′-0″, carved from 2 in XPS foam and painted linen white · windows: two 3 × 3′-6″ openings cut into the wall flats, 3′-0″ sill, 6′-6″ head, 3 ft either side of the door; foam frames, sills and chhajja canopies on brackets; a sheer curtain inside each · 2 planters under the windows · 2 torans · 16 battery LED diyas · 2 rangoli floor vinyls · nameplate · shoe rack · 2 wall spots (L01–L02) between the door and windows · keepsake envelopes.',
   vol:'2 greeters, folded hands and warm smiles, standing either side of the door so the opening stays clear. Say: “Welcome, you are guests in our home this Diwali.” Introduce the theme and hand out keepsake envelopes.',
   home:'Keepsake envelope',
   take:'Atithi Devo Bhava: the guest is God.'},
@@ -723,8 +726,8 @@ const frameCount=()=>{const n={};FRAMES.forEach(f=>{n[f.sz]=(n[f.sz]||0)+1;});re
 
 /* ---------- walls ---------- */
 const WALLS=[
- {id:'W1',name:'North wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Sofa, timeline and photos (sage feature wall) · wardrobe on a dusty rose feature wall · gallery wall behind the dining table · 3 photo frames above the harmonium',tag:[0,-HW]},
- {id:'W2',name:'South wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Listening wall with 10 language frames · bedroom triptych along the walkway · kitchen counter, shelves and sattvic panel on a terracotta feature wall · 3 photo frames above the tabla',tag:[0,HW]},
+ {id:'W1',name:'North wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Sofa, timeline, photos and wardrobe on the soft sage accent (living room and bedroom) · gallery wall behind the dining table · 3 photo frames above the harmonium',tag:[0,-HW]},
+ {id:'W2',name:'South wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Listening wall with 10 language frames · bedroom triptych along the walkway · kitchen counter, shelves and sattvic panel on the deep maroon accent (dining room and ghar mandir) · 3 photo frames above the tabla',tag:[0,HW]},
  {id:'W3',name:'East wall, house front',segs:[8,8],dbl:true,t:'4½″',type:'Double-faced · 8 ft door in the center, a window cut into each side',faces:'Outside: sandstone house front, foam door frame and arch, two windows with chhajja canopies, banner · inside: plain, windows look into the living room',tag:[HL,0]},
  {id:'W4',name:'West wall, behind the mandir',segs:[16],dbl:false,t:'3″',type:'Single-faced · 4 panels; the exit to Manyata is the opening at its south (left) end',faces:'Ghar mandir centered on a deep maroon feature wall, Bhajan panel to its right (north)',tag:[-HL,0]},
  {id:'P1',name:'Divider P1, living | bedroom',segs:[13,2],dbl:true,t:'4½″',type:'Double-faced · door at its south (left) end, 2 ft return against the south wall',faces:'East face: bookshelf, Bhasha panel · west face: spot for the jewellery table',tag:[RD,0]},
@@ -733,23 +736,29 @@ const WALLS=[
 
 /* ---------- paint: each room its own warm neutral, plus one feature wall ---------- */
 const PAINT={
- linen:{name:'Linen white',hex:'#EEE6D8'},sage:{name:'Soft sage',hex:'#8E9B80'},
- taupe:{name:'Warm taupe',hex:'#D3C4B2'},rose:{name:'Dusty rose',hex:'#B58E86'},
- sand:{name:'Soft sand',hex:'#E3D5BE'},clay:{name:'Terracotta clay',hex:'#B5714F'},
- ivory:{name:'Warm ivory',hex:'#F1E8D6'},maroon:{name:'Deep maroon',hex:'#6B2A31'},
- stone:{name:'Sandstone',hex:'#C8AC80'},trim:{name:'Off-white trim',hex:'#F6F1E7'},outer:{name:'Plain greige',hex:'#CFC7BB'}};
-const ROOMPAINT={1:{base:'linen',feat:'sage',fw:'N',why:'A calm sage wall behind the sofa makes the living room feel lived-in and sets off the maroon timeline.'},
- 2:{base:'taupe',feat:'rose',fw:'N',why:'Dusty rose behind the wardrobe flatters the bright saree colours without competing with them.'},
- 3:{base:'sand',feat:'clay',fw:'S',why:'A terracotta kitchen wall feels warm and earthy, like a clay-tiled kitchen, behind the steel and brass.'},
- 4:{base:'ivory',feat:'maroon',fw:'W',why:'Deep maroon behind the mandir makes the white and gold mandir glow, with ivory walls keeping the room light.'}};
+ stone:{name:'Sandstone',hex:'#C8AC80'},linen:{name:'Linen white',hex:'#EEE6D8'},sage:{name:'Soft sage',hex:'#8E9B80'},
+ sand:{name:'Soft sand',hex:'#E3D5BE'},maroon:{name:'Deep maroon',hex:'#6B2A31'}};
+/* 5 colours only: the first two rooms share one base and one accent, the last two share another; every outside-facing face is sandstone.
+   No panel is ever split between two colours: each room pair's walls start and end on whole 4 ft flats. */
+const ROOMPAINT={1:{base:'linen',feat:'sage',fw:'N',why:'Linen white walls with a soft sage accent running the whole north wall behind the sofa and the wardrobe: calm, lived-in, and it sets off the bright sarees.'},
+ 2:{base:'linen',feat:'sage',fw:'N',why:'Same as the living room, so the front half of the home reads as one space.'},
+ 3:{base:'sand',feat:'maroon',fw:'S',why:'Soft sand walls with a deep maroon accent along the south wall behind the kitchen counter, making the steel and brass glow.'},
+ 4:{base:'sand',feat:'maroon',fw:'SW',why:'Same as the dining room; the maroon accent carries on along the south wall and wraps behind the mandir so the white and gold mandir glows.'}};
+/* every flat face: [where, flats, front colour, back colour, length ft]. Front = the face visitors see first (the outside of the house front). */
+const PANELPAINT=[
+ ['Front door · east wall (house front)',4,'stone','linen',16,'Front: outside of the house front. Back: inside of the living room. Two window openings.'],
+ ['Bhasha + Bhusha · north wall (accent)',5,'sage','stone',20,'Behind the sofa, timeline and wardrobe'],
+ ['Bhasha + Bhusha · south wall',5,'linen','stone',20,'Listening wall and the bedroom triptych'],
+ ['Bhasha | Bhusha · divider P1',5,'linen','linen',15,'Front: living room. Back: bedroom. Includes the 1 ft piece and the 2 ft return'],
+ ['Bhusha | Bhojan · divider P2',4,'linen','sand',15,'Front: bedroom. Back: dining room'],
+ ['Bhojan + Bhajan · north wall',5,'sand','stone',20,'Dining gallery wall and the harmonium side'],
+ ['Bhojan + Bhajan · south wall (accent)',5,'maroon','stone',20,'Kitchen counter and the tabla side'],
+ ['Bhojan | Bhajan · divider P3',4,'sand','sand',15,'Front: dining room. Back: ghar mandir'],
+ ['Bhajan · west wall behind the mandir (accent)',4,'maroon','stone',16,'Behind the mandir and the Bhajan panel']];
 const WINDOWS=[[-9.4,-6.4],[6.4,9.4]];/* window openings in the east wall: z range, 3 ft wide, sill 3′-0″, head 6′-6″ */
-function paintAreas(){const A={};const add=(k,a)=>{A[k]=(A[k]||0)+a;};const h=8;
- [1,2,3,4].forEach(st=>{const p=ROOMPAINT[st];add(p.fw==='N'?p.feat:p.base,RD*h);add(p.fw==='S'?p.feat:p.base,RD*h);});
- add('outer',2*(2*HL)*h);
- const win=WINDOWS.length*3*3.5;add(ROOMPAINT[1].base,16*h-win);add('stone',16*h-win);
- add(ROOMPAINT[4].fw==='W'?ROOMPAINT[4].feat:ROOMPAINT[4].base,16*h);add('outer',16*h);
- [[1,2,15],[2,3,15],[3,4,15]].forEach(([e,w,len])=>{add(ROOMPAINT[e].base,len*h);add(ROOMPAINT[w].base,len*h);});
- add('trim',60);return A;}
+function paintAreas(){const A={};const add=(k,a)=>{A[k]=(A[k]||0)+a;};const win=WINDOWS.length*3*3.5;
+ PANELPAINT.forEach(([w,n,f,b,len])=>{const a=len*8-(w.startsWith('Front door')?win:0);add(f,a);add(b,a);});
+ add('linen',40);/* foam door frame, windows and chhajjas */return A;}
 function flatsTxt(len){const full=Math.floor(len/4+1e-9),rest=len-full*4;return (full?full+' × 4′-0″':'')+(rest>.01?(full?' + ':'')+'1 × '+fmt(rest):'');}
 WALLS.forEach(w=>{const same=w.segs.every(l=>l===w.segs[0]);w.flatsN=w.segs.reduce((s,l)=>s+Math.ceil(l/4-1e-9),0);
  w.flats=same&&w.segs.length>1?w.segs.length+' × ('+flatsTxt(w.segs[0])+')':w.segs.map(flatsTxt).join(' · ');
@@ -884,20 +893,20 @@ function buildWorld(E){
  const trim=M(0x8C1D3A);W.wallMats=[];const PM={};
  const pm=(k)=>{if(!PM[k]){PM[k]=M(new THREE.Color(PAINT[k].hex).getHex(),{roughness:1,transparent:true,opacity:1});W.wallMats.push(PM[k]);}return PM[k];};
  const roomAt=(x)=>x>RD?1:x>0?2:x>-RD?3:4;
- const faceKey=(st,side)=>{const p=ROOMPAINT[st];return p.fw===side?p.feat:p.base;};
+ const faceKey=(st,side)=>{const p=ROOMPAINT[st];return p.fw.includes(side)?p.feat:p.base;};
  const slab=(x0,x1,z0,z1,y0,y1,k)=>{if(x1-x0<.01||z1-z0<.01||y1-y0<.01)return;const m=box(x1-x0,y1-y0,z1-z0,pm(k),(x0+x1)/2,(y0+y1)/2,(z0+z1)/2);W.ghost.push(m);};
  WALLRECTS.forEach(([x0,x1,z0,z1,tag])=>{const t=box(x1-x0+.04,.08,z1-z0+.04,trim,(x0+x1)/2,H+.04,(z0+z1)/2);W.ghost.push(t);
    if(tag==='W1'||tag==='W2'){const zm=(z0+z1)/2,inN=tag==='W1';
      [[RD,HL],[0,RD],[-RD,0],[-HL,-RD]].forEach(([a,b])=>{const st=roomAt((a+b)/2),k=faceKey(st,inN?'N':'S');
-       if(inN){slab(a,b,zm,z1,0,H,k);slab(a,b,z0,zm,0,H,'outer');}else{slab(a,b,z0,zm,0,H,k);slab(a,b,zm,z1,0,H,'outer');}});return;}
+       if(inN){slab(a,b,zm,z1,0,H,k);slab(a,b,z0,zm,0,H,'stone');}else{slab(a,b,z0,zm,0,H,k);slab(a,b,zm,z1,0,H,'stone');}});return;}
    const xm=(x0+x1)/2;
    if(tag==='W3'){const pieces=[[x0,xm,faceKey(1,'E')],[xm,x1,'stone']];pieces.forEach(([a,b,k])=>{let z=z0;
        WINDOWS.filter(w=>w[0]>=z0&&w[1]<=z1).forEach(([w0,w1])=>{slab(a,b,z,w0,0,H,k);slab(a,b,w0,w1,0,3,k);slab(a,b,w0,w1,6.5,H,k);z=w1;});slab(a,b,z,z1,0,H,k);});return;}
-   if(tag==='W4'){slab(x0,xm,z0,z1,0,H,'outer');slab(xm,x1,z0,z1,0,H,faceKey(4,'W'));return;}
+   if(tag==='W4'){slab(x0,xm,z0,z1,0,H,'stone');slab(xm,x1,z0,z1,0,H,faceKey(4,'W'));return;}
    const e=roomAt(x1+.5),w=roomAt(x0-.5);slab(xm,x1,z0,z1,0,H,ROOMPAINT[e].base);slab(x0,xm,z0,z1,0,H,ROOMPAINT[w].base);});
 
  /* 0 Front door: the house front on the outer face of the east wall: foam door frame and arch, two windows with chhajja canopies */
- {const g=grp(0);const foam=M(new THREE.Color(PAINT.trim.hex).getHex(),{roughness:.7}),gold=M(0xC9A24B,{metalness:.5,roughness:.35}),wood=M(0x6E4122,{roughness:.6});
+ {const g=grp(0);const foam=M(new THREE.Color(PAINT.linen.hex).getHex(),{roughness:.7}),gold=M(0xC9A24B,{metalness:.5,roughness:.35}),wood=M(0x6E4122,{roughness:.6});
   const X0=HL;
   // pilasters either side of the 8 ft opening, with base and capital
   [-1,1].forEach(sd=>{const z=sd*4.3;box(.4,6.6,.6,foam,X0+.2,3.3,z,g);box(.55,.35,.8,foam,X0+.27,.18,z,g);box(.55,.3,.8,foam,X0+.27,6.55,z,g);box(.06,5.6,.12,gold,X0+.42,3.4,z,g);});
@@ -1151,8 +1160,8 @@ function spaceLine(i){const r=resFor(i);
   if(!r)return '<div class="space"><span class="pill ok">'+fmt(DOORS[0].z1-DOORS[0].z0)+' door</span> The front door stays clear; greeters, planters and rangoli stand to either side.</div>';
   return '<div class="space"><span class="pill '+r.status+'">'+fmt(r.min.w)+' walkway</span> '+STATUS_TXT[r.status]+' at the narrowest point</div>';}
 const sw=(k)=>'<span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px;border:1px solid var(--line);background:'+PAINT[k].hex+'"></span>'+PAINT[k].name;
-const SIDE={N:'north wall',S:'south wall',W:'west wall',E:'east wall'};
-function paintTxt(i){if(i===0)return sw('stone')+' house front, '+sw('trim')+' foam frames and trim';const p=ROOMPAINT[i];return sw(p.base)+' on most walls · '+sw(p.feat)+' feature on the '+SIDE[p.fw]+'<br><small>'+esc(p.why)+'</small>';}
+const SIDE={N:'north wall',S:'south wall',W:'west wall',E:'east wall',SW:'south wall and the west wall behind the mandir'};
+function paintTxt(i){if(i===0)return sw('stone')+' house front (and every outside-facing wall), '+sw('linen')+' foam frames';const p=ROOMPAINT[i];return sw(p.base)+' on most walls · '+sw(p.feat)+' feature on the '+SIDE[p.fw]+'<br><small>'+esc(p.why)+'</small>';}
 function frameTxt(i){const G=FGROUPS.filter(g=>g.st===i);if(!G.length)return '';
   return '<div><dt>Photo frames</dt><dd>'+G.map(g=>{const F=FRAMES.filter(f=>f.g===g.g),n={};F.forEach(f=>{n[f.sz]=(n[f.sz]||0)+1;});return '<b>'+esc(g.name)+'</b>: '+Object.keys(n).map(k=>n[k]+' × '+FSZ[k].k+' in').join(', ')+'<br><small>'+esc(g.where)+'</small>';}).join('<br>')+'</dd></div>';}
 function renderDetail(i){const s=S[i],L=lightsOf(i);
@@ -1170,7 +1179,7 @@ function renderIntro(){
    '<b>Photo frames:</b> '+FRAMES.length+' black IKEA RÖDALM frames: a framed language wall, a bedroom triptych, a dining gallery wall and photos over the instruments.',
    '<b>Rugs:</b> sofa area, under the jewellery table, a runner by the kitchen counter, and three in the ghar mandir (two under the instruments, one in front of the mandir).',
    '<b>Lighting:</b> no light from above. Plug-in URTOM wall spots and cordless Craftersmark picture bars on the walls, plus lamps to make the rooms feel like home.',
-   '<b>Colours:</b> each room has its own warm neutral and one feature wall (see Wall colours).',
+   '<b>Colours:</b> 5 paints in all. The living room and bedroom share one base and accent, the dining room and ghar mandir another, and every outside face is sandstone.',
    '<b>Lists:</b> the shopping list and the design and print list at the bottom follow these changes.'].map(c=>'<li>'+c+'</li>').join('');
   const minC=Math.min(...EVAL.R.map(r=>r.min.w)),st=status(minC);
   const q=quantities();
@@ -1205,7 +1214,7 @@ function planSVG(mode){const LM=mode==='lights',s=19,ox=150,oz=LM?74:98,X=x=>ox+
     rr(q.obj,'sv-obj');rr(q.use,q.kind==='view'?'sv-view':'sv-use',q.flow?' fill-opacity=".3" stroke="#C9822A" stroke-dasharray="3 2"':'');});
   // walls
   WALLRECTS.forEach(w=>r(w[0],w[1],w[2],w[3],'sv-wall'));
-  if(!LM){const pc=(k)=>' style="fill:'+PAINT[k].hex+';stroke:none"',fk=(st,sd)=>{const p=ROOMPAINT[st];return p.fw===sd?p.feat:p.base;},T=.32;
+  if(!LM){const pc=(k)=>' style="fill:'+PAINT[k].hex+';stroke:none"',fk=(st,sd)=>{const p=ROOMPAINT[st];return p.fw.includes(sd)?p.feat:p.base;},T=.32;
    [[RD,HL,1],[0,RD,2],[-RD,0,3],[-HL,-RD,4]].forEach(([a,b,st])=>{r(a,b,NWF,NWF+T,'',pc(fk(st,'N')));r(a,b,SWF-T,SWF,'',pc(fk(st,'S')));});
    WALLRECTS.forEach(([x0,x1,z0,z1,tg])=>{if(tg==='W3'){r(x0-T,x0,z0,z1,'',pc(fk(1,'E')));r(x1,x1+T,z0,z1,'',pc('stone'));}else if(tg==='W4')r(x1,x1+T,z0,z1,'',pc(fk(4,'W')));
      else if(tg[0]==='P'){const e=tg==='P1'?1:tg==='P2'?2:3;r(x1,x1+T,z0,z1,'',pc(ROOMPAINT[e].base));r(x0-T,x0,z0,z1,'',pc(ROOMPAINT[e+1].base));}});}
@@ -1317,8 +1326,11 @@ function renderLights(){
 
 /* ---------- wall colours ---------- */
 function renderPaint(){const A=paintAreas();
-  $('paintCards').innerHTML=[1,2,3,4].map(st=>{const p=ROOMPAINT[st];return '<div class="pcard"><small>'+S[st].short+' · '+roomOf(st).name.toLowerCase()+'</small><div class="chips"><span style="background:'+PAINT[p.base].hex+'"></span><span class="feat" style="background:'+PAINT[p.feat].hex+'"></span></div><b>'+PAINT[p.base].name+'</b> walls · <b>'+PAINT[p.feat].name+'</b> feature on the '+SIDE[p.fw]+'<p>'+esc(p.why)+'</p></div>';}).join('')+
-   '<div class="pcard"><small>House front</small><div class="chips"><span style="background:'+PAINT.stone.hex+'"></span><span class="feat" style="background:'+PAINT.trim.hex+'"></span></div><b>'+PAINT.stone.name+'</b> outside of the east wall · <b>'+PAINT.trim.name+'</b> on the foam door frame, windows and chhajjas<p>Reads as the front of a house from across the main hall.</p></div>';
+  const pair=(a,b,t)=>{const p=ROOMPAINT[a];return '<div class="pcard"><small>'+t+'</small><div class="chips"><span style="background:'+PAINT[p.base].hex+'"></span><span class="feat" style="background:'+PAINT[p.feat].hex+'"></span></div><b>'+PAINT[p.base].name+'</b> walls · <b>'+PAINT[p.feat].name+'</b> accent on the '+SIDE[p.fw]+'<p>'+esc(p.why)+'</p></div>';};
+  $('paintCards').innerHTML=pair(1,2,'Bhasha + Bhusha · living room and bedroom')+pair(4,3,'Bhojan + Bhajan · dining room and ghar mandir')+
+   '<div class="pcard"><small>Outside faces</small><div class="chips"><span style="background:'+PAINT.stone.hex+'"></span></div><b>'+PAINT.stone.name+'</b> on the house front and the back of every outer wall facing the main hall<p>The foam door frame, windows and chhajjas take the linen white, so no extra colour is needed.</p></div>';
+  $('panelPaint').innerHTML='<thead><tr><th>Room</th><th>Panels</th><th>Front colour</th><th>Back colour</th><th>Notes</th></tr></thead><tbody>'+PANELPAINT.map(r=>'<tr><td><b>'+esc(r[0])+'</b></td><td class="num">'+r[1]+'</td><td>'+sw(r[2])+' <small>'+PAINT[r[2]].hex+'</small></td><td>'+sw(r[3])+' <small>'+PAINT[r[3]].hex+'</small></td><td><small>'+esc(r[5])+'</small></td></tr>').join('')+
+   '<tr><td><b>Total</b></td><td class="num"><b>'+PANELPAINT.reduce((a,r)=>a+r[1],0)+'</b></td><td colspan="3"><small>Every flat is one colour per face; nothing is split.</small></td></tr></tbody>';
   $('paintTable').innerHTML='<thead><tr><th>Colour</th><th>Hex</th><th>Area</th><th>Gallons (2 coats)</th></tr></thead><tbody>'+Object.keys(A).map(k=>'<tr><td>'+sw(k)+'</td><td class="num">'+PAINT[k].hex+'</td><td class="num">'+Math.round(A[k])+' sq ft</td><td class="num">'+Math.max(1,Math.ceil(A[k]*2/350))+'</td></tr>').join('')+'</tbody>';}
 
 /* ---------- walls ---------- */
@@ -1414,7 +1426,7 @@ function shopping(){const q=quantities();return [
  ['Listening wall and sound','Chargers and 10 ft cables','for the iPads','5','Keep the tablets charged all day','Buy or borrow'],
  ['Listening wall and sound','Small speaker','Bluetooth','1','Soft background bhajans in the ghar mandir','Borrow'],
  ['Front door','XPS foam board, 2 in','4 × 8 ft sheets','3','Carve the door pilasters, ogee arch header, window frames and chhajja canopies (house front)','Buy'],
- ['Front door','Foam-safe primer and off-white paint, plus gold paint pen','quart','1 each','Finish the foam door frame, windows and chhajjas; gold lines on the pilasters','Buy'],
+ ['Front door','Foam-safe primer, plus gold paint pen','quart · pen','1 each','Prime the foam door frame, windows and chhajjas, then top-coat in the linen white wall paint; gold lines on the pilasters','Buy'],
  ['Front door','Sheer cream curtain panels','about 3 × 4 ft','2','Inside each window, so it reads as a home window','Buy'],
  ['Front door','Planters with tall leafy plants','about 14 in pots','2','Below each window','Borrow'],
  ['Front door','Torans','door width','2','Across the front door opening, under the arch','Buy'],
@@ -1533,7 +1545,7 @@ const ORDER=[
  ['Now','Confirm the 40 × 24 ft spot, the exit line-up with Manyata and the apron in the main hall with the layout team.'],
  ['Now','Lock the panel text and the Diwali phrase; send panels, banners and take-homes to design (Totals to buy › Design and print list).'],
  ['3 weeks out','Order plywood, studs, foam, paint, wall spots, picture bars and the IKEA frames; collect family photos from volunteers for the frames; ask families for the borrowed items, with names on every one.'],
- ['2 weeks out','Build all 41 flats; cut the two windows into their east-wall flats before facing them; prime and paint every face in its room colour.'],
+ ['2 weeks out','Build all 41 flats; cut the two windows into their east-wall flats before facing them; prime and paint every face (see the panel colour table in Wall colours).'],
  ['2 weeks out','Carve and paint the foam door frame, arch, window frames and chhajjas.'],
  ['Load-in day','Stand the outer walls, then the dividers; fix the house front; lay the rugs; place the big items room by room.'],
  ['Load-in day','Hang panels, banners and the '+FRAMES.length+' photo frames (heights in Photo frames), screw up the wall spots and picture-bar mounts, then aim every light with the gym lights off.'],
@@ -1545,7 +1557,7 @@ function renderFrames(){const n=frameCount();const cost=Object.keys(n).reduce((a
   // elevation: horizontal position along the wall as seen from the room (left to right)
   const pos=f=>f.wall==='N'?f.x:f.wall==='S'?-f.x:-f.z;const lo=Math.min(...F.map(f=>pos(f)-f.w/2))-1,hi=Math.max(...F.map(f=>pos(f)+f.w/2))+1;
   const s=44,X=v=>60+(v-lo)*s,Y=h=>20+(8-h)*s,Wd=X(hi)+20,Hd=Y(0)+34,o=['<svg viewBox="0 0 '+Wd.toFixed(0)+' '+Hd.toFixed(0)+'" width="'+(Wd*.8).toFixed(0)+'" role="img" aria-label="'+esc(g.name)+', wall elevation">'];
-  o.push('<rect x="'+X(lo)+'" y="'+Y(8)+'" width="'+((hi-lo)*s)+'" height="'+(8*s)+'" fill="'+PAINT[ROOMPAINT[g.st][ROOMPAINT[g.st].fw===F[0].wall?'feat':'base']].hex+'" fill-opacity=".55"/>');
+  o.push('<rect x="'+X(lo)+'" y="'+Y(8)+'" width="'+((hi-lo)*s)+'" height="'+(8*s)+'" fill="'+PAINT[ROOMPAINT[g.st][ROOMPAINT[g.st].fw.includes(F[0].wall)?'feat':'base']].hex+'" fill-opacity=".55"/>');
   o.push('<line x1="'+X(lo)+'" y1="'+Y(0)+'" x2="'+X(hi)+'" y2="'+Y(0)+'" stroke="var(--fg)" stroke-width="2"/>');
   F.forEach(f=>{const x0=X(pos(f)-f.w/2),y0=Y(f.y+f.h/2);o.push('<rect x="'+x0.toFixed(1)+'" y="'+y0.toFixed(1)+'" width="'+(f.w*s).toFixed(1)+'" height="'+(f.h*s).toFixed(1)+'" fill="#1B1B1B"/>');
    const m=f.mat?Math.min(f.w,f.h)*.14*s:3;o.push('<rect x="'+(x0+m).toFixed(1)+'" y="'+(y0+m).toFixed(1)+'" width="'+(f.w*s-2*m).toFixed(1)+'" height="'+(f.h*s-2*m).toFixed(1)+'" fill="'+(f.mat?'#F7F3EC':'#C98F5A')+'"/>');
@@ -1563,7 +1575,7 @@ function renderBuild(){const q=quantities(),bs=[['b-walls','Every wall flat']].c
  $('bchips').innerHTML=bs.map(([id,t])=>'<a href="#'+id+'">'+esc(t)+'</a>').join('');
  const gal=Object.values(q.PA).reduce((a,v)=>a+Math.max(1,Math.ceil(v*2/350)),0)+q.primerAll;
  const rugs=ZN.filter(z=>/Rug|runner|rug/.test(z.label)).length+1;
- $('bkpis').innerHTML=[[q.sheets+q.spare+' sheets','½ in plywood, '+q.sheets+' + 10% spare'],[q.studs+' studs','2×4 × 8 ft, with 10% extra'],['~'+gal+' gal','paint in 11 colours, plus primer'],[(Math.ceil((q.spots+q.spotOpt+2)/2)*2)+' + '+(q.bars+1),'URTOM spots and Craftersmark bars to order'],[FRAMES.length+' frames','IKEA RÖDALM, black, in '+Object.keys(frameCount()).length+' sizes'],[PRINTS.filter(r=>r[0]!=='Design only (no printing)').length+' prints','panels, banners, signs and take-homes'],[rugs+' rugs','borrowed or bought']]
+ $('bkpis').innerHTML=[[q.sheets+q.spare+' sheets','½ in plywood, '+q.sheets+' + 10% spare'],[q.studs+' studs','2×4 × 8 ft, with 10% extra'],['~'+gal+' gal','paint in '+Object.keys(PAINT).length+' colours, plus primer'],[(Math.ceil((q.spots+q.spotOpt+2)/2)*2)+' + '+(q.bars+1),'URTOM spots and Craftersmark bars to order'],[FRAMES.length+' frames','IKEA RÖDALM, black, in '+Object.keys(frameCount()).length+' sizes'],[PRINTS.filter(r=>r[0]!=='Design only (no printing)').length+' prints','panels, banners, signs and take-homes'],[rugs+' rugs','borrowed or bought']]
   .map(k=>'<div class="kpi"><small>'+k[1]+'</small><b>'+k[0]+'</b></div>').join('');
  $('bRooms').innerHTML=S.map((s,i)=>{const L=lightsOf(i),rz=ZN.filter(z=>z.st===i&&/rug|runner/i.test(z.label)).map(z=>z.label);
    if(i===4)rz.push('2 rugs 4 × 4 ft under the instruments');
