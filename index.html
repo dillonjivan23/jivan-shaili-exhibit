@@ -215,6 +215,14 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 .fsum span{display:block;font-size:13px;line-height:1.45}.fsum a{font-size:13px;color:var(--accent);font-weight:600}
 .fgrp{background:var(--surface);border:1px solid rgba(47,38,30,.12);border-radius:14px;padding:16px 18px;margin:0 0 16px}
 .fgrp h4{margin:0 0 2px}.fgrp p{margin:0 0 10px;font-size:14px;color:var(--brown)}.fgrp svg{max-width:100%;height:auto;display:block;margin:6px 0 12px}
+.fplan{overflow-x:auto;border-radius:12px}
+.fplan svg{display:block;width:100%;height:auto;min-width:900px}
+.fpkey{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px}
+.fpk{background:var(--surface);border:1px solid rgba(47,38,30,.12);border-radius:12px;padding:12px 14px}
+.fpk h4{margin:0 0 8px}.fpk ol{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.fpk li{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.4}
+.fpk .fpn{flex:0 0 24px;height:24px;border-radius:50%;background:#D9A441;color:#211915;display:grid;place-items:center;font:700 12px var(--f-mono)}
+.fpk small{display:block;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
@@ -290,6 +298,13 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
       <li>ADA requires at least 3′-0″ of clear route and 5′-0″ for a wheelchair to turn; every walkway here is wider than both. The front door is 8 ft, inner doorways 8′-6″ and the exit 7′-9″.</li>
       <li>Walls are 8′-0″ tall. Panels hang from 1′-6″ to 7′-6″. There are no banners above the walls; the HAPPY and DIWALI banners hang down the outside of the house front from 8′-6″ to 1′-6″. Adult eye height is about 5′-3″; a child’s is about 3′-9″.</li>
     </ul>
+  </section>
+
+<section id="floorplan">
+    <h3>Floor plan</h3>
+    <p class="sec-lede">The whole home on one sheet, drawn to scale on a 1 ft grid: every wall, item, panel, photo frame and light, with the key sizes dimensioned. The numbers match the key underneath.</p>
+    <div class="fplan" id="fplan"></div>
+    <div class="fpkey" id="fpkey"></div>
   </section>
 
 <section id="drawings">
@@ -1358,6 +1373,119 @@ function renderWalls(){
    '<tr><td class="num"><b>—</b></td><td>Doorways</td><td class="num">8′-0″ front, 8′-6″ inner<br>7′-9″ exit</td><td class="num">full height</td><td></td><td></td><td></td><td>'+DOORS.map(d=>esc(d.name)+': '+esc(d.where.charAt(0).toLowerCase()+d.where.slice(1))).join(' · ')+'</td></tr>'+
    '<tr><td></td><td><b>Total</b></td><td></td><td></td><td></td><td class="num"><b>'+flats+' flats</b></td><td class="num"><b>'+sheets+'</b></td><td><small>Order '+(sheets+Math.ceil(sheets*.1))+' with 10% spare</small></td></tr></tbody>';}
 
+/* ---------- detailed floor plan (dark, numbered, dimensioned) ---------- */
+const FPKEY=[];
+function floorPlanSVG(){const s=26,ox=190,oy=175,X=x=>ox+(x+HL)*s,Y=z=>oy+(z+HW)*s,Wd=ox+2*HL*s+300,Hd=oy+2*HW*s+150,o=[];
+ const GOLD='#D9A441',CREAM='#EFE6D6',OBJ='#3B302A',OBJL='#8C7B68',BG='#211915';
+ const f=(v)=>v.toFixed(1);
+ const rect=(x0,x1,z0,z1,st)=>o.push('<rect x="'+f(X(Math.min(x0,x1)))+'" y="'+f(Y(Math.min(z0,z1)))+'" width="'+f(Math.abs(x1-x0)*s)+'" height="'+f(Math.abs(z1-z0)*s)+'" '+st+'/>');
+ const txt=(x,y,t,st,anchor)=>o.push('<text x="'+f(x)+'" y="'+f(y)+'" text-anchor="'+(anchor||'middle')+'" '+st+'>'+t+'</text>');
+ const MONO='font-family="IBM Plex Mono,monospace" font-weight="600"',HALO='paint-order="stroke" stroke="'+BG+'" stroke-width="4"';
+ // dimension line in plan coords; label beside it
+ const dim=(x1,z1,x2,z2,label,lx,lz,anchor)=>{const a=[X(x1),Y(z1)],b=[X(x2),Y(z2)],dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy),nx=-dy/L*6,ny=dx/L*6;
+   o.push('<line x1="'+f(a[0])+'" y1="'+f(a[1])+'" x2="'+f(b[0])+'" y2="'+f(b[1])+'" stroke="'+GOLD+'" stroke-width="1.6"/>');
+   [a,b].forEach(p=>o.push('<line x1="'+f(p[0]-nx)+'" y1="'+f(p[1]-ny)+'" x2="'+f(p[0]+nx)+'" y2="'+f(p[1]+ny)+'" stroke="'+GOLD+'" stroke-width="1.6"/>'));
+   if(label)txt(lx!=null?X(lx):(a[0]+b[0])/2,lz!=null?Y(lz)+5:(a[1]+b[1])/2+18,label,MONO+' font-size="14" fill="'+CREAM+'" '+HALO,anchor);};
+ o.push('<svg viewBox="0 0 '+Wd+' '+Hd+'" role="img" aria-label="Detailed floor plan, Jivan Shaili" style="background:'+BG+';border-radius:12px">');
+ txt(30,48,'Floor plan','font-family="Fraunces,serif" font-size="34" fill="'+CREAM+'"','start');
+ txt(210,46,'1 square = 1 ft · walls 8 ft high · numbers match the key below · gold strips are panels and photo frames · yellow marks are wall lights','font-size="15" fill="#B9AC98"','start');
+ txt(ox-120,oy+10,'N ↑',MONO+' font-size="16" fill="#B9AC98"','start');
+ // grid
+ o.push('<g stroke="#FFFFFF" stroke-opacity=".05">');for(let x=-HL;x<=HL;x++)o.push('<line x1="'+X(x)+'" y1="'+Y(-HW)+'" x2="'+X(x)+'" y2="'+Y(HW)+'"/>');for(let z=-HW;z<=HW;z++)o.push('<line x1="'+X(-HL)+'" y1="'+Y(z)+'" x2="'+X(HL)+'" y2="'+Y(z)+'"/>');o.push('</g>');
+ // room names
+ [[15,'BHASHA'],[5,'BHUSHA'],[-5,'BHOJAN'],[-15,'BHAJAN']].forEach(([x,n],k)=>txt(X(x),Y(3.6),n,'font-family="Fraunces,serif" font-size="30" letter-spacing="2" fill="'+['#7FA0C8','#C77B98','#7FB08E','#D9925A'][k]+'" fill-opacity=".75"'));
+ // rugs (dashed) and string lights
+ ZN.filter(q=>q.kind==='rug').forEach(q=>rect(q.obj[0],q.obj[1],q.obj[2],q.obj[3],'fill="#C9822A" fill-opacity=".08" stroke="#C9822A" stroke-opacity=".6" stroke-dasharray="5 4"'));
+ STRING_X.forEach(x=>o.push('<line x1="'+X(x)+'" y1="'+Y(NWF)+'" x2="'+X(x)+'" y2="'+Y(SWF)+'" stroke="#F2C66B" stroke-opacity=".35" stroke-width="2" stroke-dasharray="1 6" stroke-linecap="round"/>'));
+ // visitor path
+ o.push('<polyline points="'+ROUTES[0].filter(p=>Math.abs(p[0])<HL+6).map(p=>f(X(p[0]))+','+f(Y(p[1]))).join(' ')+'" fill="none" stroke="#C0611A" stroke-width="2.4" stroke-dasharray="7 6" stroke-opacity=".8"/>');
+ // objects
+ ZN.forEach(q=>{if(q.kind==='rug'||q.kind==='view'||q.kind==='staff'||!q.obj)return;if(q.label==='Floor lamp')return;const opt=q.kind==='opt';
+   rect(q.obj[0],q.obj[1],q.obj[2],q.obj[3],'fill="'+OBJ+'" stroke="'+OBJL+'" stroke-width="1.4"'+(opt?' stroke-dasharray="5 4" fill-opacity=".4"':''));});
+ // walls and windows
+ WALLRECTS.forEach(w=>rect(w[0],w[1],w[2],w[3],'fill="'+CREAM+'"'));
+ WINDOWS.forEach(([w0,w1])=>{rect(EWF,HL,w0,w1,'fill="'+BG+'" stroke="'+CREAM+'" stroke-width="1.5"');o.push('<line x1="'+f(X((EWF+HL)/2))+'" y1="'+f(Y(w0))+'" x2="'+f(X((EWF+HL)/2))+'" y2="'+f(Y(w1))+'" stroke="'+CREAM+'" stroke-width="1.2"/>');});
+ // foam door pilasters and front banners
+ [-4.3,4.3].forEach(z=>rect(HL,HL+.45,z-.3,z+.3,'fill="'+CREAM+'" fill-opacity=".8"'));
+ FRONTBANNERS.forEach(b=>rect(HL+.05,HL+.3,b.z-.875,b.z+.875,'fill="#8C1D3A" stroke="'+GOLD+'" stroke-width="1"'));
+ [-6.4,6.4].forEach(z=>o.push('<circle cx="'+f(X(HL+2.6))+'" cy="'+f(Y(z))+'" r="'+(1.4*s)+'" fill="none" stroke="#C2185B" stroke-opacity=".8" stroke-width="1.5" stroke-dasharray="4 4"/>'));
+ // panels and frames as strips on the wall faces
+ const strip=(x,z,ry,w,col,t)=>{if(Math.abs(ry-Math.PI/2)<.01)rect(x,x+t,z-w/2,z+w/2,'fill="'+col+'"');else if(Math.abs(ry)<.01)rect(x-w/2,x+w/2,z,z+t,'fill="'+col+'"');else rect(x-w/2,x+w/2,z-t,z,'fill="'+col+'"');};
+ PANELS.forEach(p=>strip(p.x,p.z,p.ry,p.w,'#A8844F',.32));
+ FRAMES.forEach(fr=>strip(fr.x,fr.z,fr.ry,fr.w,GOLD,.2));
+ // wall lights and lamps
+ LIGHTS.forEach(l=>{const x=X(l.f[0]),y=Y(l.f[2]);if(l.type==='lamp'){o.push('<circle cx="'+f(x)+'" cy="'+f(y)+'" r="9" fill="#F6D58B" fill-opacity=".25" stroke="#F6D58B" stroke-width="1.6"/><circle cx="'+f(x)+'" cy="'+f(y)+'" r="3" fill="#F6D58B"/>');return;}
+   const sz=l.type==='bar'?9:7;o.push('<rect x="'+f(x-sz/2)+'" y="'+f(y-sz/2)+'" width="'+sz+'" height="'+sz+'" fill="'+(l.type==='bar'?'#F6D58B':'#FFE7A8')+'" stroke="'+BG+'" stroke-width="1"'+(l.opt?' fill-opacity=".4"':'')+(l.type==='spot'?' rx="'+sz/2+'"':'')+'/>');});
+ UPS.forEach(u=>o.push('<circle cx="'+f(X(u.f[0]))+'" cy="'+f(Y(u.f[2]))+'" r="4" fill="#FFB25A"/>'));
+ // dimensions: outside
+ dim(-HL,-HW-2.2,HL,-HW-2.2,'40 ft',0,-HW-2.9);
+ dim(HL+8.6,-HW,HL+8.6,HW,'24 ft',HL+9.1,0,'start');
+ [[HL,RD,'Bhasha 10 ft'],[RD,0,'Bhusha 10 ft'],[0,-RD,'Bhojan 10 ft'],[-RD,-HL,'Bhajan 10 ft']].forEach(([a,b,l])=>dim(b,HW+1.6,a,HW+1.6,l,(a+b)/2,HW+2.5));
+ const ex=DOORS.find(d=>d.id==='exitS');dim(-HL-1.6,ex.z0,-HL-1.6,ex.z1,'Exit '+fmt(ex.z1-ex.z0),-HL-2.1,(ex.z0+ex.z1)/2,'end');
+ dim(HL+4.6,-4,HL+4.6,4,'Door 8 ft',HL+5.0,-2.2,'start');
+ txt(X(HL+5.0),Y(.6),'Entry from','font-size="14" fill="#B9AC98"','start');txt(X(HL+5.0),Y(1.3),'the main hall','font-size="14" fill="#B9AC98"','start');
+ txt(X(-HL-2.1),Y(-.4),'Exit to','font-size="14" fill="#B9AC98"','end');txt(X(-HL-2.1),Y(.3),'Manyata','font-size="14" fill="#B9AC98"','end');
+ // dimensions: inside
+ const grp=(g)=>{const F=FRAMES.filter(x=>x.g===g),along=F[0].wall==='W'?'z':'x';const lo=Math.min(...F.map(x=>x[along]-x.w/2)),hi=Math.max(...F.map(x=>x[along]+x.w/2));return [lo,hi];};
+ const ft=(v)=>{const r=Math.round(v*10)/10;return (r%1?r.toFixed(1):r)+' ft';};
+ let [a,b]=grp('lang');dim(a,9.7,b,9.7,'Language frames '+ft(b-a),(a+b)/2,9.1);
+ [a,b]=grp('trip');dim(a,10.2,b,10.2,'Triptych '+ft(b-a),(a+b)/2,9.6);
+ [a,b]=grp('dine');dim(a,-10.5,b,-10.5,'Gallery wall '+ft(b-a),(a+b)/2,-11.1);
+ dim(12,-8.4,19,-8.4,'Sofa 7 ft',15.5,-8.7+.2);
+ dim(3.6,-9.9,9.6,-9.9,'Wardrobe 6 ft',6.6,-9.25);
+ dim(3.6,-2.4,9.6,-2.4,'Table 6 ft',6.6,-1.8);
+ dim(-8,-5.9,-2,-5.9,'Dining table 6 ft',-5,-5.3);
+ dim(-8.2,9.95,-.2,9.95,'Counter 8 ft',-4.2,9.4);
+ dim(-17,-2,-17,2,'Mandir 4 ft',-16.6,-2.6,'start');
+ dim(-18.9,-7.25,-18.9,-3.25,'Panel 4 ft',-18.6,-7.9,'start');
+ // walkway at the narrowest point of each room
+ EVAL.R.forEach(r=>{const m=r.min,A=[m.x+m.left[0]*m.tl,m.z+m.left[1]*m.tl],B=[m.x+m.right[0]*m.tr,m.z+m.right[1]*m.tr];
+   o.push('<line x1="'+f(X(A[0]))+'" y1="'+f(Y(A[1]))+'" x2="'+f(X(B[0]))+'" y2="'+f(Y(B[1]))+'" stroke="#7FB08E" stroke-width="1.6" stroke-dasharray="3 3"/>');
+   txt(X(m.x)+8,Y(m.z)-6,fmt(m.w)+' clear',MONO+' font-size="13" fill="#9FD3AE" '+HALO,'start');});
+ // inner doorways
+ DOORS.filter(d=>!isOuterDoor(d)).forEach(d=>{const x=X(d.x),y=Y((d.z0+d.z1)/2);txt(x,y,'door '+fmt(d.z1-d.z0),MONO+' font-size="12" fill="#B9AC98" '+HALO+' transform="rotate(-90 '+f(x)+' '+f(y)+')"');});
+ // numbered key
+ FPKEY.length=0;const K=(st,label,size,pts)=>{FPKEY.push({n:FPKEY.length+1,st,label,size});pts.forEach(([x,z])=>{o.push('<circle cx="'+f(X(x))+'" cy="'+f(Y(z))+'" r="13" fill="'+GOLD+'" stroke="'+BG+'" stroke-width="2"/>');txt(X(x),Y(z)+5,FPKEY.length,'font-family="IBM Plex Mono,monospace" font-size="13" font-weight="700" fill="'+BG+'"');});};
+ K(0,'Front door with foam pilasters and ogee arch','8 ft opening',[[HL+1.3,-2.2]]);
+ K(0,'Windows cut into the house front, with chhajja canopies and planters','3 × 3′-6″ each',[[HL+1.3,8.3],[HL+1.3,-8.3]]);
+ K(0,'HAPPY and DIWALI flex banners hanging down the outside','84 × 21 in each',[[HL+1.2,11.2],[HL+1.2,-11.2]]);
+ K(0,'Rangoli floor vinyls','3 ft round',[[HL+2.6,5.1],[HL+2.6,-5.1]]);
+ K(1,'Sofa on a 5 × 8 ft rug','84 × 36 in',[[14,-10.2]]);
+ K(1,'Coffee table: name writing','48 × 24 in',[[15.5,-6.85]]);
+ K(1,'Language timeline frame with family photos either side','RÖDALM 27½ × 39¼ + 4 × 8 × 10',[[16.6,-11.1]]);
+ K(1,'Bookshelf: Gujarati class and story books','36 × 12 × 72 in',[[10.75,-7]]);
+ K(1,'Bhasha panel','4 × 6 ft',[[11.0,-1.5]]);
+ K(1,'Listening wall: 10 language frames, 5 iPads and headphones on an 8 ft shelf','10 × 12 × 16 frames',[[15,10.6]]);
+ K(2,'Open wardrobe by occasion: wedding, festival, mourning','72 × 24 × 84 in',[[6.6,-11]]);
+ K(2,'Jewellery table island with the virtue-jewel box, on a 5 × 8 ft rug','72 × 30 in',[[6.6,-4]]);
+ K(2,'Mehndi booth (only if it goes ahead)','24 × 18 in table',[[1.7,-10.7]]);
+ K(2,'“What we wear, when” panel: why brides wear red','4 × 6 ft',[[.95,-6.75]]);
+ K(2,'Bhusha panel: true adornment','4 × 6 ft',[[.95,7.75]]);
+ K(2,'Triptych: one image across three frames','3 × RÖDALM 19¾ × 27½',[[5,11.0]]);
+ K(3,'Dining table: regional thalis and tasting, servers behind','72 × 36 in',[[-5,-7.4]]);
+ K(3,'Gallery wall of family photos','7 frames, 4 sizes',[[-1.6,-10.1]]);
+ K(3,'Kitchen counter with shelves, masala dabba and guess the spice','96 × 24 × 36 in',[[-6.4,11]]);
+ K(3,'Sattvic · rajasic · tamasic frames','3 × RÖDALM 12 × 16',[[-1.3,8.9]]);
+ K(3,'Bhojan panel','4 × 6 ft',[[-9.1,7.25]]);
+ K(4,'Ghar mandir, centered on the deep maroon wall, 2 uplights at its base','48 × 30 × 84 in',[[-18.5,0]]);
+ K(4,'Petal offering stand on the 3 × 4 ft rug','30 × 12 in',[[-15.6,-1.5]]);
+ K(4,'Bhajan panel, beside the mandir','4 × 6 ft',[[-19.0,-5.25]]);
+ K(4,'Harmonium and bhajan books on a 4 × 4 ft rug, 3 photo frames above','RÖDALM 19¾ × 27½ + 2 × 12 × 16',[[-12.2,-9.4]]);
+ K(4,'Tabla, manjira and kartal on a 4 × 4 ft rug, 3 photo frames above','RÖDALM 19¾ × 27½ + 2 × 12 × 16',[[-12.2,9.4]]);
+ K(4,'String lights: 4 runs across the room and a frame around the mandir','about 130 ft',[[-14.2,-4.6]]);
+ // legend
+ let lx=ox,ly=Y(HW)+105;const lg=(draw,label)=>{o.push(draw(lx,ly));txt(lx+28,ly+5,label,'font-size="14" fill="#B9AC98"','start');lx+=label.length*7.4+60;};
+ lg((x,y)=>'<rect x="'+x+'" y="'+(y-4)+'" width="20" height="8" fill="#A8844F"/>','Panel');
+ lg((x,y)=>'<rect x="'+x+'" y="'+(y-3)+'" width="20" height="6" fill="'+GOLD+'"/>','Photo frames');
+ lg((x,y)=>'<rect x="'+(x+5)+'" y="'+(y-5)+'" width="9" height="9" fill="#F6D58B"/>','Picture bar');
+ lg((x,y)=>'<circle cx="'+(x+10)+'" cy="'+y+'" r="4" fill="#FFE7A8"/>','Wall spot');
+ lg((x,y)=>'<circle cx="'+(x+10)+'" cy="'+y+'" r="8" fill="#F6D58B" fill-opacity=".25" stroke="#F6D58B" stroke-width="1.6"/>','Lamp');
+ lg((x,y)=>'<line x1="'+x+'" y1="'+y+'" x2="'+(x+22)+'" y2="'+y+'" stroke="#C0611A" stroke-width="2.4" stroke-dasharray="7 6"/>','Visitor path');
+ lg((x,y)=>'<rect x="'+x+'" y="'+(y-6)+'" width="20" height="12" fill="#C9822A" fill-opacity=".1" stroke="#C9822A" stroke-dasharray="4 3"/>','Rug');
+ o.push('</svg>');return o.join('');}
+function renderFPKey(){const R=['Front door','Bhasha · living room','Bhusha · bedroom','Bhojan · dining room','Bhajan · ghar mandir'];
+ $('fpkey').innerHTML=[0,1,2,3,4].map(st=>{const K=FPKEY.filter(k=>k.st===st);if(!K.length)return '';return '<div class="fpk"><h4>'+R[st]+'</h4><ol>'+K.map(k=>'<li><b class="fpn">'+k.n+'</b><span>'+esc(k.label)+'<small>'+esc(k.size)+'</small></span></li>').join('')+'</ol></div>';}).join('');}
+
 /* ================= volunteers, take-homes, shopping list, design and print list ================= */
 const VOLROWS=[
  ['Front door','2','Greeters, one either side of the door','“Welcome, you are guests in our home this Diwali.” Teach a Diwali greeting, introduce the four rooms, hand out keepsake envelopes.'],
@@ -1607,7 +1735,7 @@ $('tPlan').addEventListener('click',()=>{history.replaceState(null,'','#plan');s
 $('tBuild').addEventListener('click',()=>{history.replaceState(null,'','#build');showTab('build');});
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('#bchips a');if(!a)return;e.preventDefault();const t=document.getElementById(a.getAttribute('href').slice(1));if(t){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'});}});
 function renderAll(){EVAL=evaluate();renderIntro();renderList();renderDetail(current);renderSpace();renderWalls();renderLights();
-  $('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderFrames();renderShopping();renderPrint();renderBuild();}
+  $('fplan').innerHTML=floorPlanSVG();renderFPKey();$('plan').innerHTML=planSVG('plan');$('section').innerHTML=sectionSVG();renderPaint();renderFrames();renderShopping();renderPrint();renderBuild();}
 renderAll();
 showTab(location.hash==='#build'?'build':'plan');
 
