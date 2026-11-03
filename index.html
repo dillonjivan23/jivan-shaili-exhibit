@@ -295,14 +295,14 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
     <div class="tblwrap"><table id="spaceTable"></table></div>
     <ul class="assume">
       <li>Assumed depths: a person at a table, counter or tablet needs 2′-6″; someone browsing the wardrobe 3′-0″; people reading a panel 1′-6″; volunteers serving from behind a table 2′-0″; people watching the instrument lessons 1′-0″. In the ghar mandir, offering petals happens at the end of the middle walkway, where it splits, so that spot is counted as walkway and the two branches are checked around it.</li>
-      <li>ADA requires at least 3′-0″ of clear route and 5′-0″ for a wheelchair to turn; every walkway here is wider than both. The front door is 8 ft, inner doorways 8′-6″ and the exit 7′-9″.</li>
+      <li>ADA requires at least 3′-0″ of clear route and 5′-0″ for a wheelchair to turn; every walkway here is wider than both. The front door is 8 ft, inner doorways 9′-6″ (P1) and 7′-6″ (P2, P3), and the exit 7′-9″.</li>
       <li>Walls are 8′-0″ tall. Panels hang from 1′-6″ to 7′-6″. There are no banners above the walls; the HAPPY and DIWALI banners hang down the outside of the house front from 8′-6″ to 1′-6″. Adult eye height is about 5′-3″; a child’s is about 3′-9″.</li>
     </ul>
   </section>
 
 <section id="floorplan">
     <h3>Floor plan</h3>
-    <p class="sec-lede">The whole home on one sheet, drawn to scale on a 1 ft grid: every wall, item, panel, photo frame and light, with the key sizes and every inner wall dimensioned. Inner walls are double-faced flats, 4½ in thick: P1 is 13 ft plus a 2 ft return beside the bedroom door; P2 and P3 are two 7′-6″ pieces either side of an 8′-6″ doorway. The numbers match the key underneath.</p>
+    <p class="sec-lede">The whole home on one sheet, drawn to scale on a 1 ft grid: every wall, item, panel, photo frame and light, with the key sizes and every inner wall dimensioned. Inner walls are double-faced flats, 4½ in thick: P1 is 12 ft (3 whole flats) plus a 2 ft half-flat return beside a 9′-6″ bedroom door; P2 and P3 are two 8 ft pieces (2 whole flats each) either side of a 7′-6″ doorway. Only the P1 return is cut. The numbers match the key underneath.</p>
     <div class="fplan" id="fplan"></div>
     <div class="fpkey" id="fpkey"></div>
   </section>
@@ -347,7 +347,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
       <li><b>One exit.</b> Visitors leave the ghar mandir through the 7′-9″ exit on the left of the mandir, at the south end of the west wall. Confirm with the Manyata team that their entrance lines up with it.</li>
       <li><b>Windows in the house front.</b> Cut each 3 × 3′-6″ window into a wall flat before it is faced, and add a 2×4 header and sill inside the frame so the flat stays rigid. The foam frames and chhajjas glue and screw onto the outer face.</li>
       <li><b>No open flames.</b> LED diyas at the front door and flower petals at the ghar mandir. String lights should be UL-listed and plugged into switched power strips. Ask the venue and fire marshal what they require (flame-retardant plywood or FR paint, clear exits, exit signs and egress lights left on).</li>
-      <li><b>Freestanding walls.</b> Built the same way as Mulyo. The outer walls stand on jacks with sandbags. P2 and P3 are each two 7′-6″ pieces either side of a center doorway; P1 is a 13 ft piece tied to the north wall with a 2 ft return against the south wall. Every divider piece gets T-feet at its doorway end. The west wall is one 16 ft piece from the north wall, ending at the exit: brace its free end. The door façade adds weight to the east wall, so brace both sides of the front door.</li>
+      <li><b>Freestanding walls.</b> Built the same way as Mulyo. The outer walls stand on jacks with sandbags. P2 and P3 are each two 8 ft pieces (2 whole flats) either side of a 7′-6″ center doorway; P1 is a 12 ft piece (3 whole flats) tied to the north wall with a 2 ft half-flat return against the south wall, leaving a 9′-6″ doorway. Every divider piece gets T-feet at its doorway end. The west wall is one 16 ft piece from the north wall, ending at the exit: brace its free end. The door façade adds weight to the east wall, so brace both sides of the front door.</li>
       <li><b>Keep the walkway clear.</b> Nothing stands on the walkway side of a room: no panels, props or volunteers. The floater in the bedroom and the host in the ghar mandir keep groups moving.</li>
       <li><b>Outside the footprint.</b> The rangoli, planters, greeters and shoe rack use an apron of about 4 ft on the main hall side of the front door. Confirm that space is free with the layout team.</li>
       <li><b>Food safety.</b> Only pre-packed sweets and snacks, with allergen labels. The tasting server wears gloves and keeps a bin at the dining room exit. Check with the mandir’s food-safety coordinator.</li>
@@ -451,15 +451,15 @@ const STATUS_TXT={ok:'Groups flow freely',warn:'Pairs only, groups bunch',bad:'T
    Footprint 40 × 24 ft (outer walls are whole 8 × 4 ft panels): four rooms 10 ft deep and 24 ft wide. The room contents below are written in a 40 ft frame and moved
    into the 45 ft frame by MOVE further down: items against a wall move with that wall, everything else with its room's center. Outer walls sit inside the footprint: north, south and west 3 in,
    east (front door, double-faced) 4½ in. Room dividers are double-faced 4½ in flats on x = 10, 0, -10.
-   Visitors walk west, so their left is south and their right is north. Inner doorways are 8′-6″, the front door 8 ft, and the one exit to Manyata is at the south (left) end of the west wall. */
+   Visitors walk west, so their left is south and their right is north. Inner walls are whole 4 ft flats (plus one 2 ft half on P1), so inner doorways are 9′-6″ (P1) and 7′-6″ (P2, P3), the front door 8 ft, and the one exit to Manyata is at the south (left) end of the west wall. */
 const HL=20,HW=12,RD=10,SX=HL/20;
 const NWF=-HW+.25,SWF=HW-.25,EWF=HL-.375,WWF=-HL+.25,PT=.1875,H=8;
 const PARTS=[RD,0,-RD];
 const DOORS=[
  {id:'front',x:HL,z0:-4,z1:4,name:'Front door',where:'Center of the east wall, from the main hall'},
- {id:'P1',x:RD,z0:1.25,z1:9.75,name:'Living room → bedroom',where:'Left (south) end of divider P1, beside a 2 ft return'},
- {id:'P2',x:0,z0:-4.25,z1:4.25,name:'Bedroom → dining room',where:'Center of divider P2'},
- {id:'P3',x:-RD,z0:-4.25,z1:4.25,name:'Dining room → ghar mandir',where:'Center of divider P3, in line with the mandir'},
+ {id:'P1',x:RD,z0:.25,z1:9.75,name:'Living room → bedroom',where:'Left (south) end of divider P1, beside a 2 ft return'},
+ {id:'P2',x:0,z0:-3.75,z1:3.75,name:'Bedroom → dining room',where:'Center of divider P2'},
+ {id:'P3',x:-RD,z0:-3.75,z1:3.75,name:'Dining room → ghar mandir',where:'Center of divider P3, in line with the mandir'},
  {id:'exitS',x:-HL,z0:4,z1:SWF,name:'Exit to Manyata',where:'West wall, left (south) end, beside the mandir'}];
 const isOuterDoor=(d)=>Math.abs(d.x)===HL;
 const ROOMS=[
@@ -474,9 +474,9 @@ const WALLRECTS=[
  [-HL,HL,-HW,NWF,'W1'],[-HL,HL,SWF,HW,'W2'],
  [EWF,HL,NWF,-4,'W3'],[EWF,HL,4,SWF,'W3'],
  [-HL,WWF,NWF,4,'W4'],
- [RD-PT,RD+PT,NWF,1.25,'P1'],[RD-PT,RD+PT,9.75,SWF,'P1'],
- [-PT,PT,NWF,-4.25,'P2'],[-PT,PT,4.25,SWF,'P2'],
- [-RD-PT,-RD+PT,NWF,-4.25,'P3'],[-RD-PT,-RD+PT,4.25,SWF,'P3']];
+ [RD-PT,RD+PT,NWF,.25,'P1'],[RD-PT,RD+PT,9.75,SWF,'P1'],
+ [-PT,PT,NWF,-3.75,'P2'],[-PT,PT,3.75,SWF,'P2'],
+ [-RD-PT,-RD+PT,NWF,-3.75,'P3'],[-RD-PT,-RD+PT,3.75,SWF,'P3']];
 const WALLNAME={W1:'North wall',W2:'South wall',W3:'East wall',W4:'West wall',P1:'Divider P1',P2:'Divider P2',P3:'Divider P3'};
 
 const S=[
@@ -531,7 +531,7 @@ const ZN=[
  {st:1,obj:[12,19,-12.25,-9.25],label:'Sofa 84 × 36 in',ol:'sofa'},
  {st:1,obj:[13.5,17.5,-7.85,-5.85],use:[13.5,17.5,-5.85,-3.35],label:'Coffee table + name writing',ol:'coffee table'},
  {st:1,obj:[10+PT,11.2,-8.5,-5.5],use:[11.2,13.2,-8.5,-5.5],label:'Bookshelf + browsers',ol:'books'},
- {st:1,kind:'view',obj:[10+PT,10.3,-3.5,.5],use:[10.3,11.7,-3.5,.5],label:'Bhasha panel readers'},
+ {st:1,kind:'view',obj:[10+PT,10.3,-4.1,-.1],use:[10.3,11.7,-4.1,-.1],label:'Bhasha panel readers'},
  {st:1,obj:[11,19,11.25,12.25],use:[11,19,8.75,11.25],label:'Listening wall: 10 framed languages, tablets + headphones',ol:'listening wall'},
  {st:2,kind:'view',obj:[PT,.3,-8.75,-4.75],use:[.3,1.7,-8.75,-4.75],label:'“What we wear” panel readers'},
  {st:2,obj:[3.6,9.6,-12.25,-10.25],use:[3.6,9.6,-10.25,-7.75],label:'Open wardrobe 72 × 24 in + browsers',ol:'wardrobe'},
@@ -607,7 +607,7 @@ const NF=NWF+.15,SF=SWF-.15,SY=6.5,BY=7.75;
  L('L02',0,'spot',[20.2,SY,5.2],[22,2.5,6.4],'Door frame, south rangoli and greeter',{mount:'Outside face of the east wall, 6′-6″ up, between the door and the south window'});
  L('L03',1,'bar',[14.4,BY,NF],[13.6,5.3,NWF],'Language timeline frame and family photos, west');
  L('L04',1,'bar',[16.6,BY,NF],[17.4,5.3,NWF],'Language timeline frame and family photos, east');
- L('L05',1,'bar',[RD+.35,BY,-1.5],[RD+.2,4.5,-1.5],'Bhasha panel');
+ L('L05',1,'bar',[RD+.35,BY,-2.1],[RD+.2,4.5,-2.1],'Bhasha panel');
  L('L06',1,'bar',[17.1,BY,SF],[17.1,5.4,SWF],'Language frames and tablets, east half');
  L('L07',1,'bar',[12.9,BY,SF],[12.9,5.4,SWF],'Language frames and tablets, west half');
  L('L08',1,'spot',[RD+PT+.15,SY,-9.9],[10.6,3.4,-7],'Bookshelf');
@@ -665,7 +665,7 @@ const SIGNTXT={
 
 /* ---------- room panels ---------- */
 const PANELS=[
- {st:1,x:10+PT,z:-1.5,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P1, right of the bedroom door',kick:'01 · Living room',title:'Bhasha',en:'Language',storyTitle:'Why know your mother tongue?',story:'In a Hindu home, the first words a child hears are often in their mother tongue: in prayers, lullabies and stories told by grandparents. Our languages carry centuries of wisdom, from the Sanskrit of the Vedas and the Gita to the Gujarati of our kirtans and the Swaminarayan scriptures. When we understand our own language, our prayers, rituals and festivals come alive, and we stay connected to our roots and to our elders. Bhasha also teaches that the words we speak should carry respect, truth and love.',prompt:'Ask us about Gujarati classes',sky:'#DCE6F2'},
+ {st:1,x:10+PT,z:-2.1,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P1, right of the bedroom door',kick:'01 · Living room',title:'Bhasha',en:'Language',storyTitle:'Why know your mother tongue?',story:'In a Hindu home, the first words a child hears are often in their mother tongue: in prayers, lullabies and stories told by grandparents. Our languages carry centuries of wisdom, from the Sanskrit of the Vedas and the Gita to the Gujarati of our kirtans and the Swaminarayan scriptures. When we understand our own language, our prayers, rituals and festivals come alive, and we stay connected to our roots and to our elders. Bhasha also teaches that the words we speak should carry respect, truth and love.',prompt:'Ask us about Gujarati classes',sky:'#DCE6F2'},
  {st:2,x:PT,z:-6.75,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P2, right of the dining room door',kick:'02 · Bedroom',title:'Bhusha',en:'What we wear, when',storyTitle:'Why brides wear red',story:'In Hindu tradition, what we wear matches the moment. At a wedding, many brides wear red, the colour of auspiciousness, joy and new beginnings. Red is linked to Lakshmi, the goddess of prosperity, and to shakti, strength and devotion, so it blesses the start of married life. It is often paired with gold for good fortune. Festivals and the mandir call for bright colours, while plain white is worn in mourning, for peace and respect for the soul’s journey.',prompt:'Which outfit is for which occasion?',sky:'#F2D6DF'},
  {st:2,x:PT,z:7.75,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P2, left of the dining room door, at the end of the walkway',kick:'02 · Bedroom',title:'Bhusha',en:'Adornment',storyTitle:'True adornment is worn on the inside',story:'Bangles, necklaces and fine clothes have always been part of celebration in a Hindu home. They mark special days and honour the occasion. Yet our scriptures teach that outer beauty fades, while inner virtues shine for a lifetime. Kindness, humility and compassion are the jewels that truly adorn a person. They cost nothing, they cannot be lost, and they make everyone around us feel valued. Dress well, but shine from within.',prompt:'Lift the jewellery box to find them',sky:'#F2D6DF'},
  {st:3,x:-10+PT,z:7.25,ry:Math.PI/2,w:4,h:6,y:4.5,where:'Divider P3, left of the ghar mandir door',kick:'03 · Dining room',title:'Bhojan',en:'Food',storyTitle:'Offered first, shared with gratitude',story:'In a Hindu home, food is more than nourishment; it is a form of worship. Every meal is first offered to Bhagwan, and what we eat is received back as prasad, a blessing to be shared. We cook with love, eat with gratitude and never waste. Sattvic food, fresh, simple and vegetarian, keeps the body healthy and the mind calm and pure. Every Diwali, at Annakut, hundreds of dishes are offered at the mandir in thanks for the year gone by.',prompt:'Offer it first, then share',sky:'#DDEBDD'},
@@ -753,9 +753,9 @@ const WALLS=[
  {id:'W2',name:'South wall',segs:[2*HL],dbl:false,t:'3″',type:'Single-faced · 10 panels',faces:'Listening wall with 10 language frames · bedroom triptych along the walkway · kitchen counter, shelves and the sattvic · rajasic · tamasic frames on the deep maroon accent (dining room and ghar mandir) · 3 photo frames above the tabla',tag:[0,HW]},
  {id:'W3',name:'East wall, house front',segs:[8,8],dbl:true,t:'4½″',type:'Double-faced · 8 ft door in the center, a window cut into each side',faces:'Outside: sandstone house front, foam door frame and arch, two windows with chhajja canopies, banner · inside: plain, windows look into the living room',tag:[HL,0]},
  {id:'W4',name:'West wall, behind the mandir',segs:[16],dbl:false,t:'3″',type:'Single-faced · 4 panels; the exit to Manyata is the opening at its south (left) end',faces:'Ghar mandir centered on a deep maroon feature wall, Bhajan panel to its right (north)',tag:[-HL,0]},
- {id:'P1',name:'Divider P1, living | bedroom',segs:[13,2],dbl:true,t:'4½″',type:'Double-faced · door at its south (left) end, 2 ft return against the south wall',faces:'East face: bookshelf, Bhasha panel · west face: spot for the jewellery table',tag:[RD,0]},
- {id:'P2',name:'Divider P2, bedroom | dining',segs:[7.5,7.5],dbl:true,t:'4½″',type:'Double-faced · door in the center',faces:'East face: “What we wear” panel (north of the door), Bhusha panel (south) · west face: wall spots for the dining table and the spice game',tag:[0,0]},
- {id:'P3',name:'Divider P3, dining | ghar mandir',segs:[7.5,7.5],dbl:true,t:'4½″',type:'Double-faced · door in the center, in line with the mandir',faces:'East face: Bhojan panel (south of the door) · west face: spots for the mandir, the instrument rugs either side of the door',tag:[-RD,0]}];
+ {id:'P1',name:'Divider P1, living | bedroom',segs:[12,2],dbl:true,t:'4½″',type:'Double-faced · 3 whole flats (12 ft) from the north wall, a 9′-6″ door, then a 2 ft half-flat return against the south wall',faces:'East face: bookshelf, Bhasha panel · west face: spot for the jewellery table',tag:[RD,0]},
+ {id:'P2',name:'Divider P2, bedroom | dining',segs:[8,8],dbl:true,t:'4½″',type:'Double-faced · 2 whole flats (8 ft) each side of a 7′-6″ center door',faces:'East face: “What we wear” panel (north of the door), Bhusha panel (south) · west face: wall spots for the dining table and the spice game',tag:[0,0]},
+ {id:'P3',name:'Divider P3, dining | ghar mandir',segs:[8,8],dbl:true,t:'4½″',type:'Double-faced · 2 whole flats (8 ft) each side of a 7′-6″ center door, in line with the mandir',faces:'East face: Bhojan panel (south of the door) · west face: spots for the mandir, the instrument rugs either side of the door',tag:[-RD,0]}];
 
 /* ---------- paint: each room its own warm neutral, plus one feature wall ---------- */
 const PAINT={
@@ -772,11 +772,11 @@ const PANELPAINT=[
  ['Front door · east wall (house front)',4,'stone','linen',16,'Front: outside of the house front. Back: inside of the living room. Two window openings.'],
  ['Bhasha + Bhusha · north wall (accent)',5,'sage','stone',20,'Behind the sofa, timeline and wardrobe'],
  ['Bhasha + Bhusha · south wall',5,'linen','stone',20,'Listening wall and the bedroom triptych'],
- ['Bhasha | Bhusha · divider P1',5,'linen','linen',15,'Front: living room. Back: bedroom. Includes the 1 ft piece and the 2 ft return'],
- ['Bhusha | Bhojan · divider P2',4,'linen','sand',15,'Front: bedroom. Back: dining room'],
+ ['Bhasha | Bhusha · divider P1',4,'linen','linen',14,'Front: living room. Back: bedroom. 3 whole flats and the 2 ft half-flat return'],
+ ['Bhusha | Bhojan · divider P2',4,'linen','sand',16,'Front: bedroom. Back: dining room'],
  ['Bhojan + Bhajan · north wall',5,'sand','stone',20,'Dining gallery wall and the harmonium side'],
  ['Bhojan + Bhajan · south wall (accent)',5,'maroon','stone',20,'Kitchen counter and the tabla side'],
- ['Bhojan | Bhajan · divider P3',4,'sand','sand',15,'Front: dining room. Back: ghar mandir'],
+ ['Bhojan | Bhajan · divider P3',4,'sand','sand',16,'Front: dining room. Back: ghar mandir'],
  ['Bhajan · west wall behind the mandir (accent)',4,'maroon','stone',16,'Behind the mandir and the Bhajan panel']];
 const WINDOWS=[[-9.4,-6.4],[6.4,9.4]];/* window openings in the east wall: z range, 3 ft wide, sill 3′-0″, head 6′-6″ */
 function paintAreas(){const A={};const add=(k,a)=>{A[k]=(A[k]||0)+a;};const win=WINDOWS.length*3*3.5;
@@ -1367,10 +1367,10 @@ function renderPaint(){const A=paintAreas();
 /* ---------- walls ---------- */
 function renderWalls(){
   const flats=WALLS.reduce((s,w)=>s+w.flatsN,0),sheets=WALLS.reduce((s,w)=>s+w.sheets,0);
-  $('wallNote').textContent='All walls are 8′-0″ tall, built from 4 × 8 ft flats (2×4 frame on edge with a ½ in plywood face), the same build as Mulyo: '+flats+' flats and '+sheets+' sheets of ½ in plywood in total. Dividers and the front door wall are double-faced. The 2′-0″ return on P1 is faced with half sheets (one 4 × 8 sheet ripped lengthwise faces two). Each divider piece bolts to the outer wall it touches and stands on T-feet at its doorway end. Header banners add 1′-8½″ above the walls, from 8′-3″ to 10′-0″.';
+  $('wallNote').textContent='All walls are 8′-0″ tall, built from 4 × 8 ft flats (2×4 frame on edge with a ½ in plywood face), the same build as Mulyo: '+flats+' flats and '+sheets+' sheets of ½ in plywood in total. Dividers and the front door wall are double-faced. Every inner wall is made of whole 4 ft flats except the 2′-0″ return on P1, which is a half flat faced with half sheets (one 4 × 8 sheet ripped lengthwise faces both sides). No other panel is cut. Each divider piece bolts to the outer wall it touches and stands on T-feet at its doorway end.';
   $('wallTable').innerHTML='<thead><tr><th>Tag</th><th>Wall</th><th>Length</th><th>Height</th><th>Thickness</th><th>Built from 4 ft flats</th><th>½ in sheets</th><th>What hangs on it</th></tr></thead><tbody>'+
    WALLS.map(w=>'<tr><td class="num"><b>'+w.id+'</b></td><td>'+esc(w.name)+'<br><small>'+esc(w.type)+'</small></td><td class="num">'+w.lenTxt+'</td><td class="num">8′-0″</td><td class="num">'+w.t+'</td><td class="num">'+esc(w.flats)+'</td><td class="num">'+w.sheets+'</td><td>'+esc(w.faces)+'</td></tr>').join('')+
-   '<tr><td class="num"><b>—</b></td><td>Doorways</td><td class="num">8′-0″ front, 8′-6″ inner<br>7′-9″ exit</td><td class="num">full height</td><td></td><td></td><td></td><td>'+DOORS.map(d=>esc(d.name)+': '+esc(d.where.charAt(0).toLowerCase()+d.where.slice(1))).join(' · ')+'</td></tr>'+
+   '<tr><td class="num"><b>—</b></td><td>Doorways</td><td class="num">8′-0″ front, 9′-6″ (P1)<br>7′-6″ (P2, P3), 7′-9″ exit</td><td class="num">full height</td><td></td><td></td><td></td><td>'+DOORS.map(d=>esc(d.name)+': '+esc(d.where.charAt(0).toLowerCase()+d.where.slice(1))).join(' · ')+'</td></tr>'+
    '<tr><td></td><td><b>Total</b></td><td></td><td></td><td></td><td class="num"><b>'+flats+' flats</b></td><td class="num"><b>'+sheets+'</b></td><td><small>Order '+(sheets+Math.ceil(sheets*.1))+' with 10% spare</small></td></tr></tbody>';}
 
 /* ---------- detailed floor plan (dark, numbered, dimensioned) ---------- */
@@ -1442,9 +1442,9 @@ function floorPlanSVG(){const s=26,ox=190,oy=175,X=x=>ox+(x+HL)*s,Y=z=>oy+(z+HW)
  const vdim=(x,z0,z1,label,lz,side)=>{const px=X(x),a=Y(z0),b=Y(z1);o.push('<line x1="'+f(px)+'" y1="'+f(a)+'" x2="'+f(px)+'" y2="'+f(b)+'" stroke="#E8B860" stroke-width="1.6"/>');
    [a,b].forEach(y=>o.push('<line x1="'+f(px-6)+'" y1="'+f(y)+'" x2="'+f(px+6)+'" y2="'+f(y)+'" stroke="#E8B860" stroke-width="1.6"/>'));
    const tx=px+side*11,ty=Y(lz);o.push('<text x="'+f(tx)+'" y="'+f(ty)+'" text-anchor="middle" '+MONO+' font-size="13" fill="#F3D9A4" '+HALO+' transform="rotate(-90 '+f(tx)+' '+f(ty)+')">'+label+'</text>');};
- vdim(RD-.45,NWF,1.25,'P1 · 13 ft',-7.5,-1);vdim(RD+.6,9.75,SWF,'2 ft',10.75,1);
- vdim(-.6,NWF,-4.25,'P2 · 7′-6″',-8,-1);vdim(-.6,4.25,SWF,'P2 · 7′-6″',6.6,-1);
- vdim(-RD+.6,NWF,-4.25,'P3 · 7′-6″',-8,1);vdim(-RD+.6,4.25,SWF,'P3 · 7′-6″',5.2,1);
+ vdim(RD-.45,NWF,.25,'P1 · 12 ft',-7.5,-1);vdim(RD+.6,9.75,SWF,'2 ft',10.75,1);
+ vdim(-.6,NWF,-3.75,'P2 · 8 ft',-7.4,-1);vdim(-.6,3.75,SWF,'P2 · 8 ft',5.6,-1);
+ vdim(-RD+.6,NWF,-3.75,'P3 · 8 ft',-7.4,1);vdim(-RD+.6,3.75,SWF,'P3 · 8 ft',10.2,1);
  // walkway at the narrowest point of each room
  EVAL.R.forEach(r=>{const m=r.min,A=[m.x+m.left[0]*m.tl,m.z+m.left[1]*m.tl],B=[m.x+m.right[0]*m.tr,m.z+m.right[1]*m.tr];
    o.push('<line x1="'+f(X(A[0]))+'" y1="'+f(Y(A[1]))+'" x2="'+f(X(B[0]))+'" y2="'+f(Y(B[1]))+'" stroke="#7FB08E" stroke-width="1.6" stroke-dasharray="3 3"/>');
