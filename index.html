@@ -302,7 +302,7 @@ td input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor
 
 <section id="floorplan">
     <h3>Floor plan</h3>
-    <p class="sec-lede">The whole home on one sheet, drawn to scale on a 1 ft grid: every wall, item, panel, photo frame and light, with the key sizes dimensioned. The numbers match the key underneath.</p>
+    <p class="sec-lede">The whole home on one sheet, drawn to scale on a 1 ft grid: every wall, item, panel, photo frame and light, with the key sizes and every inner wall dimensioned. Inner walls are double-faced flats, 4½ in thick: P1 is 13 ft plus a 2 ft return beside the bedroom door; P2 and P3 are two 7′-6″ pieces either side of an 8′-6″ doorway. The numbers match the key underneath.</p>
     <div class="fplan" id="fplan"></div>
     <div class="fpkey" id="fpkey"></div>
   </section>
@@ -1388,7 +1388,7 @@ function floorPlanSVG(){const s=26,ox=190,oy=175,X=x=>ox+(x+HL)*s,Y=z=>oy+(z+HW)
    if(label)txt(lx!=null?X(lx):(a[0]+b[0])/2,lz!=null?Y(lz)+5:(a[1]+b[1])/2+18,label,MONO+' font-size="14" fill="'+CREAM+'" '+HALO,anchor);};
  o.push('<svg viewBox="0 0 '+Wd+' '+Hd+'" role="img" aria-label="Detailed floor plan, Jivan Shaili" style="background:'+BG+';border-radius:12px">');
  txt(30,48,'Floor plan','font-family="Fraunces,serif" font-size="34" fill="'+CREAM+'"','start');
- txt(210,46,'1 square = 1 ft · walls 8 ft high · numbers match the key below · gold strips are panels and photo frames · yellow marks are wall lights','font-size="15" fill="#B9AC98"','start');
+ txt(210,46,'1 square = 1 ft · walls 8 ft high · dividers 4½ in thick · numbers match the key below · gold strips are panels and photo frames · yellow marks are wall lights','font-size="15" fill="#B9AC98"','start');
  txt(ox-120,oy+10,'N ↑',MONO+' font-size="16" fill="#B9AC98"','start');
  // grid
  o.push('<g stroke="#FFFFFF" stroke-opacity=".05">');for(let x=-HL;x<=HL;x++)o.push('<line x1="'+X(x)+'" y1="'+Y(-HW)+'" x2="'+X(x)+'" y2="'+Y(HW)+'"/>');for(let z=-HW;z<=HW;z++)o.push('<line x1="'+X(-HL)+'" y1="'+Y(z)+'" x2="'+X(HL)+'" y2="'+Y(z)+'"/>');o.push('</g>');
@@ -1438,6 +1438,13 @@ function floorPlanSVG(){const s=26,ox=190,oy=175,X=x=>ox+(x+HL)*s,Y=z=>oy+(z+HW)
  dim(-8.2,9.95,-.2,9.95,'Counter 8 ft',-4.2,9.4);
  dim(-17,-2,-17,2,'Mandir 4 ft',-16.6,-2.6,'start');
  dim(-18.9,-7.25,-18.9,-3.25,'Panel 4 ft',-18.6,-7.9,'start');
+ // inner walls: every divider piece, dimensioned along the wall
+ const vdim=(x,z0,z1,label,lz,side)=>{const px=X(x),a=Y(z0),b=Y(z1);o.push('<line x1="'+f(px)+'" y1="'+f(a)+'" x2="'+f(px)+'" y2="'+f(b)+'" stroke="#E8B860" stroke-width="1.6"/>');
+   [a,b].forEach(y=>o.push('<line x1="'+f(px-6)+'" y1="'+f(y)+'" x2="'+f(px+6)+'" y2="'+f(y)+'" stroke="#E8B860" stroke-width="1.6"/>'));
+   const tx=px+side*11,ty=Y(lz);o.push('<text x="'+f(tx)+'" y="'+f(ty)+'" text-anchor="middle" '+MONO+' font-size="13" fill="#F3D9A4" '+HALO+' transform="rotate(-90 '+f(tx)+' '+f(ty)+')">'+label+'</text>');};
+ vdim(RD-.45,NWF,1.25,'P1 · 13 ft',-7.5,-1);vdim(RD+.6,9.75,SWF,'2 ft',10.75,1);
+ vdim(-.6,NWF,-4.25,'P2 · 7′-6″',-8,-1);vdim(-.6,4.25,SWF,'P2 · 7′-6″',6.6,-1);
+ vdim(-RD+.6,NWF,-4.25,'P3 · 7′-6″',-8,1);vdim(-RD+.6,4.25,SWF,'P3 · 7′-6″',5.2,1);
  // walkway at the narrowest point of each room
  EVAL.R.forEach(r=>{const m=r.min,A=[m.x+m.left[0]*m.tl,m.z+m.left[1]*m.tl],B=[m.x+m.right[0]*m.tr,m.z+m.right[1]*m.tr];
    o.push('<line x1="'+f(X(A[0]))+'" y1="'+f(Y(A[1]))+'" x2="'+f(X(B[0]))+'" y2="'+f(Y(B[1]))+'" stroke="#7FB08E" stroke-width="1.6" stroke-dasharray="3 3"/>');
